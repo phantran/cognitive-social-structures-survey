@@ -1,0 +1,694 @@
+body {
+  padding: 0px;
+  font: 14px "Roboto", sans-serif;
+  line-height: 1.42857143;
+  margin: 0;
+}
+
+a {
+  color: #00B6FF;
+}
+
+ #example_picture {
+  position: absolute;
+  z-index: 1000;
+ }
+
+ #example_net {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+ }
+
+#before_pic {
+  position: absolute;
+  top: 100px;
+  left: 40px;
+    z-index: 1000;
+}
+
+ #after_pic {
+  position: absolute;
+  top: 400px;
+  left: 40px;
+    z-index: 1000;
+
+ }
+ 
+g#0 {
+  display:none !important;
+}
+
+ .pic {  
+  display: none;
+  position: absolute;
+  z-index: 1000;
+ }
+
+.slideText,
+.slideTextAlt,
+.slideTextAlt1,
+.slideTextAlt2 {
+  font-weight: 200;
+  font-size: 16px;  
+}
+
+.hiddenText {
+  display: none;
+}
+
+.questionText {
+  font-weight: 200;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.node_text {
+  font-weight: 250;
+  font-size: 16px; 
+  stroke: none;
+  fill: #111;
+}
+
+.node {
+  fill: #9CD4D4;
+  stroke: #999;
+  stroke-width: 2px;
+}
+
+.link {
+  stroke: #AAA;
+  stroke-width: 4px;
+}
+
+.you_node {
+  background-color: blue;
+}
+
+#mf_box {
+  fill: none;
+  stroke: #999;
+}
+
+#gender {
+  position: absolute;
+  display: none;
+}
+
+#nederlands {
+  position: absolute;
+  display: none;
+}
+
+#exit {
+  position: absolute;
+  display: none;
+}
+
+#yesOrNo {
+  position: absolute;
+  display: none;
+}
+
+#maleOrFemale {
+  position: absolute;
+  display: none;
+}
+
+#talkFrequency {
+  position: absolute;
+  display: none;
+}
+
+#friendEducation {
+  position: absolute;
+  display: none;
+}
+
+#friendReligion {
+  position: absolute;
+  display: none;
+}
+
+#age {
+  position: absolute;
+  display: none;
+}
+
+#userEd {
+  position: absolute;
+  display: none;
+}
+
+#areHisp {
+  position: absolute;
+  display: none;
+}
+
+#race {
+  position: absolute;
+  display: none;
+}
+
+#friendRace {
+  position: absolute;
+  display: none;
+}
+
+#relat {
+  position: absolute;
+  display: none;
+}
+
+.input-group {
+  max-width:800px;
+}
+
+.no-wrap {
+  white-space:nowrap;
+}
+
+#name_input {
+  display: none;
+  position: absolute;
+  top: 280px;
+  left: 35%;
+}
+
+#heeftPartner {
+  position: absolute;
+  display: none;
+}
+
+#hoelangRelatie {
+  position: absolute;
+  display: none;
+}
+
+#zelfdePartner {
+  position: absolute;
+  display: none;
+}
+
+#wonenPartner {
+  position: absolute;
+  display: none;
+}
+
+#samenLeving {
+  position: absolute;
+  display: none;
+}
+
+#geboortejaarPartner {
+  position: absolute;
+  display: none;
+}
+
+#heeftKinderen {
+  position: absolute;
+  display: none;
+}
+
+#wilKinderen {
+  position: absolute;
+  display: none;
+}
+
+#hoeveelKinderen {
+  position: absolute;
+  display: none;
+}
+
+#wilHoeveelKinderen {
+  position: absolute;
+  display: none;
+}
+
+#zekerHoeveelKinderen {
+  position: absolute;
+  display: none;
+}
+
+#hoesnelKinderen {
+  position: absolute;
+  display: none;
+}
+
+#zekerHoesnelKinderen {
+  position: absolute;
+  display: none;
+}
+
+#geschiktAantalKinderen {
+  position: absolute;
+  display: none;
+}
+
+#gesprekPartner {
+  position: absolute;
+  display: none;
+}
+
+#geslachtPartner {
+  position: absolute;
+  display: none;
+}
+
+#verschilPartner {
+  position: absolute;
+  display: none;
+}
+
+#bioOuder {
+  position: absolute;
+  display: none;
+}
+
+#stiefKinderen {
+  position: absolute;
+  display: none;
+}
+
+#kinderenLevensgeluk {
+  position: absolute;
+  display: none;
+}
+
+#leeftijdAlter {
+  position: absolute;
+  display: none;
+}
+
+#leeftijdAltr {
+  -webkit-column-count: 4; /* Chrome, Safari, Opera */
+  -moz-column-count: 4; /* Firefox */
+  column-count: 4;
+}
+
+#relatieAlter {
+  position: absolute;
+  display: none;
+}
+
+#relatieAlter input {
+  margin-top:5px;
+}
+
+#kinderenAlter {
+  position: absolute;
+  display: none;
+}
+
+#leeftijdKindAlter {
+  position: absolute;
+  display: none;
+}
+
+#levensplezierAlter {
+  position: absolute;
+  display: none;
+}
+
+#kinderenLevensgeluk {
+  position: absolute;
+  display: none;
+}
+
+#kinderenMakenGeluk {
+  position: absolute;
+  display: none;
+}
+
+#stellingenMeerKids {
+  position: absolute;
+  display: none;
+}
+
+#stellingenOuders {
+  margin-top:25px;
+}
+
+#bronnen {
+  position: absolute;
+  display: none;
+}
+
+#opmerkingen {
+  position: absolute;
+  display: none;
+}
+
+#afsluiting {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  width:400px;
+}
+
+.slider-label {
+  text-align:center;
+}
+
+.slider-left {
+  float:left;
+}
+
+.slider-right {
+  float:right;
+}
+
+.d3-slider-handle {
+  background: linear-gradient(to bottom, #CCC 0%, #DDD 100%) repeat scroll 0% 0% transparent !important;
+}
+
+.degrees {
+  font-family: 'monospace';
+}
+
+#timeBar {
+  z-index: 10;
+}
+
+.bar_target {
+  fill: #EEE;
+  stroke: #999;
+  stroke-width: 1px;
+  opacity: .7;
+}
+
+.bar_label {
+  fill: #E6E6E6;
+  stroke: #999;
+  stroke-width: 1px;
+  opacity: .7;
+}
+
+.bar_text {
+  stroke: none;
+  fill: #555;
+  font-size: 15px;
+  font-weight: 200;
+}
+
+#fiveBar .bar_label {
+  display:none;
+}
+
+.backdrop {
+  fill: #E6E6E6;
+  stroke: #999;
+  stroke-width: 1px;
+  opacity: .7;
+}
+
+#qbox {
+  position: absolute;
+}
+
+.q_window {
+  stroke: #999;
+  stroke-width: 2px;
+  fill: none;
+  z-index: 100;
+}
+
+#nextDiv, #submitForm {
+  position: absolute;
+}
+
+#nonresponse_box {
+  display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 1000; /* high z-index */
+    background: #000; /* fallback */
+    background: rgba(0,0,0,0.25);
+}
+
+#onlyone_box {
+  display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 1000; /* high z-index */
+    background: #000; /* fallback */
+    background: rgba(0,0,0,0.25);
+}
+
+#fewAlters_box {
+  display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 1000; /* high z-index */
+    background: #000; /* fallback */
+    background: rgba(0,0,0,0.25);
+}
+
+#reminderAlters_box {
+  display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 1000; /* high z-index */
+    background: #000; /* fallback */
+    background: rgba(0,0,0,0.25);
+}
+
+#badYear_box {
+  display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 1000; /* high z-index */
+    background: #000; /* fallback */
+    background: rgba(0,0,0,0.25);
+}
+
+#fewDragged_box {
+  display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 1000; /* high z-index */
+    background: #000; /* fallback */
+    background: rgba(0,0,0,0.25);
+}
+
+#popup {
+  display: none;
+  background: #fff;
+  padding: 1%;
+  width: 40%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+  cursor: default;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.9);
+}
+
+#onlyOnePopup {
+  display: none;
+  background: #fff;
+  padding: 1%;
+  width: 40%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+  cursor: default;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.9);
+}
+
+#yearPopup {
+  display: none;
+  background: #fff;
+  padding: 1%;
+  width: 40%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+  cursor: default;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.9);
+}
+
+#alterPopup {
+  display: none;
+  background: #fff;
+  padding: 1%;
+  width: 40%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+  cursor: default;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.9);
+}
+
+#reminderPopup {
+  display: none;
+  background: #fff;
+  padding: 1%;
+  width: 40%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+  cursor: default;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.9);
+}
+
+#dragPopup {
+  display: none;
+  background: #fff;
+  padding: 1%;
+  width: 40%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+  cursor: default;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.9);
+}
+
+
+ .close-btn {
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    }
+    .close-btn:hover {
+      background: #05abe0;
+    }
+
+
+.popup_text {
+  color: red;
+  font-weight: bold;
+}
+
+#Next {
+  display: box;
+  position: absolute;
+  top: 480px;
+  left: 90%;
+}
+
+#Next:disabled {
+  opacity:.33;
+}
+
+#submitForm {
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0px;
+  left:0px;
+  display:none
+}
+
+#submitForm form {
+  height:100%;
+}
+
+#submitForm input.btn {
+  position: absolute;
+  top: 480px;
+  left: 90%;
+}
+
+
+.likert {
+    display:table;
+    padding-left:0px;
+}
+
+.likert li {
+    
+    display: table-cell;
+    list-style-type: none;
+}
+
+.likert-label {
+    line-height:50px;
+    padding:0px 10px;
+}
+
+.likert-label:first-child {
+    text-align:right;
+}
+
+.likert-row {
+    display: table-row;
+    padding-left:0px;
+}
+
+.likert-button {
+    border: 1px solid darkgrey;
+    border-left: 0px;
+    padding: 10px;
+}
+
+.likert-button:first-child {
+    border-left: 1px solid darkgrey;
+}
+
+label {
+  margin-left:5px;
+  margin-bottom:4px !important;
+  line-height:11px;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid #ccc;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
