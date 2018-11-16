@@ -69,118 +69,53 @@ if (isIE()) {
     .call(wrap, textWidth);
 }
 
-// Slide 2
+// Slide 1
 
-var slide2 = d3.select("svg").append("g")
-  .attr("id", "slide2");
-slide2.append("rect") 
+var slide1 = d3.select("svg").append("g")
+  .attr("id", "slide1");
+slide1.append("rect") 
   .style("fill", "white")
   .attr("class", "slide")
   .attr("x", 0)
   .attr("y", 0)
   .attr("width", bodyWidth)
   .attr("height", bodyHeight);
-slide2.append("text")
+slide1.append("text")
   .attr("class", "slideText")
   .attr("x", center - (textWidth / 2))
   .attr("y", text_offset_top + title_offset_top + lineHeight)
   .text("Before answering the questions, it may be helpful to know that you can also use the ENTER key \u23CE  to go " +
       "to the next question. Of course you can also simply click on the Continue button.")
   .call(wrap, textWidth);
-slide2.append("text")
+slide1.append("text")
   .attr("class", "slideText")
   .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide2 .slideText tspan').length + $('#slide2 .slideText').length))
+  .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide1 .slideText tspan').length + $('#slide1 .slideText').length))
   .text("As already mentioned, you can NOT return to your previous answers, so check your answers well before" + 
     " you go to the next question. If you have filled in an incorrect answer, you may be able to write this on a piece of paper" + 
     ". At the end of the questionnaire you will be given the opportunity to report what you have entered incorrectly by mistake.")
   .call(wrap, textWidth);
-slide2.style("display", "none");
+slide1.style("display", "none");
 
-// Slide 3       
 
-var slide3 = d3.select("svg").append("g")
-  .attr("id", "slide3");
-slide3.append("rect") 
-  .style("fill", "white")
-  .attr("class", "slide")
-  .attr("x", 0)
-  .attr("y", 0)
-  .attr("width", bodyWidth)
-  .attr("height", bodyHeight);
-slide3.append("text")
-  .attr("class", "slideText")
-  .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top)
-  .text("Noem alstublieft 25 namen van personen die 18 jaar of ouder zijn en met wie u in het afgelopen jaar contact hebt gehad. Dit contact kan bestaan uit persoonlijk contact, maar ook uit contact via de telefoon, internet of e-mail. U kent deze personen en deze personen kennen u ook van naam of gezicht (denk aan vrienden, familie, kennissen, et cetera). U zou contact op kunnen nemen met deze personen wanneer dat zou moeten. Noem in ieder geval de naam van uw partner als u die hebt.")
-  .call(wrap, textWidth);
-slide3.append("text")
-  .attr("class", "slideText")
-  .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top + lineHeight * ($('#slide3 .slideText tspan').length + $('#slide3 .slideText').length-1))
-  .text("De namen hoeven niet precies te kloppen; u mag ook bijnamen noemen. Het is belangrijk dat u de naam herkent als u deze naam in een volgende vragenlijst in het LISS panel tegenkomt.")
-  .call(wrap, textWidth);
-slide3.append("text")
-  .attr("class", "slideText")
-  .attr("id", "one_at_a_time")
-  .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top + lineHeight * ($('#slide3 .slideText tspan').length + $('#slide3 .slideText').length-1))
-  .text("Voor het onderzoek is het van belang dat u daadwerkelijk 25 personen noemt!")
-  .call(wrap, textWidth);
-var textheight = $('#slide3 .slideText tspan').length + $('#slide3 .slideText').length;
-slide3.append("text")
-  .attr("class", "slideText")
-  .attr("id", "first_friend_text")
-  .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top + lineHeight * textheight)
-  .text("Als u veel moeite heeft om de lijst met 25 namen vol te maken, dan kunt u er voor kiezen om de contacten-lijst van uw (mobiele) telefoon, email, of Facebook te bekijken.")
-  .call(wrap, textWidth)
-  .attr("display", "none");
-slide3.append("text")
-  .attr("class", "slideText")
-  .attr("id", "second_friend_text")
-  .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top + lineHeight * textheight)
-  .style("stroke", "none")
-  .style("fill", "red")
-  .text("Is there another person with whom you discuss important matters? Please enter his or her name or initials.")
-  .call(wrap, textWidth)
-  .attr("display", "none");
-slide3.append("text")
-  .attr("class", "slideText")
-  .attr("id", "final_friend_text")
-  .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top + lineHeight * textheight)
-  .style("stroke", "none")
-  .style("fill", "red")
-  .text("Bedankt voor het invullen van deze namen. Klik op \"Ga door\".")
-  .call(wrap, textWidth)
-  .attr("display", "none");
-slide3.style("display", "none");
 
 // Slide 4
 
 var slide4 = d3.select("svg").append("g")
-  .attr("id", "slide4");
-slide4.append("rect") 
-  .style("fill", "white")
-  .attr("class", "slide")
-  .attr("x", 0)
-  .attr("y", 0)
-  .attr("width", bodyWidth)
-  .attr("height", bodyHeight);
+    .attr("id", "slide4");
+slide4.append("rect")
+    .style("fill", "white")
+    .attr("class", "slide")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", bodyWidth)
+    .attr("height", bodyHeight);
 slide4.append("text")
-  .attr("class", "slideText")
-  .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top)
-  .text("Wie van deze personen zijn mannen?")
-  .call(wrap, textWidth);
-slide4.append("text")
-  .attr("class", "slideText")
-  .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top + lineHeight * ($('#slide4 .slideText tspan').length + $('#slide4 .slideText').length-1))
-  .text("Klik op de naam van de persoon als deze een man is – het bolletje zal van kleur veranderen. Als u per ongeluk een verkeerde persoon heeft aangeklikt kunt u deze keuze herstellen door nog een keer op deze persoon te klikken.")
-  .call(wrap, textWidth);
+    .attr("class", "slideText")
+    .attr("x", center - (textWidth / 2))
+    .attr("y", text_offset_top + title_offset_top + lineHeight)
+    .text("To be continued")
+    .call(wrap, textWidth);
 slide4.style("display", "none");
 
 // Slide 5

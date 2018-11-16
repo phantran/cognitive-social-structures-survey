@@ -100,16 +100,17 @@
       <button type="submit" id="alterSubmit" class="btn btn-default" position="inline" value="Enter" onclick="addAlter()">Voeg toe</button>
     </div>
 
-    <div class="input-group" id="heeftPartner" method="get">
-      <form id="heeftPrtnr">
-        <span class="slideText">Socio-demographic questions.<br/>We first would like to ask you a few questions about yourself,
+    <div class="input-group" id="personalInformation" method="get">
+      <form id="personalInfo">
+        <span class="slideText">Socio-demographic questions.<br><br/>We first would like to ask you a few questions about yourself,
           please enter below:<br/></span><br>
-        <span class="slideText">Your age: <input type="text" name="age" placeholder="Enter your age."> </span><br>
-        <span class="slideText">Gender:</span><br>
+        <span class="slideText">Your name: <input type="text" name="name" id="input_name" placeholder="Enter your name."> </span><br><br>
+        <span class="slideText">Your age: <input type="text" name="age" id="input_age" placeholder="Enter your age."> </span><br><br>
+        <span class="slideText">Gender:</span><br><br>
           <input type="radio" name="gender" value="male"> Male<br>
           <input type="radio" name="gender" value="female"> Female<br>
           <input type="radio" name="gender" value="other"> Other
-        </span><br>
+        </span><br><br>
 
         <span class="slideText">Native language: 
           <select placeholder="Choose a Language...">
@@ -186,12 +187,12 @@
             <option value="Vietnamese">Vietnamese</option>
             <option value="Welsh">Welsh</option>
             <option value="Xhosa">Xhosa</option>
-          </select></span><br>
+          </select></span><br><br>
 
-          <span class="slideText">Major: <input type="text" name="major" placeholder="Enter your major"> </span><br>
-          <span class="slideText">Years of experience: <input type="text" name="experience" placeholder="Enter number of years"> </span><br>
-          <span class="slideText">Current research field: <input type="text" name="major" placeholder="Enter your field"> </span><br>
-          <span class="slideText">Current position: <input type="text" name="major" placeholder="Enter your position"> </span><br>
+          <span class="slideText">Major: <input type="text" name="major" id="input_major" placeholder="Enter your major"> </span><br><br>
+          <span class="slideText">Years of experience: <input type="text" name="experience" id="input_experience" placeholder="Enter number of years"> </span><br><br>
+          <span class="slideText">Current research field: <input type="text" name="research_field" id="input_research_field" placeholder="Enter your field"> </span><br><br>
+          <span class="slideText">Current position: <input type="text" name="position" id="input_position" placeholder="Enter your position"> </span><br><br>
 
       </form>
     </div>
@@ -204,16 +205,7 @@
         <input type="radio" name="zP" value="weetikniet"><span class="questionText">  Weet ik niet</span>
       </form>
     </div>
-    
-    <div class="input-group" id="geslachtPartner" method="get">
-      <form id="geslachtPrtnr">
-        <span class="slideText">Wat is het geslacht van uw partner?</span><br><br>
-        <input type="radio" name="gP" value="man"><span class="questionText">  Man</span><br>
-        <input type="radio" name="gP" value="vrouw"><span class="questionText">  Vrouw</span><br>
-        <input type="radio" name="gP" value="anders"><span class="questionText">  Anders</span><br>
-        <input type="radio" name="gP" value="zegiklieverniet"><span class="questionText">  Zeg ik liever niet</span>
-      </form>
-    </div>
+
 
     <div class="input-group" id="wonenPartner" method="get">
       <form id="wonenPrtnr">
@@ -252,11 +244,35 @@
       </form>
     </div>
 
-    <div class="input-group" id="heeftKinderen" method="get">
-      <form id="heeftKndrn">
-        <span class="slideText">Hebt u kinderen? Hiermee bedoelen we zowel biologische kinderen (gekregen met uw partner of met iemand anders) als stiefkinderen, adoptiekinderen en pleegkinderen.</span><br><br>
-        <input type="radio" name="hK" value="ja"><span class="questionText">  Ja</span><br>
-        <input type="radio" name="hK" value="nee"><span class="questionText">  Nee</span>
+    <div class="input-group" id="UseOfSpace" method="get">
+      <form id="UseSpace">
+        <span class="slideText"> <b>Use of space</b> </span><br><br>
+        <span class="slideText">How do you use the co-working space?<br><br>
+        You are usually in on:</span><br>
+
+        <input type="radio" name="in_date" value="monday"><span class="questionText">  Monday</span> &nbsp
+        <input type="radio" name="in_date" value="tuesday"><span class="questionText">  Tuesday</span> &nbsp
+        <input type="radio" name="in_date" value="wednesday"><span class="questionText">  Wednesday</span>&nbsp
+        <input type="radio" name="in_date" value="thursday"><span class="questionText">  Thursday</span>&nbsp
+        <input type="radio" name="in_date" value="friday"><span class="questionText">  Friday</span>&nbsp
+        <input type="radio" name="in_date" value="saturday"><span class="questionText">  Saturday</span>&nbsp
+        <input type="radio" name="in_date" value="sunday"><span class="questionText">  Sunday</span><br><br>
+
+        <span class="slideText">In which time slot are you usually in?<br>
+        <div class="input-group" id="input_time_slot">
+          <input type="text" class="form-control" value="00:00" name="starting_time"> to
+          <input type="text" class="form-control" value="00:00" name="finishing_time"> 
+        </div></span><br>
+
+        <span class="slideText">Do you have lunch there?<br></span>
+        <input type="radio" name="have_lunch" value="never"><span class="questionText"> Never</span>&nbsp
+        <input type="radio" name="have_lunch" value="sometimes"><span class="questionText"> Sometimes</span>&nbsp
+        <input type="radio" name="have_lunch" value="often"><span class="questionText"> Often</span>&nbsp
+        <input type="radio" name="have_lunch" value="always"><span class="questionText">  Always</span><br><br>
+
+        <span class="slideText">Do you often switch desk?<br></span>
+        <input type="radio" name="switch_desk" value="yes"><span class="questionText"> Yes</span>&nbsp
+        <input type="radio" name="switch_desk" value="no"><span class="questionText">  No</span><br>&nbsp
       </form>
     </div>
 
@@ -305,8 +321,8 @@
 	
     <div class="input-group" id="wilKinderen" method="get">
       <form id="wilKndrn">
-        <span class="slideText">Denkt u in de toekomst kinderen te krijgen?<br><br></span>
-        <span class="slideTextAlt">Denkt u in de toekomst nog meer kinderen te krijgen?<br><br></span>
+        <span class="slideText">Use of space 2<br><br></span>
+        <span class="slideText">Please indicate for each zone, how often are you using it?<br><br></span>
         <input type="radio" name="wK" value="absoluutniet"><span class="questionText">  Absoluut niet</span><br>
         <input type="radio" name="wK" value="waarschijnlijkniet"><span class="questionText">  Waarschijnlijk niet</span><br>
         <input type="radio" name="wK" value="weetikniet"><span class="questionText">  Weet ik niet</span><br>
