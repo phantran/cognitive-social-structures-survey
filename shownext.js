@@ -7,7 +7,7 @@
 function showNext() {
 
 
-  if (currSlide == 1) {
+  if (currSlide === 1) {
     var d = new Date();
     startTime = d.getTime();
 

@@ -102,9 +102,97 @@
 
     <div class="input-group" id="heeftPartner" method="get">
       <form id="heeftPrtnr">
-        <span class="slideText">Hebt u op dit moment een partner?<br/>Met een partner bedoelen we iemand met wie u ten minste 3 maanden een relatie hebt.<br/>Ook echtgenoten tellen als partner.</span><br><br>
-        <input type="radio" name="hP" value="ja"><span class="questionText">  Ja</span><br>
-        <input type="radio" name="hP" value="nee"><span class="questionText">  Nee</span>
+        <span class="slideText">Socio-demographic questions.<br/>We first would like to ask you a few questions about yourself,
+          please enter below:<br/></span><br>
+        <span class="slideText">Your age: <input type="text" name="age" placeholder="Enter your age."> </span><br>
+        <span class="slideText">Gender:</span><br>
+          <input type="radio" name="gender" value="male"> Male<br>
+          <input type="radio" name="gender" value="female"> Female<br>
+          <input type="radio" name="gender" value="other"> Other
+        </span><br>
+
+        <span class="slideText">Native language: 
+          <select placeholder="Choose a Language...">
+            <option value="Other">Other</option>
+            <option value="Afrikanns">Afrikanns</option>
+            <option value="Albanian">Albanian</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Armenian">Armenian</option>
+            <option value="Basque">Basque</option>
+            <option value="Bengali">Bengali</option>
+            <option value="Bulgarian">Bulgarian</option>
+            <option value="Catalan">Catalan</option>
+            <option value="Cambodian">Cambodian</option>
+            <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+            <option value="Croation">Croation</option>
+            <option value="Czech">Czech</option>
+            <option value="Danish">Danish</option>
+            <option value="Dutch">Dutch</option>
+            <option value="English">English</option>
+            <option value="Estonian">Estonian</option>
+            <option value="Fiji">Fiji</option>
+            <option value="Finnish">Finnish</option>
+            <option value="French">French</option>
+            <option value="Georgian">Georgian</option>
+            <option value="German">German</option>
+            <option value="Greek">Greek</option>
+            <option value="Gujarati">Gujarati</option>
+            <option value="Hebrew">Hebrew</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Hungarian">Hungarian</option>
+            <option value="Icelandic">Icelandic</option>
+            <option value="Indonesian">Indonesian</option>
+            <option value="Irish">Irish</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Javanese">Javanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Latin">Latin</option>
+            <option value="Latvian">Latvian</option>
+            <option value="Lithuanian">Lithuanian</option>
+            <option value="Macedonian">Macedonian</option>
+            <option value="Malay">Malay</option>
+            <option value="Malayalam">Malayalam</option>
+            <option value="Maltese">Maltese</option>
+            <option value="Maori">Maori</option>
+            <option value="Marathi">Marathi</option>
+            <option value="Mongolian">Mongolian</option>
+            <option value="Nepali">Nepali</option>
+            <option value="Norwegian">Norwegian</option>
+            <option value="Persian">Persian</option>
+            <option value="Polish">Polish</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Punjabi">Punjabi</option>
+            <option value="Quechua">Quechua</option>
+            <option value="Romanian">Romanian</option>
+            <option value="Russian">Russian</option>
+            <option value="Samoan">Samoan</option>
+            <option value="Serbian">Serbian</option>
+            <option value="Slovak">Slovak</option>
+            <option value="Slovenian">Slovenian</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Swahili">Swahili</option>
+            <option value="Swedish ">Swedish </option>
+            <option value="Tamil">Tamil</option>
+            <option value="Tatar">Tatar</option>
+            <option value="Telugu">Telugu</option>
+            <option value="Thai">Thai</option>
+            <option value="Tibetan">Tibetan</option>
+            <option value="Tonga">Tonga</option>
+            <option value="Turkish">Turkish</option>
+            <option value="Ukranian">Ukranian</option>
+            <option value="Urdu">Urdu</option>
+            <option value="Uzbek">Uzbek</option>
+            <option value="Vietnamese">Vietnamese</option>
+            <option value="Welsh">Welsh</option>
+            <option value="Xhosa">Xhosa</option>
+          </select></span><br>
+
+          <span class="slideText">Major: <input type="text" name="major" placeholder="Enter your major"> </span><br>
+          <span class="slideText">Years of experience: <input type="text" name="experience" placeholder="Enter number of years"> </span><br>
+          <span class="slideText">Current research field: <input type="text" name="major" placeholder="Enter your field"> </span><br>
+          <span class="slideText">Current position: <input type="text" name="major" placeholder="Enter your position"> </span><br>
+
       </form>
     </div>
 
@@ -508,43 +596,43 @@
     
     <div class="popop_box" id="nonresponse_box">
       <div class="popup_box" id="popup">
-            <p class="popup_text">U hebt de vraag nog niet volledig beantwoord! Het zou fijn zijn voor het onderzoek als u de vraag volledig beantwoordt. Als u wel naar de volgende vraag wil gaan, dan kunt u weer op “Ga door” klikken.</p>
-            <button class="btn btn-default" onclick="closePopup()">Sluiten</button>
+            <p class="popup_text">You have not fully answered the question! It would be nice for the research if you answered the question completely. If you want to go to the next question, you can click on "Continue".</p>
+            <button class="btn btn-default" onclick="closePopup()">Close</button>
       </div>
     </div>
 
     <div class="popop_box" id="onlyone_box">
       <div class="popup_box" id="onlyOnePopup">
             <p class="popup_text">Geef een naam op.</p>
-            <button class="btn btn-default" onclick="closeOnlyOnePopup()">Sluiten</button>
+            <button class="btn btn-default" onclick="closeOnlyOnePopup()">Close</button>
       </div>
     </div>
 
     <div class="popop_box" id="fewAlters_box">
       <div class="popup_box" id="alterPopup">
             <p class="popup_text">U heeft nog geen 25 namen genoemd. Wij zouden het erg waarderen wanneer u precies 25 namen noemt. Als u moeite heeft om namen te noemen, dan kunt u misschien uw contactenboek raadplegen van uw telefoon, of uw email, of via Facebook of een soortgelijke website. Als u echt geen namen meer kan verzinnen, dan kunt u verder gaan met de vragenlijst.</p>
-            <button class="btn btn-default" onclick="closeAlterPopup()">Sluiten</button>
+            <button class="btn btn-default" onclick="closeAlterPopup()">Close</button>
       </div>
     </div>
     
     <div class="popop_box" id="reminderAlters_box">
       <div class="popup_box" id="reminderPopup">
             <p class="popup_text">Als u moeite heeft om namen te noemen, dan kunt u misschien uw contactenboek raadplegen van uw telefoon, of uw email, of via Facebook of een soortgelijke website.</p>
-            <button class="btn btn-default" onclick="closeReminderPopup()">Sluiten</button>
+            <button class="btn btn-default" onclick="closeReminderPopup()">Close</button>
       </div>
     </div>
 
     <div class="popop_box" id="fewDragged_box">
       <div class="popup_box" id="dragPopup">
             <p class="popup_text">You have not answered this question for every person in your network. It would very helpful for our research if you did. Please feel free to either give an answer or to go to the next question by clicking ‘Next’ again.”.</p>
-            <button class="btn btn-default" onclick="closeDragPopup()">Sluiten</button>
+            <button class="btn btn-default" onclick="closeDragPopup()">Close</button>
       </div>
     </div>
 
     <div id="NextDiv">
       <input type="button" 
         class="btn btn-default" 
-        value="Ga door"
+        value="Continue"
         id="Next"
         onclick="showNext();pauseShowNext();" />
     </div>

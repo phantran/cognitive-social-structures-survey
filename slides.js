@@ -44,25 +44,28 @@ if (isIE()) {
     .attr("class", "slideText")
     .attr("x", center - textWidth / 2)
     .attr("y", text_offset_top + title_offset_top + lineHeight)
-    .text("Welkom bij de vragenlijst “Sociale relaties en kinderwens”. Hartelijk dank voor uw bereidheid om mee te werken aan dit onderzoek.")
+    .text("Welcome to this questionnaire! Thank you very much for your willingness to cooperate with this research.")
     .call(wrap, textWidth);
   slide0.append("text")
     .attr("class", "slideText")
     .attr("x", center - textWidth / 2)
     .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide0 .slideText tspan').length + $('#slide0 .slideText').length))
-    .text("Meedoen is geheel vrijwillig en u kunt zich op ieder moment terugtrekken uit het onderzoek. Uw gegevens worden natuurlijk geanonimiseerd en vertrouwelijk behandeld, zoals u gewend bent van uw deelname aan het LISS panel.")
+    .text("Participation is entirely voluntary and you can withdraw from the survey at any time." +
+        " Your data will of course be anonymized and treated confidentially.")
     .call(wrap, textWidth);
   slide0.append("text")
     .attr("class", "slideText")
     .attr("x", center - textWidth / 2)
     .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide0 .slideText tspan').length + $('#slide0 .slideText').length))
-    .text("Het invullen van de vragenlijst duurt ongeveer 25 tot 30 minuten. Anders dan u gewend bent, moet u deze vragenlijst in één keer afronden. U kunt dus niet met de vragenlijst op een ander tijdstip verder gaan, en u kunt ook niet terug naar uw eerdere antwoorden. Deze vragenlijst kan het beste via EEN COMPUTER worden ingevuld. U kunt deze vragenlijst beter NIET via de telefoon/smartphone invullen.")
+    .text("Completing the questionnaire takes about xx minutes. You must complete this " +
+        "questionnaire in one go. Therefore, you can not continue with the questionnaire at a different time, and you can not " +
+        "go back to your previous answers.")
     .call(wrap, textWidth);
   slide0.append("text")
     .attr("class", "slideText")
     .attr("x", center - textWidth / 2)
     .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide0 .slideText tspan').length + $('#slide0 .slideText').length))
-    .text("We vinden het fijn dat u tijd en moeite neemt om deze vragenlijst in te vullen. Daarom geven wij u een hogere vergoeding dan gebruikelijk. Voor het invullen van de vragenlijst ontvangt u €12,50.")
+    .text("Please click the continue button to go to the next page.")
     .call(wrap, textWidth);
 }
 
@@ -81,13 +84,16 @@ slide2.append("text")
   .attr("class", "slideText")
   .attr("x", center - (textWidth / 2))
   .attr("y", text_offset_top + title_offset_top + lineHeight)
-  .text("Voordat u de vragen beantwoordt, is het misschien handig om te weten dat u ook de ENTER-toets \u23CE kunt gebruiken om naar de volgende vraag te gaan. Natuurlijk kunt u ook gewoon op de “Ga door” knop klikken.")
+  .text("Before answering the questions, it may be helpful to know that you can also use the ENTER key \u23CE  to go " +
+      "to the next question. Of course you can also simply click on the Continue button.")
   .call(wrap, textWidth);
 slide2.append("text")
   .attr("class", "slideText")
   .attr("x", center - (textWidth / 2))
   .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide2 .slideText tspan').length + $('#slide2 .slideText').length))
-  .text("Zoals al gemeld kunt u NIET terug naar uw eerdere antwoorden, dus controleer uw antwoorden goed voordat u naar de volgende vraag gaat. Mocht u toch een fout antwoord ingevuld hebben, dan kan u dit wellicht op een papiertje schrijven. Aan het einde van de vragenlijst krijgt u nog de mogelijkheid om te melden wat u per ongeluk verkeerd hebt ingevuld.")
+  .text("As already mentioned, you can NOT return to your previous answers, so check your answers well before" + 
+    " you go to the next question. If you have filled in an incorrect answer, you may be able to write this on a piece of paper" + 
+    ". At the end of the questionnaire you will be given the opportunity to report what you have entered incorrectly by mistake.")
   .call(wrap, textWidth);
 slide2.style("display", "none");
 
