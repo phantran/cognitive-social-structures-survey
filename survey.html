@@ -94,11 +94,22 @@
     <script src="multiplechoiceelements.js"></script>
     <script src="shownext.js"></script>
     <script src="keypress.js"></script>
+    <script src="menu_actions.js"></script>
             
     <div class="input-group" id="name_input" method="get" onsubmit="addAlter()">
       <input type="text" id="alterName" class="form-control" placeholder="Naam" size="10">
       <button type="submit" id="alterSubmit" class="btn btn-default" position="inline" value="Enter" onclick="addAlter()">Voeg toe</button>
     </div>
+
+    <ul class='custom-menu'>
+      <li data-action = "first">Always</li>
+      <li data-action = "second">Usually</li>
+      <li data-action = "third">Often</li>
+      <li data-action = "fourth">Sometimes</li>
+      <li data-action = "fifth">Rarely</li>
+      <li data-action = "sixth">Never</li>
+    </ul>
+
 
     <div class="input-group" id="personalInformation" method="get">
       <form id="personalInfo">
@@ -196,6 +207,7 @@
 
       </form>
     </div>
+
 
     <div class="input-group" id="zelfdePartner" method="get">
       <form id="zelfdePrtnr">

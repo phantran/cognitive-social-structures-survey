@@ -10,6 +10,11 @@ function showNext() {
   if (currSlide === 1) {
     document.getElementById("slide0").style.display = "none";
     document.getElementById("slide1").style.display = "block";
+    //var ex = document.getElementById("slide4");
+    //ex.style.left = string_l + "px";
+    //ex.style.top = string_t;
+    //ex.style.display = "block";
+
     currSlide += 1;
   }else if (currSlide === 2){
     document.getElementById("slide1").style.display = "none";
@@ -47,7 +52,10 @@ function showNext() {
       } else {
           // Collect data before going on
           document.getElementById("UseOfSpace").style.display = "none";
-          document.getElementById("slide4").style.display = "block";
+          var ex = document.getElementById("slide4");
+          ex.style.left = string_l + "px";
+          ex.style.top = string_t;
+          ex.style.display = "block";
           currSlide += 1;
       }
   }
@@ -56,3 +64,4 @@ function showNext() {
   }
   $('#Next').blur();
 }
+
