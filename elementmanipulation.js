@@ -199,4 +199,12 @@ function pauseShowNext() {
   setTimeout(function() {
     document.getElementById("Next").disabled = false;
   },1000);
-}      
+}   
+
+
+function pauseShowBack() {
+  document.getElementById("Back").disabled = true;
+  setTimeout(function() {
+    document.getElementById("Back").disabled = false;
+  },1000);
+}     

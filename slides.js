@@ -60,8 +60,8 @@ if (isIE()) {
     .attr("x", center - textWidth / 2)
     .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide0 .slideText tspan').length + $('#slide0 .slideText').length))
     .text("Completing the questionnaire takes about xx minutes. You must complete this " +
-        "questionnaire in one go. Therefore, you can not continue with the questionnaire at a different time, and you can not " +
-        "go back to your previous answers.")
+        "questionnaire in one go. Therefore, you can not continue with the questionnaire at a different time. You can  " +
+        "go back to your previous answers to correct your answer.")
     .call(wrap, textWidth);
   slide0.append("text")
     .attr("class", "slideText")
@@ -183,28 +183,6 @@ $(".custom-menu li").click(function() {
 
 // Slide 5
 
-var slide5 = d3.select("svg").append("g")
-  .attr("id", "slide5");
-slide5.append("rect") 
-  .style("fill", "white")
-  .attr("class", "slide")
-  .attr("x", 0)
-  .attr("y", 0)
-  .attr("width", bodyWidth)
-  .attr("height", bodyHeight);
-slide5.append("text")
-  .attr("class", "slideText")
-  .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top)
-  .text("Hoe hecht is uw band met deze personen?")
-  .call(wrap, textWidth);
-slide5.append("text")
-  .attr("class", "slideText")
-  .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top + lineHeight * ($('#slide5 .slideText tspan').length + $('#slide5 .slideText').length-1))
-  .text("Sleep de bolletjes met uw muis naar de verschillende antwoordmogelijkheden onder aan het scherm. De bolletjes zullen van kleur veranderen wanneer deze in een vakje terecht komen.")
-  .call(wrap, textWidth);
-slide5.style("display", "none");
 
 // Slide 6
 
@@ -452,3 +430,6 @@ slide15.append("text")
   .text("Klik op de naam van de persoon als u deze als vriend(in) beschouwt – het bolletje zal van kleur veranderen. Als u per ongeluk een verkeerde persoon heeft aangeklikt kunt u deze keuze herstellen door nog een keer op de naam van deze persoon te klikken.")
   .call(wrap, textWidth);
 slide15.style("display", "none");
+
+
+

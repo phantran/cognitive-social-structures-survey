@@ -20,7 +20,7 @@
         if (hook) {       
           return "Are you sure that you want to end this survey? All of your answers will be lost.";
         }
-      }
+      };
       function unhook() {
         hook=false;
       }

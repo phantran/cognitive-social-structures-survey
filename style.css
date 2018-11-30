@@ -180,6 +180,15 @@ g#0 {
   display: none;
 }
 
+#relationships {
+  position: absolute;
+  display: none;
+}
+#relationships2 {
+  position: absolute;
+  display: none;
+}
+
 #hoelangRelatie {
   position: absolute;
   display: none;
@@ -419,6 +428,10 @@ g#0 {
   position: absolute;
 }
 
+#previousDiv {
+  position: absolute;
+}
+
 #nonresponse_box {
   display: none;
     position: absolute;
@@ -599,11 +612,23 @@ g#0 {
 #Next {
   display: box;
   position: absolute;
-  top: 480px;
+  top: 90%;
   left: 90%;
 }
 
+
+#Back {
+  display: box;
+  position: absolute;
+  top: 90%;
+  right: 75%;
+}
+
 #Next:disabled {
+  opacity:.33;
+}
+
+#Back:disabled {
   opacity:.33;
 }
 
@@ -720,4 +745,22 @@ label {
 
 .custom-menu li:hover {
   background-color: #DEF;
+}
+
+
+
+#relationship_table1{
+   text-align: center;
+}
+
+#relationship_table2{
+   text-align: center;
+}
+
+#addMore{
+   color: blue;
+}
+
+table {
+   text-align: center;
 }
