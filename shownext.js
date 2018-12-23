@@ -207,8 +207,11 @@ function showNext() {
           checked = true;
       } else {
           // Collect data before going on
+          document.getElementById("relationships").style.display = "none";
           document.getElementById("relationships2").style.display = "none";
+          document.getElementById("slide7").style.display = "block";
       }
+      currSlide += 1;
   }
   else{
 
