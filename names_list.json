@@ -1,0 +1,12 @@
+{
+	"Micheal_Jordan":{"initial": "MJ",  "first_name": "Micheal", "last_name": "Jordan", "code":"MJ123"}, 
+	"Kobe_Bryant":{"initial": "KB",  "first_name": "Kobe", "last_name": "Bryant", "code":"KB123"},
+	"Lebron_James":{"initial": "LB",  "first_name": "Lebron", "last_name": "James", "code":"LB123"},
+	"Chris_Paul":{"initial": "CP",  "first_name": "Chris", "last_name": "Paul", "code":"CP123"},
+	"Kevin_Durant":{"initial": "KD",  "first_name": "Kevin", "last_name": "Durant", "code":"KD123"},
+	"Kyrie_Irving":{"initial": "KI",  "first_name": "Kyrie", "last_name": "Irving", "code":"KI123"},
+	"Derick_Rose":{"initial": "DR",  "first_name": "Derick", "last_name": "Rose", "code":"DR123"},
+	"Damien_Lilard":{"initial": "DL",  "first_name": "Damien", "last_name": "Lilard", "code":"DL123"},
+	"Camelo_Anthony":{"initial": "CA",  "first_name": "Camelo", "last_name": "Anthony", "code":"CA123"},
+	"Rajon_Rondo":{"initial": "RJ",  "first_name": "Rajon", "last_name": "Rondo", "code":"RJ123"}
+}
