@@ -259,10 +259,6 @@ g#0 {
   display: none;
 }
 
-#UseOfSpace {
-  position: absolute;
-  display: none;
-}
 
 #verschilPartner {
   position: absolute;
@@ -426,6 +422,30 @@ g#0 {
 
 #nextDiv, #submitForm {
   position: absolute;
+}
+
+#ChangeFloorR1{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: blue;
+}
+
+#ChangeFloorR2{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: blue;
+}
+
+#ChangeFloorA1{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: blue;
 }
 
 #previousDiv {
@@ -616,6 +636,13 @@ g#0 {
   left: 90%;
 }
 
+#ChangeFloor {
+  display: box;
+  position: absolute;
+  top: 90%;
+  left: 83%;
+}
+
 
 #Back {
   display: box;
@@ -625,6 +652,10 @@ g#0 {
 }
 
 #Next:disabled {
+  opacity:.33;
+}
+
+#nextFloor:disabled {
   opacity:.33;
 }
 
@@ -743,9 +774,31 @@ label {
   cursor: pointer;
 }
 
-.custom-menu li:hover {
-  background-color: #DEF;
+/*004184*/
+#menuFirstItem:hover {
+  background-color: #004184;
 }
+
+#menuSecondItem:hover {
+  background-color: #00499a;
+}
+
+#menuThirdItem:hover {
+  background-color: #0054b8;
+}
+
+#menuFourthItem:hover {
+  background-color: #005ed7;
+}
+
+#menuFifthItem:hover {
+  background-color: #0064ed;
+}
+
+#menuSixthItem:hover {
+  background-color: #006cff;
+}
+
 
 
 
@@ -756,6 +809,75 @@ label {
 #relationship_table2{
    text-align: center;
 }
+
+img[usemap] {
+  border: none;
+  height: auto;
+  max-width: 100%;
+  width: auto;
+}
+
+#UseOfSpace{
+  position:absolute;
+  display:none;
+}
+
+#useOfSpace2{
+  position:absolute;
+  display:none;
+  left:0;
+  right:0;
+}
+
+
+#floorA1{
+  position:absolute;
+  display:none;
+  left:0;
+  right:0;
+}
+
+
+#A1Floor{
+  position:absolute;
+  left:30px;
+  right:30px;
+  float :right;
+  z-index: 0
+}
+
+#floorR1{
+  position:absolute;
+  display:none;
+  left:0;
+  right:0;
+}
+
+
+#R1Floor{
+  position:absolute;
+  left:30px;
+  right:30px;
+  float :right;
+  z-index: 0
+}
+
+#floorR2{
+  position:absolute;
+  display:none;
+  left:0;
+  right:0;
+}
+
+
+#R2Floor{
+  position:absolute;
+  left:30px;
+  right:30px;
+  float :right;
+  z-index: 0
+}
+
 
 #addMore{
    color: blue;

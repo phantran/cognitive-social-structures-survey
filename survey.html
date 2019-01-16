@@ -92,7 +92,11 @@
       var collected_data = {socio_question:{name:"", age: "", gender:"", native_language:"", major:"", experience:"", research_field:"", position:""}, 
                   use_of_space:{day_in:"", time_slot:"", have_lunch:"", switch_desk:""}, area_usage:{zone1:"", zone2:"", zone3:"", zone4:""},
                   relationships:{contacted_with:[]}};
+
+      var clicked_area_id = "";
     </script>
+    <script src="jquery.maphilight.min.js"></script>
+    <script src="imageMapResizer.min.js"></script>
     <script src="ie.js"></script>
     <script src="nodefunctions.js"></script>
     <script src="graph.js"></script>
@@ -110,12 +114,12 @@
     </div>
 
     <ul class='custom-menu'>
-      <li data-action = "first">Always</li>
-      <li data-action = "second">Usually</li>
-      <li data-action = "third">Often</li>
-      <li data-action = "fourth">Sometimes</li>
-      <li data-action = "fifth">Rarely</li>
-      <li data-action = "sixth">Never</li>
+      <li id="menuFirstItem" data-action = "first">Always</li>
+      <li id="menuSecondItem" data-action = "second">Usually</li>
+      <li id="menuThirdItem" data-action = "third">Often</li>
+      <li id="menuFourthItem" data-action = "fourth">Sometimes</li>
+      <li id="menuFifthItem" data-action = "fifth">Rarely</li>
+      <li id="menuSixthItem" data-action = "sixth">Never</li>
     </ul>
 
 
@@ -263,13 +267,13 @@
         <span class="slideText">How do you use the co-working space?<br><br>
         You are usually in on:</span><br>
 
-        <input type="radio" name="in_date" value="monday"><span class="questionText">  Monday</span> &nbsp
-        <input type="radio" name="in_date" value="tuesday"><span class="questionText">  Tuesday</span> &nbsp
-        <input type="radio" name="in_date" value="wednesday"><span class="questionText">  Wednesday</span>&nbsp
-        <input type="radio" name="in_date" value="thursday"><span class="questionText">  Thursday</span>&nbsp
-        <input type="radio" name="in_date" value="friday"><span class="questionText">  Friday</span>&nbsp
-        <input type="radio" name="in_date" value="saturday"><span class="questionText">  Saturday</span>&nbsp
-        <input type="radio" name="in_date" value="sunday"><span class="questionText">  Sunday</span><br><br>
+        <input type="checkbox" name="in_date1" value="monday"><span class="questionText1">  Monday</span> &nbsp
+        <input type="checkbox" name="in_date2" value="tuesday"><span class="questionText2">  Tuesday</span> &nbsp
+        <input type="checkbox" name="in_date3" value="wednesday"><span class="questionText3">  Wednesday</span>&nbsp
+        <input type="checkbox" name="in_date4" value="thursday"><span class="questionText4">  Thursday</span>&nbsp
+        <input type="checkbox" name="in_date5" value="friday"><span class="questionText5">  Friday</span>&nbsp
+        <input type="checkbox" name="in_date6" value="saturday"><span class="questionText6">  Saturday</span>&nbsp
+        <input type="checkbox" name="in_date7" value="sunday"><span class="questionText7">  Sunday</span><br><br>
 
         <span class="slideText">In which time slot are you usually in?<br>
         <div class="input-group" id="input_time_slot">
@@ -290,7 +294,68 @@
     </div>
    
     
-   
+    <div id="useOfSpace2">
+      <center>
+        <span class="slideText"> <font size="15x"><b>Use of space</b> </font></span><br><br>
+      </center>
+      <div id="floorA1">
+        <img src="/Assets/A1_RDC.png" alt="A1 Floor" id="A1Floor" usemap="#floorplanA1">
+        <map name="floorplanA1">
+          <area  id="meeting_room_castex" alt="meeting_room_castex" title="meeting_room_castex" href="" coords="273,77,623,208,623,412,581,391,532,369,483,353,423,342,360,342,315,346,275,361" shape="poly">
+          <area  id="meeting_room_gay_lussac" alt="meeting_room_gay_lussac" title="meeting_room_gay_lussac" href="" coords="275,597,275,359,317,346,358,340,423,340,424,595" shape="poly">
+          <area  id="meeting_room_tour_maubourg" alt="meeting_room_tour_maubourg" title="meeting_room_tour_maubourg" href="" coords="481,595,483,352,532,363,568,382,625,414,630,595" shape="poly">
+          <area  id="coffee_zone" alt="coffee_zone" title="coffee_zone" href="" coords="269,760,640,873" shape="rect">
+          <area  id="cafeteria" alt="cafeteria" title="cafeteria" href="" coords="1024,603,640,871" shape="rect">
+          <area  id="main_courtyard" alt="main_courtyard" title="main_courtyard" href="" coords="640,212,642,603,1024,603,1027,756,1196,754,1194,414" shape="poly">
+          <area  id="agoranov_open_office" alt="agoranov_open_office" title="agoranov_open_office" href="" coords="1217,423,1215,873,1487,873,1487,522" shape="poly">
+          <area  id="agoranov_office_1" alt="agoranov_office_1" title="agoranov_office_1" href="" coords="1657,582,1489,522,1489,669,1655,669" shape="poly">
+          <area  id="agoranov_office_2" alt="agoranov_office_2" title="agoranov_office_2" href="" coords="1657,803,1657,671,1489,669,1489,803" shape="poly">
+          <area  id="second_courtyard" alt="second_courtyard" title="second_courtyard" href="" coords="1846,652,2001,705,2041,775,2035,792,1959,807,1993,1092,2007,1094,2028,1155,1869,1210,1846,1045" shape="poly">
+          <area  id="agoranov_office_3" alt="agoranov_office_3" title="agoranov_office_3" href="" coords="1680,1272,1678,1007,1778,1007,1831,1038,1850,1212" shape="poly">
+          <area  id="playing_room" alt="playing_room" title="playing_room" href="" coords="1880,1370,2045,1593" shape="rect">
+          <area  id="lounge_toudic" alt="lounge_toudic" title="lounge_toudic" href="" coords="1332,1009,1472,1123" shape="rect">
+          <area  id="lounge_kennedy" alt="lounge_kennedy" title="lounge_kennedy" href="" coords="1330,1232,1472,1125" shape="rect">
+          <area  id="lounge_scott" alt="lounge_scott" title="lounge_scott" href="" coords="1330,1346,1330,1234,1474,1234,1470,1297,1491,1295,1493,1238,1659,1238,1659,1291,1489,1348" shape="poly">
+          <area  id="box_1" alt="box_1" title="box_1" href="" coords="1041,1024,1156,1111" shape="rect">
+          <area  id="box_2" alt="box_2" title="box_2" href="" coords="1041,1136,1156,1219" shape="rect">
+          <area  id="box_3" alt="box_3" title="box_3" href="" coords="1043,1244,1156,1331" shape="rect">
+          <area  id="talking_zone_1" alt="talking_zone_1" title="talking_zone_1" href="" coords="903,1026,1018,1111" shape="rect">
+          <area  id="box_4" alt="box_4" title="box_4" href="" coords="905,1134,1020,1223" shape="rect">
+          <area  id="box_5" alt="box_5" title="box_5" href="" coords="906,1242,1020,1329" shape="rect">
+          <area  id="box_6" alt="box_6" title="box_6" href="" coords="640,1026,755,1111" shape="rect">
+          <area  id="box_7" alt="box_7" title="box_7" href="" coords="640,1121,755,1206" shape="rect">
+          <area  id="box_8" alt="box_8" title="box_8" href="" coords="640,1230,755,1319" shape="rect">
+          <area  id="box_9" alt="box_9" title="box_9" href="" coords="508,1026,621,1109" shape="rect">
+          <area  id="talking_zone_2" alt="talking_zone_2" title="talking_zone_2" href="" coords="509,1123,623,1208" shape="rect">
+          <area  id="box_10" alt="box_10" title="box_10" href="" coords="511,1232,623,1317" shape="rect">
+          <area  id="extra_space"  alt="extra_space" title="extra_space" href="" coords="286,886,390,1342" shape="rect">
+          <area  id="agoranov_office_4"    alt="agoranov_office_4" title="agoranov_office_4" href="" coords="54,1533,207,1675" shape="rect">
+        </map>
+        <div>
+          <input type="button" id="ChangeFloorR1"  class="btn btn-default"  value="Go to floor R1" onclick="goToFloorR1();"/> 
+        </div>
+      </div>
+
+
+
+      <div id="floorR1">
+        <img src="/Assets/R1_RDC.png" alt="R1 Floor" id="R1Floor" usemap="#floorplanR1">
+        <div>
+          <input type="button" id="ChangeFloorR2"  class="btn btn-default"  value="Go to floor R2" onclick="goToFloorR2();"/> 
+        </div>
+      </div>
+
+
+      <div id="floorR2">
+        <img src="/Assets/R2_RDC.png" alt="R2 Floor" id="R2Floor" usemap="#floorplanR1">
+        <div>
+          <input type="button" id="ChangeFloorA1"  class="btn btn-default"  value="Go to floor A1" onclick="goToFloorA1();"/> 
+        </div>
+      </div>
+
+    </div>
+
+
    
     <div class="input-group" id="bronnen" method="get" onsubmit="return false;">
       <form id="brnnn">
@@ -354,7 +419,6 @@
        id="Next"
        onclick="showNext();pauseShowNext();" />
    </div>
-   
 
    <div id="PreviousDiv">
      <input type="button" 
@@ -384,6 +448,26 @@
     <script type="text/javascript">
         $("#Next").css("left",window.innerWidth * .8);
         $("#submitButton").css("left",window.innerWidth * .8);
+    </script>
+
+
+    <script>
+      $(document).ready(function() {
+        $('map').imageMapResize();
+        $('area').on('click', function() {
+          // Avoid the real one
+          event.preventDefault();
+          clicked_area_id = "#" + this.id;
+          // Show contextmenu
+          $(".custom-menu").finish().toggle(100).
+          // In the right position (the mouse)
+          css({
+              top: event.pageY + "px",
+              left: event.pageX + "px"
+          });
+        });
+
+      });
     </script>
   </body>
 </html>

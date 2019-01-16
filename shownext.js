@@ -8,11 +8,13 @@
 //                  relationships:{contacted_with:[]}};
 function showNext() {
 
- 
+  
 
   if (currSlide === 1) {
     document.getElementById("slide0").style.display = "none";
     document.getElementById("slide1").style.display = "block";
+
+
     currSlide += 1;
   }else if (currSlide === 2){
     document.getElementById("slide1").style.display = "none";
@@ -20,6 +22,19 @@ function showNext() {
     ex2.style.left = string_l + "px";
     ex2.style.top = string_t;
     ex2.style.display = "block";
+
+    let offset = $('#personalInformation').offset();
+    let height = $('#personalInformation').height();
+    let top = offset.top + height + 10 +  "px";
+    $('#Next').css({
+      'top': top
+    });
+
+    $('#Back').css({
+      'top': top
+    });
+
+
     currSlide += 1;
   }else if (currSlide === 3) {
       // If user has not selected an option, alert with popup
@@ -56,6 +71,17 @@ function showNext() {
         ex3.style.left = string_l + "px";
         ex3.style.top = string_t;
         ex3.style.display = "block";
+
+        let offset = $('#UseOfSpace').offset();
+        let height = $('#UseOfSpace').height();
+        let top = offset.top + height + 10 +  "px";
+        $('#Next').css({
+          'top': top
+        });
+
+        $('#Back').css({
+          'top': top
+        });
         currSlide += 1;
       }
   }
@@ -65,22 +91,52 @@ function showNext() {
           promptNonresponse();
           checked = true;
       } else {
-          // Collect data before going on
-          document.getElementById("UseOfSpace").style.display = "none";
-          var ex4 = document.getElementById("slide4");
-          ex4.style.left = string_l + "px";
-          ex4.style.top = string_t;
-          ex4.style.display = "block";
+        // Collect data before going on
+        document.getElementById("UseOfSpace").style.display = "none";
+        document.getElementById("floorA1").style.display = "block";
+        var ex4 = document.getElementById("useOfSpace2");
+        //ex4.style.left = string_l + "px";
+        ex4.style.top = string_t;
+        ex4.style.display = "block";
+        $('map').imageMapResize();
+
+        let offset = $('#A1Floor').offset();
+        let height = $('#A1Floor').height();
+
+        let top = offset.top + height + 20 +  "px";
+        $('#Next').css({
+          'top': top 
+        });
+
+        $('#Back').css({
+          'top': top
+        });
+
+
           currSlide += 1;
       }
   }
   else if (currSlide === 5) {
       // If user has not selected an option, alert with popup
-    document.getElementById("slide4").style.display = "none";
+    document.getElementById("useOfSpace2").style.display = "none";
+    document.getElementById("floorA1").style.display = "none";
     var ex5 = document.getElementById("relationships");
     ex5.style.left = string_l + "px";
     ex5.style.top = string_t;
     ex5.style.display = "block";
+
+
+    let offset = $('#relationships').offset();
+    let height = $('#relationships').height();
+    let top = offset.top + height + 10 +  "px";
+    $('#Next').css({
+      'top': top
+    });
+
+    $('#Back').css({
+      'top': top
+    });
+
     currSlide += 1;
   }
   else if (currSlide === 6) {
@@ -106,11 +162,15 @@ function showNext() {
           var cell2 = row.insertCell(2);
           var cell3 = row.insertCell(3);
           var cell4 = row.insertCell(4);
+          let temp = "howOften1" + i;
+          let name = "name=" + temp;
+          console.log(name);
+        
           cell0.innerHTML = name_array[i];
-          cell1.innerHTML = '<input type="radio" name="howOften1"'+ i + ' value="never">';
-          cell2.innerHTML = '<input type="radio" name="howOften1"'+ i + ' value="rarely">';
-          cell3.innerHTML = '<input type="radio" name="howOften1"'+ i + ' value="sometimes">';
-          cell4.innerHTML = '<input type="radio" name="howOften1"'+ i + ' value="often">';
+          cell1.innerHTML = '<input type="radio"'+ name + ' value="never">';
+          cell2.innerHTML = '<input type="radio"' + name + ' value="rarely">';
+          cell3.innerHTML = '<input type="radio"' + name + ' value="sometimes">';
+          cell4.innerHTML = '<input type="radio"' + name + ' value="often">';
         }
       }
   
@@ -123,11 +183,12 @@ function showNext() {
           var cell12 = row1.insertCell(2);
           var cell13 = row1.insertCell(3);
           var cell14 = row1.insertCell(4);
+          let name = "name=" + "howOften2" + i;
           cell10.innerHTML = name_array[i];
-          cell11.innerHTML = '<input type="radio" name="howOften2"'+ i + ' value="never">';
-          cell12.innerHTML = '<input type="radio" name="howOften2"'+ i + ' value="rarely">';
-          cell13.innerHTML = '<input type="radio" name="howOften2"'+ i + ' value="sometimes">';
-          cell14.innerHTML = '<input type="radio" name="howOften2"'+ i + ' value="often">';
+          cell11.innerHTML = '<input type="radio"'+ name + ' value="never">';
+          cell12.innerHTML = '<input type="radio"' + name + ' value="rarely">';
+          cell13.innerHTML = '<input type="radio"' + name + ' value="sometimes"';
+          cell14.innerHTML = '<input type="radio"' + name + ' value="often">';
         }
       }
   
@@ -168,11 +229,15 @@ function showNext() {
           let cell2 = row.insertCell(2);
           let cell3 = row.insertCell(3);
           let cell4 = row.insertCell(4);
+          let temp = "howOften1" + i;
+          let name = "name=" + temp;
+          console.log(name);
+        
           cell0.innerHTML = name_array[i];
-          cell1.innerHTML = '<input type="radio" name="howOften1"'+ i + ' value="never">';
-          cell2.innerHTML = '<input type="radio" name="howOften1"'+ i + ' value="rarely">';
-          cell3.innerHTML = '<input type="radio" name="howOften1"'+ i + ' value="sometimes">';
-          cell4.innerHTML = '<input type="radio" name="howOften1"'+ i + ' value="often">';
+          cell1.innerHTML = '<input type="radio"'+ name + ' value="never">';
+          cell2.innerHTML = '<input type="radio"' + name + ' value="rarely">';
+          cell3.innerHTML = '<input type="radio"' + name + ' value="sometimes">';
+          cell4.innerHTML = '<input type="radio"' + name + ' value="often">';
         }
       }
   
@@ -185,11 +250,12 @@ function showNext() {
           let cell12 = row1.insertCell(2);
           let cell13 = row1.insertCell(3);
           let cell14 = row1.insertCell(4);
+          let name = "name=" + "howOften2" + i;
           cell10.innerHTML = name_array[i];
-          cell11.innerHTML = '<input type="radio" name="howOften2"'+ i + ' value="never">';
-          cell12.innerHTML = '<input type="radio" name="howOften2"'+ i + ' value="rarely">';
-          cell13.innerHTML = '<input type="radio" name="howOften2"'+ i + ' value="sometimes">';
-          cell14.innerHTML = '<input type="radio" name="howOften2"'+ i + ' value="often">';
+          cell11.innerHTML = '<input type="radio"'+ name + ' value="never">';
+          cell12.innerHTML = '<input type="radio"' + name + ' value="rarely">';
+          cell13.innerHTML = '<input type="radio"' + name + ' value="sometimes"';
+          cell14.innerHTML = '<input type="radio"' + name + ' value="often">';
         }
       }
   
@@ -199,6 +265,16 @@ function showNext() {
       ex6.style.display = "block";
       currSlide += 1;
     }
+    let offset = $('#relationships2').offset();
+    let height = $('#relationships2').height();
+    let top = offset.top + height + 10 +  "px";
+    $('#Next').css({
+      'top': top
+    });
+
+    $('#Back').css({
+      'top': top
+    });
   }
   else if (currSlide === 7) {
       // If user has not selected an option, alert with popup
@@ -228,5 +304,75 @@ function addMoreName() {
   var divtest = document.createElement("div");
   divtest.innerHTML = '<input type="text" name="contact" id="input_contact'+ contact_order + '"'+ 'placeholder="Enter a name"> </span><br>';
   objTo.appendChild(divtest);
+  let offset = $('#relationships').offset();
+  let height = $('#relationships').height();
+  let top = offset.top + height + 10 +  "px";
+  $('#Next').css({
+    'top': top
+  });
+
+  $('#Back').css({
+    'top': top
+  });
+}
+
+
+
+function goToFloorR1() {
+  document.getElementById("floorA1").style.display = "none";
+  let ex4 = document.getElementById("floorR1");
+  ex4.style.top = string_t;
+  ex4.style.display = "block";
+
+  let offset = $('#R1Floor').offset();
+  let height = $('#R1Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+    'top': top 
+  });
+
+  $('#Back').css({
+    'top': top
+  });
+}
+
+function goToFloorR2() {
+  document.getElementById("floorR1").style.display = "none";
+  let ex4 = document.getElementById("floorR2");
+  ex4.style.top = string_t;
+  ex4.style.display = "block";
+
+  let offset = $('#R2Floor').offset();
+  let height = $('#R2Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+    'top': top 
+  });
+
+  $('#Back').css({
+    'top': top
+  });
+}
+
+
+function goToFloorA1() {
+  document.getElementById("floorR2").style.display = "none";
+  var ex4 = document.getElementById("floorA1");
+  ex4.style.top = string_t;
+  ex4.style.display = "block";
+
+  let offset = $('#A1Floor').offset();
+  let height = $('#A1Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+    'top': top 
+  });
+
+  $('#Back').css({
+    'top': top
+  });
 }
 

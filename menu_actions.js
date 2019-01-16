@@ -1,5 +1,11 @@
 $(document).ready(function(){
   // If the document is clicked somewhere
+  $('#A1Floor').maphilight({
+        stroke: false,
+        //Use the color you want
+        fillColor: '000000'
+    });
+
   $(document).bind("mousedown", function(e) {
   
       // If the clicked element is not the menu
@@ -18,9 +24,18 @@ $(document).ready(function(){
       switch ($(this).attr("data-action")) {
   
           // A case for each action. Your actions here
+
           case "first":
-              alert("Always");
-              break;
+            event.preventDefault();
+            var data = {};
+            data.alwaysOn = true;
+            data.stroke = 'none';
+            data.strokeWidth = 0.0000001;
+            data.strokeColor = 'f9d600';
+            data.fillColor = 'f9d600'; // Sample color
+            data.fillOpacity = 0.5;
+            $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+            break;
           case "second":
               alert("Usually");
               break;
