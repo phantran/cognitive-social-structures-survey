@@ -63,102 +63,6 @@ g#0 {
   vertical-align: middle;
 }
 
-.node_text {
-  font-weight: 250;
-  font-size: 16px; 
-  stroke: none;
-  fill: #111;
-}
-
-.node {
-  fill: #9CD4D4;
-  stroke: #999;
-  stroke-width: 2px;
-}
-
-.link {
-  stroke: #AAA;
-  stroke-width: 4px;
-}
-
-.you_node {
-  background-color: blue;
-}
-
-#mf_box {
-  fill: none;
-  stroke: #999;
-}
-
-#gender {
-  position: absolute;
-  display: none;
-}
-
-#nederlands {
-  position: absolute;
-  display: none;
-}
-
-#exit {
-  position: absolute;
-  display: none;
-}
-
-#yesOrNo {
-  position: absolute;
-  display: none;
-}
-
-#maleOrFemale {
-  position: absolute;
-  display: none;
-}
-
-#talkFrequency {
-  position: absolute;
-  display: none;
-}
-
-#friendEducation {
-  position: absolute;
-  display: none;
-}
-
-#friendReligion {
-  position: absolute;
-  display: none;
-}
-
-#age {
-  position: absolute;
-  display: none;
-}
-
-#userEd {
-  position: absolute;
-  display: none;
-}
-
-#areHisp {
-  position: absolute;
-  display: none;
-}
-
-#race {
-  position: absolute;
-  display: none;
-}
-
-#friendRace {
-  position: absolute;
-  display: none;
-}
-
-#relat {
-  position: absolute;
-  display: none;
-}
 
 .input-group {
   max-width:800px;
@@ -180,174 +84,19 @@ g#0 {
   display: none;
 }
 
-#relationships {
-  position: absolute;
-  display: none;
-}
-#relationships2 {
-  position: absolute;
-  display: none;
-}
-
-#hoelangRelatie {
-  position: absolute;
-  display: none;
-}
-
-#zelfdePartner {
-  position: absolute;
-  display: none;
-}
-
-#wonenPartner {
-  position: absolute;
-  display: none;
-}
-
-#samenLeving {
-  position: absolute;
-  display: none;
-}
-
-#geboortejaarPartner {
-  position: absolute;
-  display: none;
-}
-
-#heeftKinderen {
-  position: absolute;
-  display: none;
-}
-
-#wilKinderen {
-  position: absolute;
-  display: none;
-}
-
-#hoeveelKinderen {
-  position: absolute;
-  display: none;
-}
-
-#wilHoeveelKinderen {
-  position: absolute;
-  display: none;
-}
-
-#zekerHoeveelKinderen {
-  position: absolute;
-  display: none;
-}
-
-#hoesnelKinderen {
-  position: absolute;
-  display: none;
-}
-
-#zekerHoesnelKinderen {
-  position: absolute;
-  display: none;
-}
-
-#geschiktAantalKinderen {
-  position: absolute;
-  display: none;
-}
-
-#gesprekPartner {
+#relationships, #relationships2 {
   position: absolute;
   display: none;
 }
 
 
-#verschilPartner {
-  position: absolute;
-  display: none;
-}
 
-#bioOuder {
-  position: absolute;
-  display: none;
-}
 
-#stiefKinderen {
-  position: absolute;
-  display: none;
-}
 
-#kinderenLevensgeluk {
-  position: absolute;
-  display: none;
-}
 
-#leeftijdAlter {
-  position: absolute;
-  display: none;
-}
 
-#leeftijdAltr {
-  -webkit-column-count: 4; /* Chrome, Safari, Opera */
-  -moz-column-count: 4; /* Firefox */
-  column-count: 4;
-}
 
-#relatieAlter {
-  position: absolute;
-  display: none;
-}
 
-#relatieAlter input {
-  margin-top:5px;
-}
-
-#kinderenAlter {
-  position: absolute;
-  display: none;
-}
-
-#leeftijdKindAlter {
-  position: absolute;
-  display: none;
-}
-
-#levensplezierAlter {
-  position: absolute;
-  display: none;
-}
-
-#kinderenLevensgeluk {
-  position: absolute;
-  display: none;
-}
-
-#kinderenMakenGeluk {
-  position: absolute;
-  display: none;
-}
-
-#stellingenMeerKids {
-  position: absolute;
-  display: none;
-}
-
-#stellingenOuders {
-  margin-top:25px;
-}
-
-#bronnen {
-  position: absolute;
-  display: none;
-}
-
-#opmerkingen {
-  position: absolute;
-  display: none;
-}
-
-#afsluiting {
-  position: absolute;
-  display: none;
-}
 
 .slider {
   width:400px;
@@ -377,31 +126,6 @@ g#0 {
   z-index: 10;
 }
 
-.bar_target {
-  fill: #EEE;
-  stroke: #999;
-  stroke-width: 1px;
-  opacity: .7;
-}
-
-.bar_label {
-  fill: #E6E6E6;
-  stroke: #999;
-  stroke-width: 1px;
-  opacity: .7;
-}
-
-.bar_text {
-  stroke: none;
-  fill: #555;
-  font-size: 15px;
-  font-weight: 200;
-}
-
-#fiveBar .bar_label {
-  display:none;
-}
-
 .backdrop {
   fill: #E6E6E6;
   stroke: #999;
@@ -420,7 +144,7 @@ g#0 {
   z-index: 100;
 }
 
-#nextDiv, #submitForm {
+#nextDiv {
   position: absolute;
 }
 
@@ -450,74 +174,10 @@ g#0 {
 
 #previousDiv {
   position: absolute;
+
 }
 
 #nonresponse_box {
-  display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    width: 100%;
-    cursor: pointer;
-    z-index: 1000; /* high z-index */
-    background: #000; /* fallback */
-    background: rgba(0,0,0,0.25);
-}
-
-#onlyone_box {
-  display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    width: 100%;
-    cursor: pointer;
-    z-index: 1000; /* high z-index */
-    background: #000; /* fallback */
-    background: rgba(0,0,0,0.25);
-}
-
-#fewAlters_box {
-  display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    width: 100%;
-    cursor: pointer;
-    z-index: 1000; /* high z-index */
-    background: #000; /* fallback */
-    background: rgba(0,0,0,0.25);
-}
-
-#reminderAlters_box {
-  display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    width: 100%;
-    cursor: pointer;
-    z-index: 1000; /* high z-index */
-    background: #000; /* fallback */
-    background: rgba(0,0,0,0.25);
-}
-
-#badYear_box {
-  display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    width: 100%;
-    cursor: pointer;
-    z-index: 1000; /* high z-index */
-    background: #000; /* fallback */
-    background: rgba(0,0,0,0.25);
-}
-
-#fewDragged_box {
   display: none;
     position: absolute;
     top: 0;
@@ -544,33 +204,22 @@ g#0 {
   box-shadow: 0 0 5px rgba(0,0,0,0.9);
 }
 
-#onlyOnePopup {
+#onlyone_box {
   display: none;
-  background: #fff;
-  padding: 1%;
-  width: 40%;
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
-  cursor: default;
-  border-radius: 3px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 1000; /* high z-index */
+    background: #000; /* fallback */
+    background: rgba(0,0,0,0.25);
 }
 
-#yearPopup {
-  display: none;
-  background: #fff;
-  padding: 1%;
-  width: 40%;
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
-  cursor: default;
-  border-radius: 3px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.9);
-}
+
+
+
 
 #alterPopup {
   display: none;
@@ -615,7 +264,7 @@ g#0 {
 }
 
 
- .close-btn {
+.close-btn {
     cursor: pointer;
     box-shadow: 0 0 4px rgba(0,0,0,0.3);
     }
@@ -632,23 +281,16 @@ g#0 {
 #Next {
   display: box;
   position: absolute;
-  top: 90%;
-  left: 90%;
-}
-
-#ChangeFloor {
-  display: box;
-  position: absolute;
-  top: 90%;
-  left: 83%;
+  top: 60%;
+  left: 80%;
 }
 
 
 #Back {
   display: box;
   position: absolute;
-  top: 90%;
-  right: 75%;
+  top: 60%;
+  right: 80%;
 }
 
 #Next:disabled {
@@ -683,40 +325,6 @@ g#0 {
 }
 
 
-.likert {
-    display:table;
-    padding-left:0px;
-}
-
-.likert li {
-    
-    display: table-cell;
-    list-style-type: none;
-}
-
-.likert-label {
-    line-height:50px;
-    padding:0px 10px;
-}
-
-.likert-label:first-child {
-    text-align:right;
-}
-
-.likert-row {
-    display: table-row;
-    padding-left:0px;
-}
-
-.likert-button {
-    border: 1px solid darkgrey;
-    border-left: 0px;
-    padding: 10px;
-}
-
-.likert-button:first-child {
-    border-left: 1px solid darkgrey;
-}
 
 label {
   margin-left:5px;
@@ -750,12 +358,6 @@ label {
 }
 
 
-#slide4{
-  position: absolute;
-  display: none;
-  fill: cornflowerblue;
-}
-
 .custom-menu {
   display: none;
   z-index: 1000;
@@ -774,30 +376,34 @@ label {
   cursor: pointer;
 }
 
-/*004184*/
-#menuFirstItem:hover {
-  background-color: #004184;
+#menuFirstItem {
+  color: white;
+  background: #082128;
+  opacity: 0.65;
 }
 
-#menuSecondItem:hover {
-  background-color: #00499a;
+#menuSecondItem {
+  color: #d8faff;
+  background: #0a4755;
+  opacity: 0.65;
 }
 
-#menuThirdItem:hover {
-  background-color: #0054b8;
+#menuThirdItem {
+  color: #c0c7d6;
+  background: #0b748c;
+  opacity: 0.65;
 }
 
-#menuFourthItem:hover {
-  background-color: #005ed7;
+#menuFourthItem {
+  background: #07a3c5;
+  opacity: 0.65;
 }
 
-#menuFifthItem:hover {
-  background-color: #0064ed;
+#menuFifthItem {
+  background: #00d5ff;
+  opacity: 0.65;
 }
 
-#menuSixthItem:hover {
-  background-color: #006cff;
-}
 
 
 
@@ -810,90 +416,208 @@ label {
    text-align: center;
 }
 
-img[usemap] {
-  border: none;
-  height: auto;
-  max-width: 100%;
-  width: auto;
-}
 
 #UseOfSpace{
   position:absolute;
   display:none;
 }
 
-#useOfSpace2{
-  position:absolute;
-  display:none;
-  left:0;
-  right:0;
+
+.map1, .map2, .map3{
+  position: absolute;
+  margin:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  background-repeat: no-repeat;
+
 }
 
 
-#floorA1{
+#UseOfSpace2{
   position:absolute;
+  top: 0px;
+  left:0px;
+  right:0px;
+  text-align: center;
+  max-width: 100%;
   display:none;
-  left:0;
-  right:0;
+}
+
+
+
+#floorA1{
+  position: relative;
+  margin: auto;
+  max-width: 70%;
+  text-align: center;
+  top: 150px;
+  bottom: 150px;
 }
 
 
 #A1Floor{
-  position:absolute;
-  left:30px;
-  right:30px;
-  float :right;
-  z-index: 0
+  position: absolute;
+  margin:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
 }
 
+
+
 #floorR1{
-  position:absolute;
-  display:none;
-  left:0;
-  right:0;
+  position: relative;
+  margin: auto;
+  max-width: 70%;
+  text-align: center;
+  top: 150px;
+  bottom: 150px;
+  display: none;
 }
 
 
 #R1Floor{
-  position:absolute;
-  left:30px;
-  right:30px;
-  float :right;
-  z-index: 0
+  position: absolute;
+  margin:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
 }
 
 #floorR2{
-  position:absolute;
-  display:none;
-  left:0;
-  right:0;
+  position: relative;
+  margin: auto;
+  max-width: 70%;
+  text-align: center;
+  top: 150px;
+  bottom: 150px;
+  display: none;
 }
 
 
 #R2Floor{
-  position:absolute;
-  left:30px;
-  right:30px;
-  float :right;
-  z-index: 0
+  position: absolute;
+  margin:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
 }
 
 
 #addMore{
    color: blue;
+   margin: 15px;
+   font-size:12px;
 }
 
 table {
    text-align: center;
 }
 
-
-.node{
-   position: absolute;
-   z-index: -1;
+.InputPeopleName{
+  font-size:15px;
+  margin: 7px;
 }
 
-.nodelabel{
-   position: absolute;
-   z-index: 99999;
+
+/*Network part*/
+#network{
+  position: absolute;
+  top:0;
+  bottom: 80px;
+  left:0;
+  right:0;
+  display:none;
+}
+
+#chart{
+  position: absolute;
+  top:15%;
+  bottom: 0;
+  margin: auto;
+}
+
+.node {
+  fill: #00c700;
+  cursor: crosshair;
+  position: relative;
+  opacity: 0.6;
+  z-index: 3;
+}
+
+.nodelabel {
+  position: relative;
+  z-index: 99;
+}
+
+
+.node_selected {
+  fill: #ff7f0e;
+  stroke: #ff7f0e;
+  position: relative;
+  z-index: 3;
+}
+
+.drag_line {
+  stroke: #999;
+  stroke-width: 5;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+.drag_line_hidden {
+  stroke: #999;
+  stroke-width: 0;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+.link {
+  stroke: #999;
+  stroke-width: 5;
+  cursor: crosshair;
+  position: relative;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.link_selected {
+  stroke: #ff7f0e;
+}
+
+#finalSubmitButton{
+  position: absolute;
+  display: none;
+}
+
+#Submit {
+  display: box;
+  position: absolute;
+  top: 60%;
+  left: 80%;
+}
+
+#slide8{
+  display: none;
+  position: absolute;
+  top:40%;
+  left:0;
+  right:0;
+  bottom:30%;
+}
+
+#slide9{
+  display: none;
+  position: absolute;
+  top:40%;
+  left:0;
+  right:0;
+  bottom:30%;
 }

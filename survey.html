@@ -5,14 +5,17 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <!--<link rel="stylesheet" href="bootstrap.min.css">-->
-    <script src="jquery.min.js"></script>
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="http://d3js.org/d3.v2.min.js"></script>
+    <script type="text/javascript" src="jquery.maphilight.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.7/js/imageMapResizer.min.js"></script>
+
+
   </head>
   <body>
-    <script src="d3.v3.min.js" charset="utf-8"></script>
-    <script src="jquery-1.11.0.js"></script>
     <script type="text/javascript">
-    
       //Prevent window close
       var hook = true;
       window.onbeforeunload = function() {
@@ -94,19 +97,17 @@
                   relationships:{contacted_with:[]}};
 
       var clicked_area_id = "";
+      var FloorA1Offset = 0;
+      var FloorA1height = 0;
     </script>
-    <script src="jquery.maphilight.min.js"></script>
-    <script src="imageMapResizer.min.js"></script>
     <script src="ie.js"></script>
-    <script src="nodefunctions.js"></script>
-    <script src="graph.js"></script>
     <script src="elementmanipulation.js"></script>    
+    <script src="menu_actions.js"></script>
     <script src="slides.js"></script>
-    <script src="multiplechoiceelements.js"></script>
     <script src="shownext.js"></script>
     <script src="showprevious.js"></script>
     <script src="keypress.js"></script>
-    <script src="menu_actions.js"></script>
+    
             
     <div class="input-group" id="name_input" method="get" onsubmit="addAlter()">
       <input type="text" id="alterName" class="form-control" placeholder="Naam" size="10">
@@ -114,19 +115,18 @@
     </div>
 
     <ul class='custom-menu'>
-      <li id="menuFirstItem" data-action = "first">Always</li>
-      <li id="menuSecondItem" data-action = "second">Usually</li>
-      <li id="menuThirdItem" data-action = "third">Often</li>
-      <li id="menuFourthItem" data-action = "fourth">Sometimes</li>
-      <li id="menuFifthItem" data-action = "fifth">Rarely</li>
-      <li id="menuSixthItem" data-action = "sixth">Never</li>
+      <li id="menuFirstItem" data-action = "first">Always</li> 
+      <li id="menuSecondItem" data-action = "second">Often</li>
+      <li id="menuThirdItem" data-action = "third">Sometimes</li>
+      <li id="menuFourthItem" data-action = "fourth">Rarely</li>
+      <li id="menuFifthItem" data-action = "fifth">Never</li>
     </ul>
 
 
     <div class="input-group" id="personalInformation" method="get">
       <form id="personalInfo">
-        <span class="slideText"><b>Socio-demographic questions.</b><br><br/>We first would like to ask you a few questions about yourself,
-          please enter below:<br/></span><br>
+        <span style="font-size: 30px" class="slideText"><b>Socio-demographic questions</b><br><br/></span>
+        <span style="font-weight: bold;" class="slideText">Firstly, we would like to ask you a few questions about yourself, please enter below:<br/></span><br>
         <span class="slideText">Your name: <input type="text" name="name" id="input_name" placeholder="Enter your name."> </span><br><br>
         <span class="slideText">Your age: <input type="text" name="age" id="input_age" placeholder="Enter your age."> </span><br><br>
         <span class="slideText">Gender:</span><br><br>
@@ -223,19 +223,32 @@
 
     <div class="input-group" id="relationships" method="get">
       <form id="relShips">
-        <span class="slideText"><b>Relationships</b><br><br/>Who do you have contacted with?<br/></span><br>
+        <span style="font-size: 30px;" class="slideText"><b>Relationships</b><br><br/></span>
+        <span style="font-weight: bold;" class="slideText"><b>Who do you have contacted with?</span><br>
         <div id=addRelationships>
-          <input type="text" name="contact" id="input_contact0" placeholder="Enter a name"> </span><br>
+          <input class='InputPeopleName' type="text" name="contact" id="input_contact0" placeholder="Enter a name"> </span><br>
         </div>
       </form>
       <div>
         <button id="addMore" onclick="addMoreName()">Add more</button>
       </div>
     </div>
+    
+
+    <script> 
+      $(function() {    
+          var availableTags = ["Lebron James","Tran Phan","Tony Parker"]; 
+          $( function() {    } );
+          $( ".InputPeopleName" ).autocomplete({source: availableTags});  
+      });
+    </script>
+
+
 
     <div class="input-group" id="relationships2" method="get">
       <form id="relShips2">
-        <span class="slideText"><b>Relationships</b><br><br/>How often do you talk with?<br/></span>
+        <span style="font-size: 30px" class="slideText"><b>Relationships</b><br><br/><br/></span>
+        <span class="slideText"> <b>How often do you talk with?</b><br/></span>
           <table cellpadding="0" cellspacing="45px" id="relationship_table1" style="width:100%">
             <tr>
               <th></th>
@@ -247,7 +260,7 @@
           </table> <br> 
 
 
-        <span class="slideText">In what context?<br/></span>
+        <span class="slideText"><b>In what context?</b><br/></span>
           <table cellpadding="0" cellspacing="45px" id="relationship_table2" style="width:100%">
             <tr>
               <th></th>
@@ -263,17 +276,18 @@
 
     <div class="input-group" id="UseOfSpace" method="get">
       <form id="UseSpace">
-        <span class="slideText"> <b>Use of space</b> </span><br><br>
-        <span class="slideText">How do you use the co-working space?<br><br>
-        You are usually in on:</span><br>
+        <span style="font-size: 30px" class="slideText"> <b>Use of space</b> </span><br><br>
+        <span class="slideText"><b>How do you use the co-working space?</b><br><br></span><br>
 
-        <input type="checkbox" name="in_date1" value="monday"><span class="questionText1">  Monday</span> &nbsp
-        <input type="checkbox" name="in_date2" value="tuesday"><span class="questionText2">  Tuesday</span> &nbsp
-        <input type="checkbox" name="in_date3" value="wednesday"><span class="questionText3">  Wednesday</span>&nbsp
-        <input type="checkbox" name="in_date4" value="thursday"><span class="questionText4">  Thursday</span>&nbsp
-        <input type="checkbox" name="in_date5" value="friday"><span class="questionText5">  Friday</span>&nbsp
-        <input type="checkbox" name="in_date6" value="saturday"><span class="questionText6">  Saturday</span>&nbsp
-        <input type="checkbox" name="in_date7" value="sunday"><span class="questionText7">  Sunday</span><br><br>
+        <span class="slideText">You are usually in on</span><br>
+
+        <input type="checkbox" name="in_date1" value="monday"><span style="font-weight: normal;" class="questionText1">  Monday</span> &nbsp
+        <input type="checkbox" name="in_date2" value="tuesday"><span style="font-weight: normal;"  class="questionText2">  Tuesday</span> &nbsp
+        <input type="checkbox" name="in_date3" value="wednesday"><span style="font-weight: normal;"  class="questionText3">  Wednesday</span>&nbsp
+        <input type="checkbox" name="in_date4" value="thursday"><span style="font-weight: normal;"  class="questionText4">  Thursday</span>&nbsp
+        <input type="checkbox" name="in_date5" value="friday"><span style="font-weight: normal;"  class="questionText5">  Friday</span>&nbsp
+        <input type="checkbox" name="in_date6" value="saturday"><span style="font-weight: normal;"  class="questionText6">  Saturday</span>&nbsp
+        <input type="checkbox" name="in_date7" value="sunday"><span style="font-weight: normal;"  class="questionText7">  Sunday</span><br><br>
 
         <span class="slideText">In which time slot are you usually in?<br>
         <div class="input-group" id="input_time_slot">
@@ -293,43 +307,47 @@
       </form>
     </div>
    
-    
-    <div id="useOfSpace2">
+
+
+
+
+    <div id="UseOfSpace2">
       <center>
-        <span class="slideText"> <font size="15x"><b>Use of space</b> </font></span><br><br>
+        <span class="slideText"> <font size="10x"><b>Use of space</b> </font></span><br><br>
+        <span class="slideText"> Please click on the areas in the image below to choose how often you use them. As you cannot go back and forth between floors, please make sure that it is done for the whole floor before going to the next one</span><br><br>
       </center>
       <div id="floorA1">
-        <img src="/Assets/A1_RDC.png" alt="A1 Floor" id="A1Floor" usemap="#floorplanA1">
+        <img src="/Assets/A1_RDC.png" class="map1" alt="A1 Floor" id="A1Floor"  usemap="#floorplanA1">
         <map name="floorplanA1">
-          <area  id="meeting_room_castex" alt="meeting_room_castex" title="meeting_room_castex" href="" coords="273,77,623,208,623,412,581,391,532,369,483,353,423,342,360,342,315,346,275,361" shape="poly">
-          <area  id="meeting_room_gay_lussac" alt="meeting_room_gay_lussac" title="meeting_room_gay_lussac" href="" coords="275,597,275,359,317,346,358,340,423,340,424,595" shape="poly">
-          <area  id="meeting_room_tour_maubourg" alt="meeting_room_tour_maubourg" title="meeting_room_tour_maubourg" href="" coords="481,595,483,352,532,363,568,382,625,414,630,595" shape="poly">
-          <area  id="coffee_zone" alt="coffee_zone" title="coffee_zone" href="" coords="269,760,640,873" shape="rect">
-          <area  id="cafeteria" alt="cafeteria" title="cafeteria" href="" coords="1024,603,640,871" shape="rect">
-          <area  id="main_courtyard" alt="main_courtyard" title="main_courtyard" href="" coords="640,212,642,603,1024,603,1027,756,1196,754,1194,414" shape="poly">
-          <area  id="agoranov_open_office" alt="agoranov_open_office" title="agoranov_open_office" href="" coords="1217,423,1215,873,1487,873,1487,522" shape="poly">
-          <area  id="agoranov_office_1" alt="agoranov_office_1" title="agoranov_office_1" href="" coords="1657,582,1489,522,1489,669,1655,669" shape="poly">
-          <area  id="agoranov_office_2" alt="agoranov_office_2" title="agoranov_office_2" href="" coords="1657,803,1657,671,1489,669,1489,803" shape="poly">
-          <area  id="second_courtyard" alt="second_courtyard" title="second_courtyard" href="" coords="1846,652,2001,705,2041,775,2035,792,1959,807,1993,1092,2007,1094,2028,1155,1869,1210,1846,1045" shape="poly">
-          <area  id="agoranov_office_3" alt="agoranov_office_3" title="agoranov_office_3" href="" coords="1680,1272,1678,1007,1778,1007,1831,1038,1850,1212" shape="poly">
-          <area  id="playing_room" alt="playing_room" title="playing_room" href="" coords="1880,1370,2045,1593" shape="rect">
-          <area  id="lounge_toudic" alt="lounge_toudic" title="lounge_toudic" href="" coords="1332,1009,1472,1123" shape="rect">
-          <area  id="lounge_kennedy" alt="lounge_kennedy" title="lounge_kennedy" href="" coords="1330,1232,1472,1125" shape="rect">
-          <area  id="lounge_scott" alt="lounge_scott" title="lounge_scott" href="" coords="1330,1346,1330,1234,1474,1234,1470,1297,1491,1295,1493,1238,1659,1238,1659,1291,1489,1348" shape="poly">
-          <area  id="box_1" alt="box_1" title="box_1" href="" coords="1041,1024,1156,1111" shape="rect">
-          <area  id="box_2" alt="box_2" title="box_2" href="" coords="1041,1136,1156,1219" shape="rect">
-          <area  id="box_3" alt="box_3" title="box_3" href="" coords="1043,1244,1156,1331" shape="rect">
-          <area  id="talking_zone_1" alt="talking_zone_1" title="talking_zone_1" href="" coords="903,1026,1018,1111" shape="rect">
-          <area  id="box_4" alt="box_4" title="box_4" href="" coords="905,1134,1020,1223" shape="rect">
-          <area  id="box_5" alt="box_5" title="box_5" href="" coords="906,1242,1020,1329" shape="rect">
-          <area  id="box_6" alt="box_6" title="box_6" href="" coords="640,1026,755,1111" shape="rect">
-          <area  id="box_7" alt="box_7" title="box_7" href="" coords="640,1121,755,1206" shape="rect">
-          <area  id="box_8" alt="box_8" title="box_8" href="" coords="640,1230,755,1319" shape="rect">
-          <area  id="box_9" alt="box_9" title="box_9" href="" coords="508,1026,621,1109" shape="rect">
-          <area  id="talking_zone_2" alt="talking_zone_2" title="talking_zone_2" href="" coords="509,1123,623,1208" shape="rect">
-          <area  id="box_10" alt="box_10" title="box_10" href="" coords="511,1232,623,1317" shape="rect">
-          <area  id="extra_space"  alt="extra_space" title="extra_space" href="" coords="286,886,390,1342" shape="rect">
-          <area  id="agoranov_office_4"    alt="agoranov_office_4" title="agoranov_office_4" href="" coords="54,1533,207,1675" shape="rect">
+          <area  id="meeting_room_castex" alt="meeting_room_castex" title="meeting_room_castex" href="" coords="273,77,623,208,623,412,581,391,532,369,483,353,423,342,360,342,315,346,275,361" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="meeting_room_gay_lussac" alt="meeting_room_gay_lussac" title="meeting_room_gay_lussac" href="" coords="275,597,275,359,317,346,358,340,423,340,424,595" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="meeting_room_tour_maubourg" alt="meeting_room_tour_maubourg" title="meeting_room_tour_maubourg" href="" coords="481,595,483,352,532,363,568,382,625,414,630,595" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="coffee_zone" alt="coffee_zone" title="coffee_zone" href="" coords="269,760,640,873" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="cafeteria" alt="cafeteria" title="cafeteria" href="" coords="1024,603,640,871" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="main_courtyard" alt="main_courtyard" title="main_courtyard" href="" coords="640,212,642,603,1024,603,1027,756,1196,754,1194,414" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="agoranov_open_office" alt="agoranov_open_office" title="agoranov_open_office" href="" coords="1217,423,1215,873,1487,873,1487,522" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="agoranov_office_1" alt="agoranov_office_1" title="agoranov_office_1" href="" coords="1657,582,1489,522,1489,669,1655,669" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="agoranov_office_2" alt="agoranov_office_2" title="agoranov_office_2" href="" coords="1657,803,1657,671,1489,669,1489,803" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="second_courtyard" alt="second_courtyard" title="second_courtyard" href="" coords="1846,652,2001,705,2041,775,2035,792,1959,807,1993,1092,2007,1094,2028,1155,1869,1210,1846,1045" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="agoranov_office_3" alt="agoranov_office_3" title="agoranov_office_3" href="" coords="1680,1272,1678,1007,1778,1007,1831,1038,1850,1212" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="playing_room" alt="playing_room" title="playing_room" href="" coords="1880,1370,2045,1593" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="lounge_toudic" alt="lounge_toudic" title="lounge_toudic" href="" coords="1332,1009,1472,1123" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="lounge_kennedy" alt="lounge_kennedy" title="lounge_kennedy" href="" coords="1330,1232,1472,1125" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="lounge_scott" alt="lounge_scott" title="lounge_scott" href="" coords="1330,1346,1330,1234,1474,1234,1470,1297,1491,1295,1493,1238,1659,1238,1659,1291,1489,1348" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="box_1" alt="box_1" title="box_1" href="" coords="1041,1024,1156,1111" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="box_2" alt="box_2" title="box_2" href="" coords="1041,1136,1156,1219" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="box_3" alt="box_3" title="box_3" href="" coords="1043,1244,1156,1331" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="talking_zone_1" alt="talking_zone_1" title="talking_zone_1" href="" coords="903,1026,1018,1111" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="box_4" alt="box_4" title="box_4" href="" coords="905,1134,1020,1223" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="box_5" alt="box_5" title="box_5" href="" coords="906,1242,1020,1329" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="box_6" alt="box_6" title="box_6" href="" coords="640,1026,755,1111" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="box_7" alt="box_7" title="box_7" href="" coords="640,1121,755,1206" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="box_8" alt="box_8" title="box_8" href="" coords="640,1230,755,1319" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="box_9" alt="box_9" title="box_9" href="" coords="508,1026,621,1109" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="talking_zone_2" alt="talking_zone_2" title="talking_zone_2" href="" coords="509,1123,623,1208" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="box_10" alt="box_10" title="box_10" href="" coords="511,1232,623,1317" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="extra_space"  alt="extra_space" title="extra_space" href="" coords="286,886,390,1342" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="agoranov_office_4"    alt="agoranov_office_4" title="agoranov_office_4" href="" coords="54,1533,207,1675" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
         </map>
         <div>
           <input type="button" id="ChangeFloorR1"  class="btn btn-default"  value="Go to floor R1" onclick="goToFloorR1();"/> 
@@ -339,7 +357,26 @@
 
 
       <div id="floorR1">
-        <img src="/Assets/R1_RDC.png" alt="R1 Floor" id="R1Floor" usemap="#floorplanR1">
+        <img src="/Assets/R1_RDC.png" alt="R1 Floor" id="R1Floor" class="map2" usemap="#floorplanR1">
+        <map name="floorplanR1">
+          <area id='office_1_1' target="" alt="office_1_1" title="office_1_1" href="" coords="267,745,394,926" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_1_2' target="" alt="office_1_2" title="office_1_2" href="" coords="401,748,399,952,495,954,495,995,603,995,605,745" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_1_3' target="" alt="office_1_3" title="office_1_3" href="" coords="611,745,609,992,768,992,768,952,891,954,893,748" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_1_4' target="" alt="office_1_4" title="office_1_4" href="" coords="899,745,1069,992" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_1_5' target="" alt="office_1_5" title="office_1_5" href="" coords="1073,748,1228,992" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='lab1_1' target="" alt="lab1_1" title="lab1_1" href="" coords="1234,748,1692,990" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='library' target="" alt="library" title="library" href="" coords="1494,125,1494,700,1735,700,1739,627,2018,627,2018,715,2070,718,2070,335" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_agoranov_5' target="" alt="office_agoranov_5" title="office_agoranov_5" href="" coords="2096,735,2339,988" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='resting_room' target="" alt="resting_room" title="resting_room" href="" coords="1832,913,1900,913,1905,889,2072,892,2070,1087,1834,1087" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='lab1_2' target="" alt="lab1_2" title="lab1_2" href="" coords="1647,1164,1825,1343" shape="rect">
+          <area id='office_1_6' target="" alt="office_1_6" title="office_1_6" href="" coords="1251,1100,1254,1209,1404,1207,1408,1341,1638,1343,1634,1102" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_1_7' target="" alt="office_1_7" title="office_1_7" href="" coords="1254,1216,1398,1341" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_1_8' target="" alt="office_1_8" title="office_1_8" href="" coords="1097,1214,1245,1343" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_1_9' target="" alt="office_1_9" title="office_1_9" href="" coords="736,1104,1245,1106,1243,1205,1084,1207,1090,1340,736,1340" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_1_10' target="" alt="office_1_10" title="office_1_10" href="" coords="426,1102,727,1341" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_1_11' target="" alt="office_1_11" title="office_1_11" href="" coords="270,1225,414,1345" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+        </map>
+
         <div>
           <input type="button" id="ChangeFloorR2"  class="btn btn-default"  value="Go to floor R2" onclick="goToFloorR2();"/> 
         </div>
@@ -347,36 +384,47 @@
 
 
       <div id="floorR2">
-        <img src="/Assets/R2_RDC.png" alt="R2 Floor" id="R2Floor" usemap="#floorplanR1">
-        <div>
-          <input type="button" id="ChangeFloorA1"  class="btn btn-default"  value="Go to floor A1" onclick="goToFloorA1();"/> 
-        </div>
+        <img src="/Assets/R2_RDC.png" alt="R2 Floor" id="R2Floor" class="map3" usemap="#floorplanR2">
+        <map name="floorplanR2">
+          <area id='extra_space_2' target="" alt="extra_space_2" title="extra_space_2" href="" coords="263,739,402,928" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_2_1' target="" alt="office_2_1" title="office_2_1" href="" coords="410,741,551,993" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_2_2' target="" alt="office_2_2" title="office_2_2" href="" coords="560,741,730,995" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_2_3' target="" alt="office_2_3" title="office_2_3" href="" coords="738,741,908,993" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_2_4' target="" alt="office_2_4" title="office_2_4" href="" coords="917,741,1085,995" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_2_5' target="" alt="office_2_5" title="office_2_5" href="" coords="1091,743,1257,995" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='office_2_6' target="" alt="office_2_6" title="office_2_6" href="" coords="1269,745,1438,995" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='open_office_2' target="" alt="open_office_2" title="open_office_2" href="" coords="1508,716,1510,110,2092,322,2104,615,1851,615,1747,712" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='lab_2_1' target="" alt="lab_2_1" title="lab_2_1" href="" coords="1855,968,1926,964,1926,880,2092,881,2096,1088,1853,1084" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='lab_2_2' target="" alt="lab_2_2" title="lab_2_2" href="" coords="1448,1088,1654,1092,1652,1159,1849,1161,1851,1346,1448,1342" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='lab_2_3' target="" alt="lab_2_3" title="lab_2_3" href="" coords="1093,1088,1440,1090,1440,1348,1091,1348" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='lab_2_4' target="" alt="lab_2_4" title="lab_2_4" href="" coords="744,1086,1083,1090,1081,1344,744,1346" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='lab_2_5' target="" alt="lab_2_5" title="lab_2_5" href="" coords="393,1082,734,1088,734,1342,265,1342,263,1152,393,1150" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='extra_space_3' target="" alt="extra_space_3" title="extra_space_3" href="" coords="57,1150,254,1341" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+        </map>
       </div>
-
     </div>
-
-
    
-    <div class="input-group" id="bronnen" method="get" onsubmit="return false;">
-      <form id="brnnn">
-        <span class="slideText">Bij het benoemen van de 25 namen: komen alle namen uit “uw geheugen”, of hebt u gebruik gemaakt van een opgeslagen lijst met contacten (bijvoorbeeld via uw mobiele telefoon, uw email, of Facebook)?</span><br><br>
-        <input type="radio" name="br" value="1"><span class="questionText">  Alle namen komen uit het geheugen, en ik heb niet gebruik gemaakt van een lijst met contacten.</span><br>
-        <input type="radio" name="br" value="2"><span class="questionText">  Ik heb gebruik gemaakt van mijn mobiele telefoon</span><br>
-        <input type="radio" name="br" value="3"><span class="questionText">  Ik heb gebruik gemaakt van mijn email</span><br>
-        <input type="radio" name="br" value="4"><span class="questionText">  Ik heb gebruik gemaakt van Facebook</span><br>
-        <input type="radio" id="brcheckText" name="br" value="5"><span class="questionText">  Ik heb gebruik gemaakt van iets anders, namelijk:</span>
-        <input type="text" id="brtextInput" name="br">
-      </form>
+    
+
+    <div id="network">
+      <span class="slideText"> <font size="10px"><b><center>Other Relationships</center></b> </font></span>
+      <span class="slideText"><center>There are all the people who use the space, who do you think work together?</center></span>
+      <div id="chart"></div>
+      <script src="force_view.js"></script>
     </div>
-    
-    <div class="input-group" id="opmerkingen" method="get" onsubmit="return false;">
-      <form id="opmrkngn">
-        <span class="slideText">Hebt u nog opmerkingen over de vragenlijst? Als u per ongeluk iets verkeerd heeft ingevuld, kunt u dat hier ook melden.</span><br><br>
-        <textarea rows="10" cols="50" id="opmtextArea" name="opm"></textarea>
-      </form>
+
+
+
+
+    <div id="slide8">
+      <span class="slideText"><center>This is the end of the survey. Please click the submit button so that we can collect the data!</center></span>
     </div>
-    
-    
+
+
+    <div id="slide9">
+      <span class="slideText"><center>Thank you very much for your participation!</center></span>
+    </div>
+
     <div class="popop_box" id="nonresponse_box">
       <div class="popup_box" id="popup">
             <p class="popup_text">You have not fully answered the question! It would be nice for the research if you answered the question completely. If you want to go to the next question, you can click on "Continue".</p>
@@ -420,6 +468,16 @@
        onclick="showNext();pauseShowNext();" />
    </div>
 
+
+  <div id="finalSubmitButton">
+     <input type="button" 
+       class="btn btn-default" 
+       value="Submit"
+       id="Submit"
+       onclick="dataSubmission();" />
+   </div>
+
+
    <div id="PreviousDiv">
      <input type="button" 
        class="btn btn-default" 
@@ -452,7 +510,7 @@
 
 
     <script>
-      $(document).ready(function() {
+      $(document).ready(function(e) {
         $('map').imageMapResize();
         $('area').on('click', function() {
           // Avoid the real one
@@ -469,5 +527,7 @@
 
       });
     </script>
+
+    
   </body>
 </html>

@@ -1,5 +1,8 @@
 
-
+var svg = d3.select("body").append("svg")
+  .attr("width", bodyWidth)
+  .attr("height", bodyHeight)
+  .on("contextmenu", function() {d3.event.preventDefault()});
 //--------------------------------
 // Declaration of slides and boxes
 //--------------------------------
@@ -59,7 +62,7 @@ if (isIE()) {
     .attr("class", "slideText")
     .attr("x", center - textWidth / 2)
     .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide0 .slideText tspan').length + $('#slide0 .slideText').length))
-    .text("Completing the questionnaire takes about xx minutes. You must complete this " +
+    .text("Completing the questionnaire takes about 15 minutes. You must complete this " +
         "questionnaire in one go. Therefore, you can not continue with the questionnaire at a different time. You can  " +
         "go back to your previous answers to correct your answer.")
     .call(wrap, textWidth);

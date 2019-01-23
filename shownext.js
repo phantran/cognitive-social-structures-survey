@@ -7,9 +7,6 @@
 //                  use_of_space:{day_in:"", time_slot:"", have_lunch:"", switch_desk:""}, area_usage:{zone1:"", zone2:"", zone3:"", zone4:""},
 //                  relationships:{contacted_with:[]}};
 function showNext() {
-
-  
-
   if (currSlide === 1) {
     document.getElementById("slide0").style.display = "none";
     document.getElementById("slide1").style.display = "block";
@@ -92,19 +89,29 @@ function showNext() {
           checked = true;
       } else {
         // Collect data before going on
+
         document.getElementById("UseOfSpace").style.display = "none";
-        document.getElementById("floorA1").style.display = "block";
-        var ex4 = document.getElementById("useOfSpace2");
+        var ex4 = document.getElementById("UseOfSpace2");
         //ex4.style.left = string_l + "px";
         ex4.style.top = string_t;
         ex4.style.display = "block";
+
+        $('.map1').maphilight({
+          stroke: true,
+          strokeColor: 'ff0000',
+          strokeOpacity: 1,
+          strokeWidth: 1,
+        });
+
         $('map').imageMapResize();
 
-        let offset = $('#A1Floor').offset();
-        let height = $('#A1Floor').height();
-
-        let top = offset.top + height + 20 +  "px";
+        if(FloorA1Offset == 0 && FloorA1height == 0){
+          FloorA1Offset = $('#A1Floor').offset();
+          FloorA1height = $('#A1Floor').height();
+        }
+        let top = FloorA1Offset.top + FloorA1height + 20 +  "px";
         $('#Next').css({
+
           'top': top 
         });
 
@@ -113,13 +120,12 @@ function showNext() {
         });
 
 
-          currSlide += 1;
+        currSlide += 1;
       }
   }
   else if (currSlide === 5) {
       // If user has not selected an option, alert with popup
-    document.getElementById("useOfSpace2").style.display = "none";
-    document.getElementById("floorA1").style.display = "none";
+    document.getElementById("UseOfSpace2").style.display = "none";
     var ex5 = document.getElementById("relationships");
     ex5.style.left = string_l + "px";
     ex5.style.top = string_t;
@@ -129,6 +135,7 @@ function showNext() {
     let offset = $('#relationships').offset();
     let height = $('#relationships').height();
     let top = offset.top + height + 10 +  "px";
+
     $('#Next').css({
       'top': top
     });
@@ -282,10 +289,67 @@ function showNext() {
           promptNonresponse();
           checked = true;
       } else {
-          // Collect data before going on
-          document.getElementById("relationships").style.display = "none";
-          document.getElementById("relationships2").style.display = "none";
-          document.getElementById("slide7").style.display = "block";
+        document.getElementById("relationships").style.display = "none";
+        document.getElementById("relationships2").style.display = "none";
+        document.getElementById("network").style.display = "block";
+        let offset = $('#chart').offset();
+        let height = $('#chart').height();
+        let top = offset.top + height + 10 +  "px";
+        $('#Next').css({
+          'top': top
+        });
+    
+        $('#Back').css({
+          'top': top
+        });
+      }
+      currSlide += 1;
+  }
+  else if (currSlide === 8) {
+      // If user has not selected an option, alert with popup
+      if ($('input[name=in_date]:checked').length === 0 && (checked === false)) {
+          promptNonresponse();
+          checked = true;
+      } else {
+        document.getElementById("network").style.display = "none";
+        document.getElementById("slide8").style.display = "block";
+        let offset = $('#slide8').offset();
+        let height = $('#slide8').height();
+        let top = offset.top + height + 10 +  "px";
+        $('#Next').css({
+          'display': "none" 
+        });
+    
+        $('#Back').css({
+          'top': top
+        });
+        document.getElementById("finalSubmitButton").style.display = "block";
+        $('#finalSubmitButton').css({
+          'top': top,
+          'left': "80%"
+        });
+      }
+      currSlide += 1;
+  }
+  else if (currSlide === 9) {
+      // If user has not selected an option, alert with popup
+      if ($('input[name=in_date]:checked').length === 0 && (checked === false)) {
+          promptNonresponse();
+          checked = true;
+      } else {
+        document.getElementById("slide8").style.display = "none";
+        document.getElementById("slide9").style.display = "block";
+        $('#Next').css({
+          'display': "none"
+        });
+    
+        $('#Back').css({
+          'display': "none"
+        });
+
+        $('#finalSubmitButton').css({
+          'display': "none"
+        });
       }
       currSlide += 1;
   }
@@ -299,11 +363,17 @@ function showNext() {
 
 
 function addMoreName() {
+  event.preventDefault();
   contact_order = contact_order + 1;
   var objTo = document.getElementById('addRelationships');
   var divtest = document.createElement("div");
-  divtest.innerHTML = '<input type="text" name="contact" id="input_contact'+ contact_order + '"'+ 'placeholder="Enter a name"> </span><br>';
+  divtest.innerHTML = '<input class="InputPeopleName" type="text" name="contact" id="input_contact'+ contact_order + '"'+ 'placeholder="Enter a name"> </span><br>';
   objTo.appendChild(divtest);
+  $(function() {    
+      var availableTags = ["Lebron James","Tran Phan","Tony Parker"]; 
+      $( function() {    } );
+      $( ".InputPeopleName" ).autocomplete({source: availableTags});  
+  });
   let offset = $('#relationships').offset();
   let height = $('#relationships').height();
   let top = offset.top + height + 10 +  "px";
@@ -324,6 +394,16 @@ function goToFloorR1() {
   ex4.style.top = string_t;
   ex4.style.display = "block";
 
+  $('.map2').maphilight({
+    stroke: true,
+    strokeColor: 'ff0000',
+    strokeOpacity: 1,
+    strokeWidth: 1,
+  });
+
+  $('map').imageMapResize();
+
+
   let offset = $('#R1Floor').offset();
   let height = $('#R1Floor').height();
   let top = offset.top + height + 20 +  "px";
@@ -343,6 +423,15 @@ function goToFloorR2() {
   ex4.style.top = string_t;
   ex4.style.display = "block";
 
+  $('.map3').maphilight({
+    stroke: true,
+    strokeColor: 'ff0000',
+    strokeOpacity: 1,
+    strokeWidth: 1,
+  });
+
+  $('map').imageMapResize();
+
   let offset = $('#R2Floor').offset();
   let height = $('#R2Floor').height();
   let top = offset.top + height + 20 +  "px";
@@ -356,23 +445,10 @@ function goToFloorR2() {
   });
 }
 
-
-function goToFloorA1() {
-  document.getElementById("floorR2").style.display = "none";
-  var ex4 = document.getElementById("floorA1");
-  ex4.style.top = string_t;
-  ex4.style.display = "block";
-
-  let offset = $('#A1Floor').offset();
-  let height = $('#A1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top 
-  });
-
-  $('#Back').css({
-    'top': top
-  });
+function dataSubmission() {
+  showNext();
 }
+
+
+
 

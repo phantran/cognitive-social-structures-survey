@@ -1,11 +1,5 @@
 $(document).ready(function(){
   // If the document is clicked somewhere
-  $('#A1Floor').maphilight({
-        stroke: false,
-        //Use the color you want
-        fillColor: '000000'
-    });
-
   $(document).bind("mousedown", function(e) {
   
       // If the clicked element is not the menu
@@ -16,6 +10,8 @@ $(document).ready(function(){
       }
   });
   
+
+
   
   // If the menu element is clicked
   $(".custom-menu li").click(function() {
@@ -29,28 +25,62 @@ $(document).ready(function(){
             event.preventDefault();
             var data = {};
             data.alwaysOn = true;
-            data.stroke = 'none';
-            data.strokeWidth = 0.0000001;
-            data.strokeColor = 'f9d600';
-            data.fillColor = 'f9d600'; // Sample color
-            data.fillOpacity = 0.5;
+            data.stroke = true;
+            data.strokeOpacity = 1;
+            data.strokeWidth = 1;
+            data.strokeColor = '00fdf0';
+            data.fillColor = '082128'; // Sample color
+            data.fillOpacity = 0.65;
             $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
             break;
           case "second":
-              alert("Usually");
+            event.preventDefault();
+            var data = {};
+            data.alwaysOn = true;
+            data.stroke = true;
+            data.strokeOpacity = 1;
+            data.strokeWidth = 1;
+            data.strokeColor = '00fdf0';
+            data.fillColor = '0a4755'; // Sample color
+            data.fillOpacity = 0.65;
+            $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
               break;
           case "third":
-              alert("Often");
+            event.preventDefault();
+            var data = {};
+            data.alwaysOn = true;
+            data.stroke = true;
+            data.strokeOpacity = 1;
+            data.strokeWidth = 1;
+            data.strokeColor = '00fdf0';
+            data.fillColor = '0b748c'; // Sample color
+            data.fillOpacity = 0.65;
+            $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
               break;
           case "fourth":
-              alert("Sometimes");
+            event.preventDefault();
+            var data = {};
+            data.alwaysOn = true;
+            data.stroke = true;
+            data.strokeOpacity = 1;
+            data.strokeWidth = 1;
+            data.strokeColor = '00fdf0';
+            data.fillColor = '07a3c5'; // Sample color
+            data.fillOpacity = 0.65;
+            $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
               break;
           case "fifth":
-              alert("Rarely");
-              break;
-          case "sixth":
-              alert("Never");
-              break;
+            event.preventDefault();
+            var data = {};
+            data.alwaysOn = true;
+            data.stroke = true;
+            data.strokeOpacity = 1;
+            data.strokeWidth = 1;
+            data.strokeColor = '00fdf0';
+            data.fillColor = '00d5ff'; // Sample color
+            data.fillOpacity = 0.65;
+            $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+            break;
       }
   
       // Hide it AFTER the action was triggered
