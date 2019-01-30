@@ -64,6 +64,7 @@
           boxbar_offset_x = 10,
           boxbar_offset_y = bodyHeight - bar_target_height - 100;
 
+      var slide6_is_reached = false;
       var clicked_back = false;
       var contact_order = 0;
       var relationship_name = 1;
@@ -92,9 +93,74 @@
       var answers = [];
 
       // Result object
-      var collected_data = {socio_question:{name:"", age: "", gender:"", native_language:"", major:"", experience:"", research_field:"", position:""}, 
-                  use_of_space:{day_in:"", time_slot:"", have_lunch:"", switch_desk:""}, area_usage:{zone1:"", zone2:"", zone3:"", zone4:""},
-                  relationships:{contacted_with:[]}};
+      var collected_data = {
+                  socio_question:{name:"", age: "", gender:"", native_language:"", major:"", year_experience:"", research_field:"", current_position:""}, 
+                  use_of_space:{days_in:[], time_slot:"", have_lunch:"", switch_desk:""}, 
+                  area_usage:{
+                          floor_rdc:{meeting_room_castex      :"",
+                                     meeting_room_gay_lussac :"",
+                                     meeting_room_tour_maubourg :"",
+                                     coffee_zone :"",
+                                     cafeteria :"",
+                                     main_courtyard :"",
+                                     agoranov_open_office :"",
+                                     agoranov_office_1 :"",
+                                     agoranov_office_2 :"",
+                                     second_courtyard :"",
+                                     agoranov_office_3 :"",
+                                     playing_room :"",
+                                     lounge_toudic :"",
+                                     lounge_kennedy :"",
+                                     lounge_scott :"",
+                                     box_1 :"",
+                                     box_2 :"",
+                                     box_3 :"",
+                                     talking_zone_1 :"",
+                                     box_4 :"",
+                                     box_5 :"",
+                                     box_6 :"",
+                                     box_7 :"",
+                                     box_8 :"",
+                                     box_9 :"",
+                                     talking_zone_2 :"",
+                                     box_10 :"",
+                                     extra_space  :"",
+                                     agoranov_office_4    :""
+                                   }, 
+                          floor_r1:{office_1_1:"",
+                                    office_1_2 :"",
+                                    office_1_3 :"",
+                                    office_1_4 :"",
+                                    office_1_5 :"",
+                                    lab1_1 :"",
+                                    library :"",
+                                    office_agoranov_5 :"",
+                                    resting_room :"",
+                                    lab1_2 :"",
+                                    office_1_6 :"",
+                                    office_1_7 :"",
+                                    office_1_8 :"",
+                                    office_1_9 :"",
+                                    office_1_10 :"",
+                                    office_1_11 :""
+                                    }, 
+                          floor_r2:{extra_space_2 :"",
+                                    office_2_1 :"",
+                                    office_2_2 :"",
+                                    office_2_3 :"",
+                                    office_2_4 :"",
+                                    office_2_5 :"",
+                                    office_2_6 :"",
+                                    open_office_2 :"",
+                                    lab_2_1 :"",
+                                    lab_2_2 :"",
+                                    lab_2_3 :"",
+                                    lab_2_4 :"",
+                                    lab_2_5 :"",
+                                    extra_space_3 :""}
+                  },
+                  relationships:{contacted_with:[], often_talk_with:{}, in_context:{} },
+                  network_data: {} };
 
       var clicked_area_id = "";
       var FloorA1Offset = 0;
@@ -108,11 +174,6 @@
     <script src="showprevious.js"></script>
     <script src="keypress.js"></script>
     
-            
-    <div class="input-group" id="name_input" method="get" onsubmit="addAlter()">
-      <input type="text" id="alterName" class="form-control" placeholder="Naam" size="10">
-      <button type="submit" id="alterSubmit" class="btn btn-default" position="inline" value="Enter" onclick="addAlter()">Voeg toe</button>
-    </div>
 
     <ul class='custom-menu'>
       <li id="menuFirstItem" data-action = "first">Always</li> 
@@ -221,58 +282,6 @@
     </div>
 
 
-    <div class="input-group" id="relationships" method="get">
-      <form id="relShips">
-        <span style="font-size: 30px;" class="slideText"><b>Relationships</b><br><br/></span>
-        <span style="font-weight: bold;" class="slideText"><b>Who do you have contacted with?</span><br>
-        <div id=addRelationships>
-          <input class='InputPeopleName' type="text" name="contact" id="input_contact0" placeholder="Enter a name"> </span><br>
-        </div>
-      </form>
-      <div>
-        <button id="addMore" onclick="addMoreName()">Add more</button>
-      </div>
-    </div>
-    
-
-    <script> 
-      $(function() {    
-          var availableTags = ["Lebron James","Tran Phan","Tony Parker"]; 
-          $( function() {    } );
-          $( ".InputPeopleName" ).autocomplete({source: availableTags});  
-      });
-    </script>
-
-
-
-    <div class="input-group" id="relationships2" method="get">
-      <form id="relShips2">
-        <span style="font-size: 30px" class="slideText"><b>Relationships</b><br><br/><br/></span>
-        <span class="slideText"> <b>How often do you talk with?</b><br/></span>
-          <table cellpadding="0" cellspacing="45px" id="relationship_table1" style="width:100%">
-            <tr>
-              <th></th>
-              <th>Never</th> 
-              <th>Rarely</th>
-              <th>Sometimes</th>
-              <th>Often</th>
-            </tr>
-          </table> <br> 
-
-
-        <span class="slideText"><b>In what context?</b><br/></span>
-          <table cellpadding="0" cellspacing="45px" id="relationship_table2" style="width:100%">
-            <tr>
-              <th></th>
-              <th>Work</th> 
-              <th>Social Network</th>
-              <th>C</th>
-              <th>D</th>
-            </tr>
-          </table>
-
-      </form>
-    </div>
 
     <div class="input-group" id="UseOfSpace" method="get">
       <form id="UseSpace">
@@ -281,29 +290,29 @@
 
         <span class="slideText">You are usually in on</span><br>
 
-        <input type="checkbox" name="in_date1" value="monday"><span style="font-weight: normal;" class="questionText1">  Monday</span> &nbsp
-        <input type="checkbox" name="in_date2" value="tuesday"><span style="font-weight: normal;"  class="questionText2">  Tuesday</span> &nbsp
-        <input type="checkbox" name="in_date3" value="wednesday"><span style="font-weight: normal;"  class="questionText3">  Wednesday</span>&nbsp
-        <input type="checkbox" name="in_date4" value="thursday"><span style="font-weight: normal;"  class="questionText4">  Thursday</span>&nbsp
-        <input type="checkbox" name="in_date5" value="friday"><span style="font-weight: normal;"  class="questionText5">  Friday</span>&nbsp
-        <input type="checkbox" name="in_date6" value="saturday"><span style="font-weight: normal;"  class="questionText6">  Saturday</span>&nbsp
-        <input type="checkbox" name="in_date7" value="sunday"><span style="font-weight: normal;"  class="questionText7">  Sunday</span><br><br>
+        <input type="checkbox" id="in_date1" name="in_date1" value="monday"><span style="font-weight: normal;" class="questionText1">  Monday</span> &nbsp
+        <input type="checkbox" id="in_date2" name="in_date2" value="tuesday"><span style="font-weight: normal;"  class="questionText2">  Tuesday</span> &nbsp
+        <input type="checkbox" id="in_date3" name="in_date3" value="wednesday"><span style="font-weight: normal;"  class="questionText3">  Wednesday</span>&nbsp
+        <input type="checkbox" id="in_date4" name="in_date4" value="thursday"><span style="font-weight: normal;"  class="questionText4">  Thursday</span>&nbsp
+        <input type="checkbox" id="in_date5" name="in_date5" value="friday"><span style="font-weight: normal;"  class="questionText5">  Friday</span>&nbsp
+        <input type="checkbox" id="in_date6" name="in_date6" value="saturday"><span style="font-weight: normal;"  class="questionText6">  Saturday</span>&nbsp
+        <input type="checkbox" id="in_date7" name="in_date7" value="sunday"><span style="font-weight: normal;"  class="questionText7">  Sunday</span><br><br>
 
         <span class="slideText">In which time slot are you usually in?<br>
         <div class="input-group" id="input_time_slot">
-          <input type="text" class="form-control" value="00:00" name="starting_time"> to
-          <input type="text" class="form-control" value="00:00" name="finishing_time"> 
+          <input type="text" class="form-control" id="input_time_slot_from" value="00:00" name="starting_time"> to
+          <input type="text" class="form-control" id="input_time_slot_to" value="00:00" name="finishing_time"> 
         </div></span><br>
 
         <span class="slideText">Do you have lunch there?<br></span>
-        <input type="radio" name="have_lunch" value="never"><span class="questionText"> Never</span>&nbsp
-        <input type="radio" name="have_lunch" value="sometimes"><span class="questionText"> Sometimes</span>&nbsp
-        <input type="radio" name="have_lunch" value="often"><span class="questionText"> Often</span>&nbsp
-        <input type="radio" name="have_lunch" value="always"><span class="questionText">  Always</span><br><br>
+        <input type="radio" name="have_lunch" id="never_lunch" value="never"><span class="questionText"> Never</span>&nbsp
+        <input type="radio" name="have_lunch" id="sometimes_lunch" value="sometimes"><span class="questionText"> Sometimes</span>&nbsp
+        <input type="radio" name="have_lunch" id="often_lunch" value="often"><span class="questionText"> Often</span>&nbsp
+        <input type="radio" name="have_lunch" id="always_lunch" value="always"><span class="questionText">  Always</span><br><br>
 
         <span class="slideText">Do you often switch desk?<br></span>
-        <input type="radio" name="switch_desk" value="yes"><span class="questionText"> Yes</span>&nbsp
-        <input type="radio" name="switch_desk" value="no"><span class="questionText">  No</span><br>&nbsp
+        <input type="radio" name="switch_desk" id="yes_switch" value="yes"><span class="questionText"> Yes</span>&nbsp
+        <input type="radio" name="switch_desk" id="no_switch" value="no"><span class="questionText">  No</span><br>&nbsp
       </form>
     </div>
    
@@ -319,7 +328,7 @@
       <div id="floorA1">
         <img src="/Assets/A1_RDC.png" class="map1" alt="A1 Floor" id="A1Floor"  usemap="#floorplanA1">
         <map name="floorplanA1">
-          <area  id="meeting_room_castex" alt="meeting_room_castex" title="meeting_room_castex" href="" coords="273,77,623,208,623,412,581,391,532,369,483,353,423,342,360,342,315,346,275,361" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  data-frequency="" id="meeting_room_castex" alt="meeting_room_castex" title="meeting_room_castex" href="" coords="273,77,623,208,623,412,581,391,532,369,483,353,423,342,360,342,315,346,275,361" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
           <area  id="meeting_room_gay_lussac" alt="meeting_room_gay_lussac" title="meeting_room_gay_lussac" href="" coords="275,597,275,359,317,346,358,340,423,340,424,595" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
           <area  id="meeting_room_tour_maubourg" alt="meeting_room_tour_maubourg" title="meeting_room_tour_maubourg" href="" coords="481,595,483,352,532,363,568,382,625,414,630,595" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
           <area  id="coffee_zone" alt="coffee_zone" title="coffee_zone" href="" coords="269,760,640,873" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
@@ -403,12 +412,71 @@
         </map>
       </div>
     </div>
+
+
+
+
+
+    <div class="input-group" id="relationships" method="get">
+      <form id="relShips">
+        <span style="font-size: 30px;" class="slideText"><b>Relationships</b><br><br/></span>
+        <span style="font-weight: bold;" class="slideText"><b>Who do you have contacted with?</span><br>
+        <div id=addRelationships>
+          <input class='InputPeopleName' type="text" name="contact" id="input_contact0" placeholder="Enter a name"></span><br>
+        </div>
+      </form>
+      <div>
+        <button id="addMore" onclick="addMoreName()">Add more</button>
+      </div>
+    </div>
+    
+
+    <script> 
+      $(function() {    
+          var availableTags = ["Lebron James","Tran Phan","Tony Parker"]; 
+          $( function() {    } );
+          $( ".InputPeopleName" ).autocomplete({source: availableTags});  
+      });
+    </script>
+
+
+
+    <div class="input-group" id="relationships2" method="get">
+      <form id="relShips2">
+        <span style="font-size: 30px" class="slideText"><b>Relationships</b><br><br/><br/></span>
+        <span class="slideText"> <b>How often do you talk with?</b><br/></span>
+          <table cellpadding="0" cellspacing="45px" id="relationship_table1" style="width:100%">
+            <tr>
+              <th></th>
+              <th>Never</th> 
+              <th>Rarely</th>
+              <th>Sometimes</th>
+              <th>Often</th>
+            </tr>
+          </table> <br> 
+
+
+        <span class="slideText"><b>In what context?</b><br/></span>
+          <table cellpadding="0" cellspacing="45px" id="relationship_table2" style="width:100%">
+            <tr>
+              <th></th>
+              <th>Work</th> 
+              <th>Social Network</th>
+              <th>C</th>
+              <th>D</th>
+            </tr>
+          </table>
+
+      </form>
+    </div>
+
+    
    
     
 
     <div id="network">
       <span class="slideText"> <font size="10px"><b><center>Other Relationships</center></b> </font></span>
-      <span class="slideText"><center>There are all the people who use the space, who do you think work together?</center></span>
+      <span class="slideText"><center>There are all the people who use the space, who do you think work together? Click on a node and drag the link to another node to create a connnection.<br> A link can be removed by clicking on it and press the backspace key or the delete key on your keyboard. </center></span>
       <div id="chart"></div>
       <script src="force_view.js"></script>
     </div>

@@ -179,7 +179,7 @@ g#0 {
 
 #nonresponse_box {
   display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height:100%;
@@ -537,7 +537,7 @@ table {
 
 #chart{
   position: absolute;
-  top:15%;
+  top:20%;
   bottom: 0;
   margin: auto;
 }
@@ -597,7 +597,7 @@ table {
   display: none;
 }
 
-#Submit {
+#Submit{
   display: box;
   position: absolute;
   top: 60%;

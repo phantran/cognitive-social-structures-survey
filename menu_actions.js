@@ -32,6 +32,7 @@ $(document).ready(function(){
             data.fillColor = '082128'; // Sample color
             data.fillOpacity = 0.65;
             $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+            $(clicked_area_id).attr("data-frequency", "Always");
             break;
           case "second":
             event.preventDefault();
@@ -44,7 +45,8 @@ $(document).ready(function(){
             data.fillColor = '0a4755'; // Sample color
             data.fillOpacity = 0.65;
             $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-              break;
+            $(clicked_area_id).attr("data-frequency", "Often");
+            break;
           case "third":
             event.preventDefault();
             var data = {};
@@ -56,7 +58,8 @@ $(document).ready(function(){
             data.fillColor = '0b748c'; // Sample color
             data.fillOpacity = 0.65;
             $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-              break;
+            $(clicked_area_id).attr("data-frequency", "Sometimes");
+            break;
           case "fourth":
             event.preventDefault();
             var data = {};
@@ -68,7 +71,8 @@ $(document).ready(function(){
             data.fillColor = '07a3c5'; // Sample color
             data.fillOpacity = 0.65;
             $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-              break;
+            $(clicked_area_id).attr("data-frequency", "Rarely");
+            break;
           case "fifth":
             event.preventDefault();
             var data = {};
@@ -80,6 +84,7 @@ $(document).ready(function(){
             data.fillColor = '00d5ff'; // Sample color
             data.fillOpacity = 0.65;
             $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+            $(clicked_area_id).attr("data-frequency", "Never");
             break;
       }
   

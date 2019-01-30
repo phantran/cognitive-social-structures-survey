@@ -61,7 +61,17 @@ app.get('/', (req,res) => {
 //});
 
 app.post('/survey', (req,res) => {
-    res.sendFile(__dirname + "/survey.html")
+    res.sendFile(__dirname + "/survey.html");
+});
+
+
+app.post('/save', (req,res) => {
+	let timestamp = new Date().getTime().toString();
+	let fileName = timestamp +".json";
+ 	fs.writeFile('./Collected_Data/' + fileName, JSON.stringify(req.body), 'binary', (err)=> {
+ 		if(err) console.log(err);
+   		else console.log('File saved');
+	});
 });
 //app.post('/survey', routes.surveypost);
 //app.get('/thanks', routes.thanks);

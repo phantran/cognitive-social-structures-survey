@@ -145,7 +145,8 @@ function showPrevious() {
   else{
 
   }
-  $('#Next').blur();
+  $('#Previous').blur();
+  clicked_back = true;
 }
 
 

@@ -88,7 +88,7 @@ redraw();
 
 function mouseover() {
   if(mouseover_node){
-    console.log(mouseover_node);
+    
     displaying_node_id = mouseover_node.id;
     document.getElementById(displaying_node_id).style.display="block";
     setTimeout('hide()', 4000);
@@ -101,7 +101,7 @@ function hide() {
 
 
 function mousedown() {
-  console.log(mousedown_node);
+
   
   if (!mousedown_node && !mousedown_link) {
     // allow panning if nothing is selected
@@ -124,7 +124,7 @@ function mousemove() {
 }
 
 function mouseup() {
-  console.log(mouseup_node);
+  
   if (mousedown_node) {
     // hide drag line
     drag_line
