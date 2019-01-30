@@ -3,9 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="452d8e7e-4487-4e09-a7f1-2fd69eb2a290" name="Default Changelist" comment="Finished the last part, remaining task is data collection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Graph/Test_imageMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Graph/Test_imageMap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Graph/force_view.js" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Graph/force_view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Graph/jquery.rwdImageMaps.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Graph/jquery.rwdImageMaps.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Graph/A1_RDC.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Graph/Test_imageMap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Graph/force_view.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Graph/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Graph/jquery.rwdImageMaps.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Graph/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Graph/xam.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/d3.v3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/imageMapResizer.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jquery-1.11.0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiplechoiceelements.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodefunctions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_results.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_tests.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/survey.php" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -83,11 +99,11 @@
     <session id="-389957962">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.4" value="5" />
-          <entry key="project.open.time.5" value="6" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.open.time.4" value="6" />
+          <entry key="project.open.time.5" value="7" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -111,7 +127,7 @@
           <entry key="css" value="39" />
           <entry key="html" value="140" />
           <entry key="js" value="1582" />
-          <entry key="txt" value="292" />
+          <entry key="txt" value="409" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -119,7 +135,7 @@
           <entry key="CSS" value="39" />
           <entry key="HTML" value="140" />
           <entry key="JavaScript" value="1582" />
-          <entry key="PLAIN_TEXT" value="292" />
+          <entry key="PLAIN_TEXT" value="409" />
         </counts>
       </usages-collector>
     </session>
@@ -138,8 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/survey.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+            <state relative-caret-position="1080">
+              <caret line="72" column="25" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -147,20 +163,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/menu_actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nodefunctions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="330">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -186,7 +190,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/slides.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1380">
+            <state relative-caret-position="1425">
               <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
             </state>
           </provider>
@@ -288,6 +292,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -299,7 +304,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -347,6 +351,8 @@
       <workItem from="1547663595031" duration="780000" />
       <workItem from="1547822490079" duration="1407000" />
       <workItem from="1548254090692" duration="714000" />
+      <workItem from="1548883420011" duration="570000" />
+      <workItem from="1548884006568" duration="274000" />
     </task>
     <task id="LOCAL-00001" summary="New index.html and some first slides of the survey">
       <created>1542375479596</created>
@@ -432,14 +438,29 @@
       <option name="project" value="LOCAL" />
       <updated>1548254188286</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Main folder cleaning and finishing data collection part">
+      <created>1548883620427</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1548883620427</updated>
+    </task>
+    <task id="LOCAL-00014" summary="collected data folder">
+      <created>1548884121643</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1548884121643</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57007000" />
+    <option name="totallyTimeSpent" value="57851000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="62" width="1162" height="893" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18404908" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -474,33 +495,23 @@
     <MESSAGE value="Asset folder" />
     <MESSAGE value="Finished the last part, remaining task is data collection" />
     <MESSAGE value="Libraries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Libraries" />
+    <MESSAGE value="Main folder cleaning and finishing data collection part" />
+    <MESSAGE value="collected data folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="collected data folder" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/save_results.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/save_results.php" />
     <entry file="file://$PROJECT_DIR$/node_modules/express/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongoose/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/save_tests.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jquery-1.11.0.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/d3.v3.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/save_tests.php" />
+    <entry file="file://$PROJECT_DIR$/jquery-1.11.0.js" />
+    <entry file="file://$PROJECT_DIR$/jquery.min.js" />
+    <entry file="file://$PROJECT_DIR$/d3.v3.min.js" />
+    <entry file="file://$PROJECT_DIR$/bootstrap.min.css" />
     <entry file="file://$PROJECT_DIR$/node_modules/routes/dist/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -516,20 +527,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index-FINISHED.html" />
-    <entry file="file://$PROJECT_DIR$/multiplechoiceelements.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/survey.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="546" column="30" selection-start-line="546" selection-start-column="19" selection-end-line="546" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/multiplechoiceelements.js" />
+    <entry file="file://$PROJECT_DIR$/survey.php" />
     <entry file="file://$PROJECT_DIR$/survey1.html" />
     <entry file="file://$PROJECT_DIR$/index/style.css" />
     <entry file="file://$PROJECT_DIR$/index/index.html" />
@@ -541,9 +540,7 @@
     <entry file="file://$PROJECT_DIR$/ie.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/graph.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/graph.js" />
     <entry file="file://$PROJECT_DIR$/elementmanipulation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-952">
@@ -565,11 +562,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index_style1.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2927" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/index_style1.css" />
+    <entry file="file://$PROJECT_DIR$/nodefunctions.js" />
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -579,18 +573,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/survey.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nodefunctions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="1080">
+          <caret line="72" column="25" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -610,7 +594,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/slides.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
+        <state relative-caret-position="1425">
           <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
         </state>
       </provider>
@@ -627,8 +611,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/menu_actions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
