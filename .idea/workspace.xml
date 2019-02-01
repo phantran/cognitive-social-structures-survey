@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="452d8e7e-4487-4e09-a7f1-2fd69eb2a290" name="Default Changelist" comment="Finished the last part, remaining task is data collection">
+    <list default="true" id="452d8e7e-4487-4e09-a7f1-2fd69eb2a290" name="Default Changelist" comment="delete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Graph/A1_RDC.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Graph/Test_imageMap.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Graph/force_view.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Graph/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Graph/jquery.rwdImageMaps.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Graph/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Graph/xam.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/d3.v3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imageMapResizer.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery-1.11.0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiplechoiceelements.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodefunctions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/save_results.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/save_tests.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/survey.php" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -99,7 +80,7 @@
     <session id="-389957962">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.4" value="6" />
           <entry key="project.open.time.5" value="7" />
@@ -126,7 +107,7 @@
         <counts>
           <entry key="css" value="39" />
           <entry key="html" value="140" />
-          <entry key="js" value="1582" />
+          <entry key="js" value="1583" />
           <entry key="txt" value="409" />
         </counts>
       </usages-collector>
@@ -134,7 +115,7 @@
         <counts>
           <entry key="CSS" value="39" />
           <entry key="HTML" value="140" />
-          <entry key="JavaScript" value="1582" />
+          <entry key="JavaScript" value="1583" />
           <entry key="PLAIN_TEXT" value="409" />
         </counts>
       </usages-collector>
@@ -163,8 +144,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/menu_actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="60">
+              <caret line="4" column="46" lean-forward="true" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -352,7 +333,7 @@
       <workItem from="1547822490079" duration="1407000" />
       <workItem from="1548254090692" duration="714000" />
       <workItem from="1548883420011" duration="570000" />
-      <workItem from="1548884006568" duration="274000" />
+      <workItem from="1548884006568" duration="535000" />
     </task>
     <task id="LOCAL-00001" summary="New index.html and some first slides of the survey">
       <created>1542375479596</created>
@@ -452,17 +433,23 @@
       <option name="project" value="LOCAL" />
       <updated>1548884121643</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="delete">
+      <created>1548884315004</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1548884315004</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57851000" />
+    <option name="totallyTimeSpent" value="58112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="62" width="1162" height="893" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18404908" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18404908" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -473,7 +460,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.13857678" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.13857678" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -497,7 +484,8 @@
     <MESSAGE value="Libraries" />
     <MESSAGE value="Main folder cleaning and finishing data collection part" />
     <MESSAGE value="collected data folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="collected data folder" />
+    <MESSAGE value="delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/save_results.php" />
@@ -611,8 +599,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/menu_actions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="60">
+          <caret line="4" column="46" lean-forward="true" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
         </state>
       </provider>
     </entry>

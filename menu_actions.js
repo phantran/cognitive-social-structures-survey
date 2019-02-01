@@ -14,7 +14,7 @@ $(document).ready(function(){
 
   
   // If the menu element is clicked
-  $(".custom-menu li").click(function() {
+  $(".custom-menu li").click(function(event) {
   
       // This is the triggered action name
       switch ($(this).attr("data-action")) {

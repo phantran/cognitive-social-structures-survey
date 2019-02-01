@@ -62,9 +62,9 @@ if (isIE()) {
     .attr("class", "slideText")
     .attr("x", center - textWidth / 2)
     .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide0 .slideText tspan').length + $('#slide0 .slideText').length))
-    .text("Completing the questionnaire takes about 15 minutes. You must complete this " +
+    .text("Completing the questionnaire takes about 15-20 minutes. You must complete this " +
         "questionnaire in one go. Therefore, you can not continue with the questionnaire at a different time. You can  " +
-        "go back to your previous answers to correct your answer.")
+        "go back to previous pages to correct your answer.")
     .call(wrap, textWidth);
   slide0.append("text")
     .attr("class", "slideText")
@@ -88,17 +88,15 @@ slide1.append("rect")
 slide1.append("text")
   .attr("class", "slideText")
   .attr("x", center - (textWidth / 2))
-  .attr("y", text_offset_top + title_offset_top + lineHeight)
-  .text("Before answering the questions, it may be helpful to know that you can also use the ENTER key \u23CE  to go " +
-      "to the next question. Of course you can also simply click on the Continue button.")
+  .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide1 .slideText tspan').length + $('#slide1 .slideText').length))
+  .text("As already mentioned, you can return to previous pages by clicking on the Back button. This means that you can correct your answers at anytime without losing the entered data in the current page." + 
+    " However, after clicking on the Submit button at the end of this survey, you cannot change your answers anymore.")
   .call(wrap, textWidth);
 slide1.append("text")
   .attr("class", "slideText")
-  .attr("x", center - (textWidth / 2))
+  .attr("x", center - textWidth / 2)
   .attr("y", text_offset_top + title_offset_top + lineHeight * ($('#slide1 .slideText tspan').length + $('#slide1 .slideText').length))
-  .text("As already mentioned, you can NOT return to your previous answers, so check your answers well before" + 
-    " you go to the next question. If you have filled in an incorrect answer, you may be able to write this on a piece of paper" + 
-    ". At the end of the questionnaire you will be given the opportunity to report what you have entered incorrectly by mistake.")
+  .text("Please click the Continue button and the survey will start.")
   .call(wrap, textWidth);
 slide1.style("display", "none");
 

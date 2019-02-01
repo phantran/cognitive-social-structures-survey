@@ -1,16 +1,11 @@
-$(document).ready(function(){
-  $('#alterName').keypress(function(ev){
-    //If user pressed Enter Key then trigger Submit click
-    if(ev.keyCode==13)
-    $('#alterSubmit').click();
-  });
-  $( "#rAtextInput" ).keypress(function() {
-      $('#rAcheckText').prop('checked', true);
-  });
-  $( "#brtextInput" ).keypress(function() {
-      $('#brcheckText').prop('checked', true);
-  });
+$(document).keypress(
+  function(event){
+    if (event.which == '13') {
+      event.preventDefault();
+    }
 });
+
+
 $(document).keypress(function(ev){
   //console.log($(".popop_box:visible"));
   //If user pressed Enter Key then trigger Submit click

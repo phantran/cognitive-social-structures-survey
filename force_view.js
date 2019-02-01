@@ -1,5 +1,5 @@
 var width = window.innerWidth,
-    height = window.innerHeight,
+    height = window.innerHeight * 0.75,
     fill = d3.scale.category20();
 
 // mouse event vars
@@ -16,10 +16,13 @@ var outer = d3.select("#chart")
   .append("svg:svg")
     .attr("width", width)
     .attr("height", height)
-    .attr("pointer-events", "all")
-    .attr("zoom", null);
+    .attr("pointer-events", "all");
+
 
 var vis = outer
+  .append('svg:g')
+    .call(d3.behavior.zoom().on("zoom", rescale))
+    .on("dblclick.zoom", null)
   .append('svg:g')
     .on("mousemove", mousemove)
     .on("mousedown", mousedown)

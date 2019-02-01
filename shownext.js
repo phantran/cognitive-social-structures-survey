@@ -597,32 +597,6 @@ function showNext() {
 
 
 
-function addMoreName() {
-  event.preventDefault();
-  contact_order = contact_order + 1;
-  var objTo = document.getElementById('addRelationships');
-  var divtest = document.createElement("div");
-  divtest.innerHTML = '<input class="InputPeopleName" type="text" name="contact" id="input_contact'+ contact_order + '"'+ 'placeholder="Enter a name"> </span><br>';
-  objTo.appendChild(divtest);
-  $(function() {    
-      var availableTags = ["Lebron James","Tran Phan","Tony Parker"]; 
-      $( function() {    } );
-      $( ".InputPeopleName" ).autocomplete({source: availableTags});  
-  });
-  let offset = $('#relationships').offset();
-  let height = $('#relationships').height();
-  let top = offset.top + height + 10 +  "px";
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
-}
-
-
-
 function goToFloorR1() {
   let numberOfAreas = $("#floorA1 area").length;
   let numberOfClickedAreas = $("[data-frequency]").length;

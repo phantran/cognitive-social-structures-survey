@@ -9,6 +9,7 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var cors = require('cors');
 //var d3 = require("d3");
 var app = express();
 var bodyParser = require('body-parser');
@@ -27,6 +28,8 @@ mongoose.connect(uristring, function (err, res) {
 		console.log('Succeeded connecting to: ' + uristring);
 	}
 });
+
+app.use(cors());
 
 
 // all environments

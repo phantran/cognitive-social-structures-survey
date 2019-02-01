@@ -426,7 +426,7 @@
         </div>
       </form>
       <div>
-        <button id="addMore" onclick="addMoreName()">Add more</button>
+        <button id="addMore">Add more</button>
       </div>
     </div>
     
@@ -580,20 +580,48 @@
     <script>
       $(document).ready(function(e) {
         $('map').imageMapResize();
-        $('area').on('click', function() {
+        $('area').on('click', function(clickEvent) {
           // Avoid the real one
-          event.preventDefault();
+          clickEvent.preventDefault();
           clicked_area_id = "#" + this.id;
           // Show contextmenu
           $(".custom-menu").finish().toggle(100).
           // In the right position (the mouse)
           css({
-              top: event.pageY + "px",
-              left: event.pageX + "px"
+              top: clickEvent.pageY + "px",
+              left: clickEvent.pageX + "px"
           });
         });
 
+     
+
+
+      $('#addMore').click(function(event){
+        event.preventDefault();
+        contact_order = contact_order + 1;
+        var objTo = document.getElementById('addRelationships');
+        var divtest = document.createElement("div");
+        divtest.innerHTML = '<input class="InputPeopleName" type="text" name="contact" id="input_contact'+ contact_order + '"'+ 'placeholder="Enter a name"> </span><br>';
+        objTo.appendChild(divtest);
+        $(function() {    
+            var availableTags = ["Lebron James","Tran Phan","Tony Parker"]; 
+            $( function() {    } );
+            $( ".InputPeopleName" ).autocomplete({source: availableTags});  
+        });
+        let offset = $('#relationships').offset();
+        let height = $('#relationships').height();
+        let top = offset.top + height + 10 +  "px";
+        $('#Next').css({
+          'top': top
+        });
+      
+        $('#Back').css({
+          'top': top
+        });
       });
+
+
+    });
     </script>
 
     
