@@ -180,7 +180,6 @@
       <li id="menuSecondItem" data-action = "second">Often</li>
       <li id="menuThirdItem" data-action = "third">Sometimes</li>
       <li id="menuFourthItem" data-action = "fourth">Rarely</li>
-      <li id="menuFifthItem" data-action = "fifth">Never</li>
     </ul>
 
 
@@ -189,12 +188,14 @@
         <span style="font-size: 30px" class="slideText"><b>Socio-demographic questions</b><br><br/></span>
         <span style="font-weight: bold;" class="slideText">Firstly, we would like to ask you a few questions about yourself, please enter below:<br/></span><br>
         <span class="slideText">Your name: <input type="text" name="name" id="input_name" placeholder="Enter your name."> </span><br><br>
+
+
         <span class="slideText">Your age: <input type="text" name="age" id="input_age" placeholder="Enter your age."> </span><br><br>
         <span class="slideText">Gender:</span><br><br>
-          <input type="radio" id="gender_male" value="male"> Male<br>
-          <input type="radio" id="gender_female" value="female"> Female<br>
-          <input type="radio" id="other" value="other"> Other
-        </span><br><br>
+          <input type="radio" name="gender" id="gender_male" value="male"> Male<br>
+          <input type="radio" name="gender" id="gender_female" value="female"> Female<br>
+          <input type="radio" name="gender" id="other" value="other"> Other
+        <br><br>
 
         <span class="slideText" >Native language: 
           <select id="select_language" placeholder="Choose a Language...">
@@ -281,6 +282,13 @@
       </form>
     </div>
 
+    <script>
+        $(function() {
+            var availableTags = ["Lebron James","Tran Phan","Tony Parker"];
+            $( function() {    } );
+            $( "#input_name" ).autocomplete({source: availableTags});
+        });
+    </script>
 
 
     <div class="input-group" id="UseOfSpace" method="get">
@@ -323,7 +331,7 @@
     <div id="UseOfSpace2">
       <center>
         <span class="slideText"> <font size="10x"><b>Use of space</b> </font></span><br><br>
-        <span class="slideText"> Please click on the areas in the image below to choose how often you use them. As you cannot go back and forth between floors, please make sure that it is done for the whole floor before going to the next one</span><br><br>
+        <span class="slideText"> Please click on the areas in the image below to choose how often you use them. Please leave an area unfilled if you never use it.</span><br><br>
       </center>
       <div id="floorA1">
         <img src="/Assets/A1_RDC.png" class="map1" alt="A1 Floor" id="A1Floor"  usemap="#floorplanA1">
@@ -377,7 +385,7 @@
           <area id='library' target="" alt="library" title="library" href="" coords="1494,125,1494,700,1735,700,1739,627,2018,627,2018,715,2070,718,2070,335" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
           <area id='office_agoranov_5' target="" alt="office_agoranov_5" title="office_agoranov_5" href="" coords="2096,735,2339,988" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
           <area id='resting_room' target="" alt="resting_room" title="resting_room" href="" coords="1832,913,1900,913,1905,889,2072,892,2070,1087,1834,1087" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
-          <area id='lab1_2' target="" alt="lab1_2" title="lab1_2" href="" coords="1647,1164,1825,1343" shape="rect">
+          <area id='lab1_2' target="" alt="lab1_2" title="lab1_2" href="" coords="1647,1164,1825,1343" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
           <area id='office_1_6' target="" alt="office_1_6" title="office_1_6" href="" coords="1251,1100,1254,1209,1404,1207,1408,1341,1638,1343,1634,1102" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
           <area id='office_1_7' target="" alt="office_1_7" title="office_1_7" href="" coords="1254,1216,1398,1341" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
           <area id='office_1_8' target="" alt="office_1_8" title="office_1_8" href="" coords="1097,1214,1245,1343" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
@@ -410,6 +418,10 @@
           <area id='lab_2_5' target="" alt="lab_2_5" title="lab_2_5" href="" coords="393,1082,734,1088,734,1342,265,1342,263,1152,393,1150" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
           <area id='extra_space_3' target="" alt="extra_space_3" title="extra_space_3" href="" coords="57,1150,254,1341" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
         </map>
+
+        <div>
+          <input type="button" id="ChangeFloorA1"  class="btn btn-default"  value="Go to floor A1" onclick="goToFloorA1();"/>
+        </div>
       </div>
     </div>
 

@@ -68,23 +68,10 @@ $(document).ready(function(){
             data.strokeOpacity = 1;
             data.strokeWidth = 1;
             data.strokeColor = '00fdf0';
-            data.fillColor = '07a3c5'; // Sample color
+            data.fillColor = '56e5ff'; // Sample color
             data.fillOpacity = 0.65;
             $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
             $(clicked_area_id).attr("data-frequency", "Rarely");
-            break;
-          case "fifth":
-            event.preventDefault();
-            var data = {};
-            data.alwaysOn = true;
-            data.stroke = true;
-            data.strokeOpacity = 1;
-            data.strokeWidth = 1;
-            data.strokeColor = '00fdf0';
-            data.fillColor = '00d5ff'; // Sample color
-            data.fillOpacity = 0.65;
-            $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-            $(clicked_area_id).attr("data-frequency", "Never");
             break;
       }
   

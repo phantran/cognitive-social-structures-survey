@@ -34,11 +34,11 @@ vis.append('svg:rect')
     .attr('height', height)
     .attr('fill', 'white');
 
-var nodes = [{id:"MJ", label:"Micheal", x:100, y:50, fixed:true},
-            {id:"LB", label:"Lebron", x:150, y:100, fixed:true},
-            {id:"KB", label:"Kobe", x:200, y:50, fixed:true},
-            {id:"CP", label:"Chris", x:250, y:100, fixed:true},
-            {id:"KI", label:"Kyrie", x:300, y:50, fixed:true}];
+var nodes = [{id:"MJ", label:"Micheal", x:100,  y:50,   fixed:true},
+            {id:"LB",  label:"Lebron",  x:150,  y:100,  fixed:true},
+            {id:"KB",  label:"Kobe",    x:200,  y:50,   fixed:true},
+            {id:"CP",  label:"Chris",   x:250,  y:100,  fixed:true},
+            {id:"KI",  label:"Kyrie",   x:300,  y:50,   fixed:true}];
 
 // init force layout
 var force = d3.layout.force()
@@ -147,7 +147,9 @@ function mouseup() {
     //  links.push({source: mousedown_node, target: node});
     //}
     mousedown_node.fixed = false;
-    mouseup_node.fixed = false;
+    if (mouseup_node != null){
+        mouseup_node.fixed = false;
+    }
     redraw();
   }
   // clear mouse event vars

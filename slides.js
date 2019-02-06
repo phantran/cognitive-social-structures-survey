@@ -103,7 +103,7 @@ slide1.style("display", "none");
 
 
 // Slide 7
-var names_list = new Object();
+var names_list = {};
 $.getJSON("names_list.json", function(json) {
   names_list = json; // show the JSON file content into console
   number_of_names = Object.keys(names_list).length;

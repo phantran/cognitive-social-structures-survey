@@ -188,109 +188,102 @@ function showNext() {
   }
   else if (currSlide === 5) {
 
-    let numberOfAreas = $("area").length;
-    let numberOfClickedAreas = $("[data-frequency]").length;
-    // If user has not selected an option, alert with popup
-    if ((numberOfAreas > numberOfClickedAreas) && (checked === false) ) {
-      promptNonresponse();
-      checked = true;
-    } else {
-      checked = false;
-      //Collect data before going on
-      //Floor rdc
-      collected_data.area_usage.floor_rdc.meeting_room_castex      =     $('#meeting_room_castex').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.meeting_room_gay_lussac =      $('#meeting_room_gay_lussac').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.meeting_room_tour_maubourg =   $('#meeting_room_tour_maubourg').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.coffee_zone =      $('#coffee_zone').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.cafeteria =  $('#cafeteria').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.main_courtyard =   $('#main_courtyard').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.agoranov_open_office =   $('#agoranov_open_office').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.agoranov_office_1 =      $('#agoranov_office_1').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.agoranov_office_2 =      $('#agoranov_office_2').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.second_courtyard =       $('#second_courtyard').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.agoranov_office_3 =      $('#agoranov_office_3').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.playing_room =     $('#playing_room').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.lounge_toudic =    $('#lounge_toudic').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.lounge_kennedy =   $('#lounge_kennedy').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.lounge_scott =     $('#lounge_scott').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.box_1 =      $('#box_1').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.box_2 =      $('#box_2').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.box_3 =      $('#box_3').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.talking_zone_1 =   $('#talking_zone_1').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.box_4 =      $('#box_4').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.box_5 =      $('#box_5').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.box_6 =      $('#box_6').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.box_7 =      $('#box_7').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.box_8 =      $('#box_8').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.box_9 =      $('#box_9').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.talking_zone_2 =   $('#talking_zone_2').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.box_10 =     $('#box_10').attr('data-frequency'); 
-      collected_data.area_usage.floor_rdc.extra_space  =     $('#extra_space').attr('data-frequency');  
-      collected_data.area_usage.floor_rdc.agoranov_office_4    = $('#agoranov_office_4').attr('data-frequency'); 
+    checked = false;
+    //Collect data before going on
+    //Floor rdc
+    collected_data.area_usage.floor_rdc.meeting_room_castex      =     $('#meeting_room_castex').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.meeting_room_gay_lussac =      $('#meeting_room_gay_lussac').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.meeting_room_tour_maubourg =   $('#meeting_room_tour_maubourg').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.coffee_zone =      $('#coffee_zone').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.cafeteria =  $('#cafeteria').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.main_courtyard =   $('#main_courtyard').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.agoranov_open_office =   $('#agoranov_open_office').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.agoranov_office_1 =      $('#agoranov_office_1').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.agoranov_office_2 =      $('#agoranov_office_2').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.second_courtyard =       $('#second_courtyard').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.agoranov_office_3 =      $('#agoranov_office_3').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.playing_room =     $('#playing_room').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.lounge_toudic =    $('#lounge_toudic').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.lounge_kennedy =   $('#lounge_kennedy').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.lounge_scott =     $('#lounge_scott').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.box_1 =      $('#box_1').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.box_2 =      $('#box_2').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.box_3 =      $('#box_3').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.talking_zone_1 =   $('#talking_zone_1').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.box_4 =      $('#box_4').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.box_5 =      $('#box_5').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.box_6 =      $('#box_6').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.box_7 =      $('#box_7').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.box_8 =      $('#box_8').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.box_9 =      $('#box_9').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.talking_zone_2 =   $('#talking_zone_2').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.box_10 =     $('#box_10').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.extra_space  =     $('#extra_space').attr('data-frequency');
+    collected_data.area_usage.floor_rdc.agoranov_office_4    = $('#agoranov_office_4').attr('data-frequency');
 
-      //Floor r1 
-      collected_data.area_usage.floor_r1.office_1_1  = $("#office_1_1").attr('data-frequency');
-      collected_data.area_usage.floor_r1.office_1_2   = $("#office_1_2").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.office_1_3   = $("#office_1_3").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.office_1_4   = $("#office_1_4").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.office_1_5   = $("#office_1_5").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.lab1_1   = $("#lab1_1").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.library   = $("#library").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.office_agoranov_5  = $("#office_agoranov_5").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.resting_room  =   $("#resting_room").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.lab1_2  =  $("#lab1_2").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.office_1_6  =  $("#office_1_6").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.office_1_7  =  $("#office_1_7").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.office_1_8  =  $("#office_1_8").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.office_1_9  =  $("#office_1_9").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.office_1_10  =  $("#office_1_10").attr('data-frequency'); 
-      collected_data.area_usage.floor_r1.office_1_11 =   $("#office_1_11").attr('data-frequency'); 
+    //Floor r1
+    collected_data.area_usage.floor_r1.office_1_1  = $("#office_1_1").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_1_2   = $("#office_1_2").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_1_3   = $("#office_1_3").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_1_4   = $("#office_1_4").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_1_5   = $("#office_1_5").attr('data-frequency');
+    collected_data.area_usage.floor_r1.lab1_1   = $("#lab1_1").attr('data-frequency');
+    collected_data.area_usage.floor_r1.library   = $("#library").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_agoranov_5  = $("#office_agoranov_5").attr('data-frequency');
+    collected_data.area_usage.floor_r1.resting_room  =   $("#resting_room").attr('data-frequency');
+    collected_data.area_usage.floor_r1.lab1_2  =  $("#lab1_2").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_1_6  =  $("#office_1_6").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_1_7  =  $("#office_1_7").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_1_8  =  $("#office_1_8").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_1_9  =  $("#office_1_9").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_1_10  =  $("#office_1_10").attr('data-frequency');
+    collected_data.area_usage.floor_r1.office_1_11 =   $("#office_1_11").attr('data-frequency');
 
 
-      //Floor r2 
-      collected_data.area_usage.floor_r2.extra_space_2  =  $('#extra_space_2').attr('data-frequency');
-      collected_data.area_usage.floor_r2.office_2_1  = $('#office_2_1').attr('data-frequency');
-      collected_data.area_usage.floor_r2.office_2_2  = $('#office_2_2').attr('data-frequency');
-      collected_data.area_usage.floor_r2.office_2_3  = $('#office_2_3').attr('data-frequency');
-      collected_data.area_usage.floor_r2.office_2_4  = $('#office_2_4').attr('data-frequency');
-      collected_data.area_usage.floor_r2.office_2_5  = $('#office_2_5').attr('data-frequency');
-      collected_data.area_usage.floor_r2.office_2_6  = $('#office_2_6').attr('data-frequency');
-      collected_data.area_usage.floor_r2.open_office_2  = $('#open_office_2').attr('data-frequency');
-      collected_data.area_usage.floor_r2.lab_2_1  = $('#lab_2_1').attr('data-frequency');
-      collected_data.area_usage.floor_r2.lab_2_2  = $('#lab_2_2').attr('data-frequency');
-      collected_data.area_usage.floor_r2.lab_2_3  = $('#lab_2_3').attr('data-frequency');
-      collected_data.area_usage.floor_r2.lab_2_4  = $('#lab_2_4').attr('data-frequency');
-      collected_data.area_usage.floor_r2.lab_2_5  = $('#lab_2_5').attr('data-frequency');
-      collected_data.area_usage.floor_r2.extra_space_3 = $('#extra_space_3').attr('data-frequency');
+    //Floor r2
+    collected_data.area_usage.floor_r2.extra_space_2  =  $('#extra_space_2').attr('data-frequency');
+    collected_data.area_usage.floor_r2.office_2_1  = $('#office_2_1').attr('data-frequency');
+    collected_data.area_usage.floor_r2.office_2_2  = $('#office_2_2').attr('data-frequency');
+    collected_data.area_usage.floor_r2.office_2_3  = $('#office_2_3').attr('data-frequency');
+    collected_data.area_usage.floor_r2.office_2_4  = $('#office_2_4').attr('data-frequency');
+    collected_data.area_usage.floor_r2.office_2_5  = $('#office_2_5').attr('data-frequency');
+    collected_data.area_usage.floor_r2.office_2_6  = $('#office_2_6').attr('data-frequency');
+    collected_data.area_usage.floor_r2.open_office_2  = $('#open_office_2').attr('data-frequency');
+    collected_data.area_usage.floor_r2.lab_2_1  = $('#lab_2_1').attr('data-frequency');
+    collected_data.area_usage.floor_r2.lab_2_2  = $('#lab_2_2').attr('data-frequency');
+    collected_data.area_usage.floor_r2.lab_2_3  = $('#lab_2_3').attr('data-frequency');
+    collected_data.area_usage.floor_r2.lab_2_4  = $('#lab_2_4').attr('data-frequency');
+    collected_data.area_usage.floor_r2.lab_2_5  = $('#lab_2_5').attr('data-frequency');
+    collected_data.area_usage.floor_r2.extra_space_3 = $('#extra_space_3').attr('data-frequency');
 
 
-      //Displaying the new slide
-      document.getElementById("UseOfSpace2").style.display = "none";
-      var ex5 = document.getElementById("relationships");
-      ex5.style.left = string_l + "px";
-      ex5.style.top = string_t;
-      ex5.style.display = "block";
-  
-  
-      let offset = $('#relationships').offset();
-      let height = $('#relationships').height(); 
-      let top = offset.top + height + 10 +  "px";
-  
-      $('#Next').css({
-        'top': top
-      });
-  
-      $('#Back').css({
-        'top': top
-      });
-      currSlide += 1;
-    }
-    
+    //Displaying the new slide
+    document.getElementById("UseOfSpace2").style.display = "none";
+    var ex5 = document.getElementById("relationships");
+    ex5.style.left = string_l + "px";
+    ex5.style.top = string_t;
+    ex5.style.display = "block";
+
+
+    let offset = $('#relationships').offset();
+    let height = $('#relationships').height();
+    let top = offset.top + height + 10 +  "px";
+
+    $('#Next').css({
+      'top': top
+    });
+
+    $('#Back').css({
+      'top': top
+    });
+    currSlide += 1;
+
+
   }
   else if (currSlide === 6) {
       // If user has not selected an option, alert with popup
     slide6_is_reached = true;
-    if (($('#input_contact0').val() == "") && (checked === false) ) {
+    if (($('#input_contact0').val() === "") && (checked === false) ) {
       promptNonresponse();
       checked = true;
     } else {
@@ -302,7 +295,7 @@ function showNext() {
       for(i = 0; i < number_of_text_box; i++){
         let text_box_id = "#input_contact" + i;
         let text_box_content = $(text_box_id).val();
-        if(text_box_content != ""){
+        if(text_box_content !== ""){
           collected_data.relationships.contacted_with.push(text_box_content);
         }
       }
@@ -324,14 +317,14 @@ function showNext() {
       let number_of_names = $("#addRelationships input").length;
       //console.log(number_of_names);
       for(i = 0; i < number_of_names; i++){
-        name_input_id = 'input_contact' + i.toString();
+        let name_input_id = 'input_contact' + i.toString();
         name_array.push(document.getElementById(name_input_id).value);
       }
       document.getElementById("relationships").style.display = "none";
 
       
       for(i = 0; i < name_array.length; i++){
-        if(name_array[i] != ""){
+        if(name_array[i] !== ""){
           let table = document.getElementById("relationship_table1");
           let row = table.insertRow();
           let cell0 = row.insertCell(0);
@@ -352,7 +345,7 @@ function showNext() {
       }
     
       for(i = 0; i < name_array.length; i++){
-        if(name_array[i] != ""){
+        if(name_array[i] !== ""){
           let table1 = document.getElementById("relationship_table2");
           let row1 = table1.insertRow();
           let cell10 = row1.insertCell(0);
@@ -362,10 +355,10 @@ function showNext() {
           let cell14 = row1.insertCell(4);
           let name = "name=" + "howOften2" + i;
           cell10.innerHTML = name_array[i];
-          cell11.innerHTML = '<input class="radio_relationship" type="radio"' + name + ' value="work">';
-          cell12.innerHTML = '<input class="radio_relationship" type="radio"' + name + ' value="social_network">';
-          cell13.innerHTML = '<input class="radio_relationship" type="radio"' + name + ' value="c">';
-          cell14.innerHTML = '<input class="radio_relationship" type="radio"' + name + ' value="d">';
+          cell11.innerHTML = '<input class="radio_relationship" type="checkbox"' + name + ' value="work">';
+          cell12.innerHTML = '<input class="radio_relationship" type="checkbox"' + name + ' value="social_network">';
+          cell13.innerHTML = '<input class="radio_relationship" type="checkbox"' + name + ' value="c">';
+          cell14.innerHTML = '<input class="radio_relationship" type="checkbox"' + name + ' value="d">';
         }
       }
     
@@ -440,20 +433,22 @@ function showNext() {
       number_of_rows = document.getElementById("relationship_table2").rows.length;
       for(i = 1; i < number_of_rows; i++){
         let key = table_2.rows[i].cells[0].innerHTML;
-
+        if(!(key in talk_context_list)){
+          talk_context_list[key] = [];
+        }
         for(j = 1; j < 5; j++){
           if(table_2.rows[i].cells[j].getElementsByTagName("input")[0].checked === true){
             if(j === 1){
-              talk_context_list[key] = "Work";
+              talk_context_list[key].push("Work");
             }
             else if(j === 2){
-              talk_context_list[key] = "Social Network";
+              talk_context_list[key].push("Social Network");
             }
             else if(j === 3){
-              talk_context_list[key] = "C";
+              talk_context_list[key].push("C");
             }
             else if(j === 4){
-              talk_context_list[key] = "D";
+              talk_context_list[key].push("D");
             }else{
 
             }
@@ -598,78 +593,100 @@ function showNext() {
 
 
 function goToFloorR1() {
-  let numberOfAreas = $("#floorA1 area").length;
-  let numberOfClickedAreas = $("[data-frequency]").length;
-    // If user has not selected an option, alert with popup
-  if ((numberOfAreas > numberOfClickedAreas) && (checked === false) ) {
-    promptNonresponse();
-    checked = true;
-  } else {
-    checked = false;
-    document.getElementById("floorA1").style.display = "none";
-    let ex4 = document.getElementById("floorR1");
-    ex4.style.top = string_t;
-    ex4.style.display = "block";
-  
-    $('.map2').maphilight({
-      stroke: true,
-      strokeColor: 'ff0000',
-      strokeOpacity: 1,
-      strokeWidth: 1,
-    });
-  
-    $('map').imageMapResize();
-  
-  
-    let offset = $('#R1Floor').offset();
-    let height = $('#R1Floor').height();
-    let top = offset.top + height + 20 +  "px";
-  
-    $('#Next').css({
-      'top': top 
-    });
-  
-    $('#Back').css({
-      'top': top
-    });
-  }
+
+  checked = false;
+  document.getElementById("floorA1").style.display = "none";
+  let ex4 = document.getElementById("floorR1");
+  ex4.style.top = string_t;
+  ex4.style.display = "block";
+
+  $('.map2').maphilight({
+    stroke: true,
+    strokeColor: 'ff0000',
+    strokeOpacity: 1,
+    strokeWidth: 1,
+  });
+
+  $('map').imageMapResize();
+
+
+  let offset = $('#R1Floor').offset();
+  let height = $('#R1Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+    'top': top
+  });
+
+  $('#Back').css({
+    'top': top
+  });
+
 }
 
 function goToFloorR2() {
-  let numberOfAreas = $("#floorA1 area").length + $("#floorR1 area").length;
-  let numberOfClickedAreas = $("[data-frequency]").length;
-    // If user has not selected an option, alert with popup
-  if ((numberOfAreas > numberOfClickedAreas) && (checked === false) ) {
-    promptNonresponse();
-    checked = true;
-  } else {
+
+
+  checked = false;
+  document.getElementById("floorR1").style.display = "none";
+  let ex4 = document.getElementById("floorR2");
+  ex4.style.top = string_t;
+  ex4.style.display = "block";
+
+  $('.map3').maphilight({
+    stroke: true,
+    strokeColor: 'ff0000',
+    strokeOpacity: 1,
+    strokeWidth: 1,
+  });
+
+  $('map').imageMapResize();
+
+  let offset = $('#R2Floor').offset();
+  let height = $('#R2Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+    'top': top
+  });
+
+  $('#Back').css({
+    'top': top
+  });
+
+}
+
+
+function goToFloorA1() {
+
+
     checked = false;
-    document.getElementById("floorR1").style.display = "none";
-    let ex4 = document.getElementById("floorR2");
+    document.getElementById("floorR2").style.display = "none";
+    let ex4 = document.getElementById("floorA1");
     ex4.style.top = string_t;
     ex4.style.display = "block";
-  
-    $('.map3').maphilight({
-      stroke: true,
-      strokeColor: 'ff0000',
-      strokeOpacity: 1,
-      strokeWidth: 1,
+
+    $('.map1').maphilight({
+        stroke: true,
+        strokeColor: 'ff0000',
+        strokeOpacity: 1,
+        strokeWidth: 1,
     });
-  
+
     $('map').imageMapResize();
-  
-    let offset = $('#R2Floor').offset();
-    let height = $('#R2Floor').height();
+
+    let offset = $('#A1Floor').offset();
+    let height = $('#A1Floor').height();
     let top = offset.top + height + 20 +  "px";
-  
+
     $('#Next').css({
-      'top': top 
+        'top': top
     });
-  
+
     $('#Back').css({
-      'top': top
+        'top': top
     });
-  }
+
 }
 
 function dataSubmission() {
