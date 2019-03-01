@@ -9,49 +9,12 @@ a {
   color: #00B6FF;
 }
 
- #example_picture {
-  position: absolute;
-  z-index: 1000;
- }
 
- #example_net {
-  display: none;
-  position: absolute;
-  z-index: 1000;
- }
-
-#before_pic {
-  position: absolute;
-  top: 100px;
-  left: 40px;
-    z-index: 1000;
-}
-
- #after_pic {
-  position: absolute;
-  top: 400px;
-  left: 40px;
-    z-index: 1000;
-
- }
  
 g#0 {
   display:none !important;
 }
 
- .pic {  
-  display: none;
-  position: absolute;
-  z-index: 1000;
- }
-
-.slideText,
-.slideTextAlt,
-.slideTextAlt1,
-.slideTextAlt2 {
-  font-weight: 200;
-  font-size: 16px;  
-}
 
 .hiddenText {
   display: none;
@@ -72,12 +35,6 @@ g#0 {
   white-space:nowrap;
 }
 
-#name_input {
-  display: none;
-  position: absolute;
-  top: 280px;
-  left: 35%;
-}
 
 #personalInformation {
   position: absolute;
@@ -90,11 +47,13 @@ g#0 {
 }
 
 
-
-
-
-
-
+.slideText,
+.slideTextAlt,
+.slideTextAlt1,
+.slideTextAlt2 {
+  font-weight: 200;
+  font-size: 16px;  
+}
 
 
 
@@ -146,30 +105,6 @@ g#0 {
 
 #nextDiv {
   position: absolute;
-}
-
-#ChangeFloorR1{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 18px;
-  color: blue;
-}
-
-#ChangeFloorR2{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 18px;
-  color: blue;
-}
-
-#ChangeFloorA1{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 18px;
-  color: blue;
 }
 
 #previousDiv {
@@ -326,10 +261,8 @@ g#0 {
 
 
 
-label {
-  margin-left:5px;
-  margin-bottom:4px !important;
-  line-height:11px;
+label{
+  font-size: 16px
 }
 
 .btn-default {
@@ -369,12 +302,36 @@ label {
   background: #FFF;
   color: #333;
   border-radius: 5px;
+  padding-right: 0px;
+  padding-top: 0px;
 }
 
 .custom-menu li {
   padding: 8px 12px;
   cursor: pointer;
 }
+
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.custom-menu1 {
+  display: none;
+  z-index: 1000;
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid #CCC;
+  white-space: nowrap;
+  font-family: sans-serif;
+  background: #ddebfe;
+  color: #333;
+  border-radius: 5px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
 
 #menuFirstItem {
   color: white;
@@ -399,18 +356,13 @@ label {
   opacity: 0.65;
 }
 
-
-
-
-
-
-#relationship_table1{
-   text-align: center;
+#menuFifthItem {
+  background: none;
 }
 
-#relationship_table2{
-   text-align: center;
-}
+
+
+
 
 
 #UseOfSpace{
@@ -418,7 +370,7 @@ label {
   display:none;
 }
 
-
+/*Use of space 2 part*/
 .map1, .map2, .map3{
   position: absolute;
   margin:auto;
@@ -430,7 +382,6 @@ label {
 
 }
 
-
 #UseOfSpace2{
   position:absolute;
   top: 0px;
@@ -441,17 +392,14 @@ label {
   display:none;
 }
 
-
-
 #floorA1{
   position: relative;
   margin: auto;
   max-width: 70%;
   text-align: center;
-  top: 150px;
+  top: 80px;
   bottom: 150px;
 }
-
 
 #A1Floor{
   position: absolute;
@@ -462,18 +410,15 @@ label {
   max-width: 100%;
 }
 
-
-
 #floorR1{
   position: relative;
   margin: auto;
   max-width: 70%;
   text-align: center;
-  top: 150px;
+  top: 80px;
   bottom: 150px;
   display: none;
 }
-
 
 #R1Floor{
   position: absolute;
@@ -489,11 +434,10 @@ label {
   margin: auto;
   max-width: 70%;
   text-align: center;
-  top: 150px;
+  top: 80px;
   bottom: 150px;
   display: none;
 }
-
 
 #R2Floor{
   position: absolute;
@@ -505,20 +449,129 @@ label {
 }
 
 
-#addMore{
-   color: blue;
-   margin: 15px;
-   font-size:12px;
+#ChangeFloorR1{
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-table {
-   text-align: center;
+#ChangeFloorR2{
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-.InputPeopleName{
-  font-size:15px;
-  margin: 7px;
+#ChangeFloorA1{
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
+
+/*====================================*/
+
+
+/*Use of space 3 part*/
+.UOP3_map1, .UOP3_map2, .UOP3_map3{
+  position: absolute;
+  margin:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  background-repeat: no-repeat;
+
+}
+
+#UseOfSpace3{
+  position:absolute;
+  top: 0px;
+  left:0px;
+  right:0px;
+  text-align: center;
+  max-width: 100%;
+  display:none;
+}
+
+#UOP3_floorA1{
+  position: relative;
+  margin: auto;
+  max-width: 70%;
+  text-align: center;
+  top: 80px;
+  bottom: 150px;
+}
+
+#UOP3_A1Floor{
+  position: absolute;
+  margin:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+#UOP3_floorR1{
+  position: relative;
+  margin: auto;
+  max-width: 70%;
+  text-align: center;
+  top: 80px;
+  bottom: 150px;
+  display: none;
+}
+
+#UOP3_R1Floor{
+  position: absolute;
+  margin:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+#UOP3_floorR2{
+  position: relative;
+  margin: auto;
+  max-width: 70%;
+  text-align: center;
+  top: 80px;
+  bottom: 150px;
+  display: none;
+}
+
+#UOP3_R2Floor{
+  position: absolute;
+  margin:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+
+#UOP3_ChangeFloorR1{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#UOP3_ChangeFloorR2{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#UOP3_ChangeFloorA1{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/*====================================*/
+
+
+
+
 
 
 /*Network part*/
@@ -561,7 +614,7 @@ table {
 
 .drag_line {
   stroke: #999;
-  stroke-width: 5;
+  stroke-width: 3;
   pointer-events: none;
   position: relative;
   z-index: 1;
@@ -577,7 +630,7 @@ table {
 
 .link {
   stroke: #999;
-  stroke-width: 5;
+  stroke-width: 3;
   cursor: crosshair;
   position: relative;
   opacity: 0.6;
@@ -587,6 +640,131 @@ table {
 .link_selected {
   stroke: #ff7f0e;
 }
+
+
+#add_node{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 15px;
+  color: blue;
+}
+
+#more_name{
+  position: absolute;
+  top: 20px;
+  left: 125px;
+  font-size: 15px;
+}
+
+/*====================================*/
+
+
+
+/*Tabel decoration*/
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  border-radius: 10px;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: center; 
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+  .responsive-table-input-matrix {
+    display: block;
+    position: relative;
+    width: 100%;
+
+    &:after {
+      clear: both;
+      content: '';
+      display: block;
+      font-size: 0;
+      height: 0;
+      visibility: hidden;
+    }
+
+    tbody {
+      display: block;
+      overflow-x: auto;
+      position: relative;
+      white-space: nowrap;
+      width: auto;
+
+
+      tr {
+        display: inline-block;
+        vertical-align: top;
+
+        td {
+          display: block;
+          text-align: center;
+
+          &:first-child {
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    thead {
+      display: block;
+      float: left;
+      margin-right: 10px;
+
+      &:after {
+        clear: both;
+        content: "";
+        display: block;
+        font-size: 0;
+        height: 0;
+        visibility: hidden;
+      }
+
+      th:first-of-type {
+        height: 1.4em;
+      }
+
+      th {
+        display: block;
+        text-align: right;
+
+        &:first-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+/*==============================================*/
+
+
+
 
 #finalSubmitButton{
   position: absolute;
@@ -599,6 +777,7 @@ table {
   top: 60%;
   left: 80%;
 }
+
 
 #slide8{
   display: none;
@@ -616,4 +795,10 @@ table {
   left:0;
   right:0;
   bottom:30%;
+}
+
+
+.node text {
+  pointer-events: none;
+  font: 10px sans-serif;
 }

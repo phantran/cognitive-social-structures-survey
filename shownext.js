@@ -35,10 +35,10 @@ function showNext() {
     currSlide += 1;
   }else if (currSlide === 3) {
       // If user has not selected an option, alert with popup
-      if ((($('#input_name').val() === '') || ($('#input_age').val() === '') || 
-            (($('#gender_male').checked == false) && ($('#gender_female').checked == false) && ($('#other').checked == false)) || 
-            ($('#input_major').val() === '') || ($('#input_experience').val() === '') || ($('#input_research_field').val() === '') || 
-            ($('#input_position').val() === '')) && (checked === false) ){
+      if ((($('#input_name')[0].value === '') || ($('#input_age')[0].value === '') || 
+            (($('#gender_male')[0].checked == false) && ($('#gender_female')[0].checked == false) && ($('#other')[0].checked == false)) || 
+            ($('#input_major')[0].value === '') || ($('#input_experience')[0].value === '') || ($('#input_research_field')[0].value === '') || 
+            ($('#input_position')[0].value === '')) && (checked === false) ){
           promptNonresponse();
           checked = true;
       }else {
@@ -53,7 +53,7 @@ function showNext() {
         else if(document.getElementById("gender_female").checked){
           collected_data.socio_question.gender = "female";
         }
-        else if(document.getElementById("other").checked){
+        else if(document.getElementById("gender_other").checked){
           collected_data.socio_question.gender = "other";
         }
         else{
@@ -88,10 +88,10 @@ function showNext() {
   else if (currSlide === 4) {
       // If user has not selected an option, alert with popup
       
-      if (((($('#in_date1').checked == false) && ($('#in_date2').checked == false) && ($('#in_date3').checked == false) && ($('#in_date4').checked == false) && ($('#in_date5').checked == false) && ($('#in_date6').checked == false) && ($('#in_date7').checked == false)) || 
-            ($('#input_time_slot_from').val() === '00:00') || ($('#input_time_slot_to').val() === '00:00') || 
-            (($('#never_lunch').checked == false) && ($('#sometimes_lunch').checked == false) && ($('#often_lunch').checked == false) && ($('#always_lunch').checked == false)) ||
-            (($('#yes_switch').checked == false) && ($('#no_switch').checked == false))) && (checked === false) ) {
+      if (((($('#in_date1')[0].checked == false) && ($('#in_date2')[0].checked == false) && ($('#in_date3')[0].checked == false) && ($('#in_date4')[0].checked == false) && ($('#in_date5')[0].checked == false) && ($('#in_date6')[0].checked == false) && ($('#in_date7')[0].checked == false)) || 
+            ($('#input_time_slot_from')[0].value === "") || ($('#input_time_slot_to')[0].value === "") || 
+            (($('#never_lunch')[0].checked == false) && ($('#sometimes_lunch')[0].checked == false) && ($('#often_lunch')[0].checked == false) && ($('#always_lunch')[0].checked == false)) ||
+            (($('#yes_switch')[0].checked == false) && ($('#no_switch')[0].checked == false))) && (checked === false) ) {
           promptNonresponse();
           checked = true;
       } else {
@@ -128,7 +128,9 @@ function showNext() {
 
         collected_data.use_of_space.days_in = in_dates;
 
-        collected_data.use_of_space.time_slot = document.getElementById("input_time_slot_from").value + " to " + document.getElementById("input_time_slot_to").value;
+        collected_data.use_of_space.time_slot_in = document.getElementById("input_time_slot_from").value;
+        collected_data.use_of_space.time_slot_out = document.getElementById("input_time_slot_to").value;
+
         if(document.getElementById("never_lunch").checked){
           collected_data.use_of_space.have_lunch = "Never";
         }
@@ -167,6 +169,30 @@ function showNext() {
         });
 
         $('map').imageMapResize();
+
+        if(clicked_area_id !== ""){
+          //This piece of code is used to display the colors of clicked areas
+          if(never_was_clicked === true){
+            let temp_data = {};
+            temp_data.strokeColor = "C1C240";
+            temp_data.strokeWidth = 5;
+            temp_data.fillColor = "FFE97F";
+            temp_data.fillOpacity = "0.4";
+            temp_data.alwaysOn = false;
+            $(clicked_area_id).data('maphilight', temp_data).trigger('alwaysOn.maphilight'); 
+          }
+          else{
+            var data = {};
+            data.alwaysOn = true;
+            data.stroke = true;
+            data.strokeOpacity = 1;
+            data.strokeWidth = 1;
+            data.strokeColor = '00fdf0';
+            data.fillColor = chosen_color; 
+            data.fillOpacity = 0.65;
+            $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+          }
+        }
 
         if(FloorA1Offset == 0 && FloorA1height == 0){
           FloorA1Offset = $('#A1Floor').offset();
@@ -292,7 +318,7 @@ function showNext() {
       //Collect data before going on
       collected_data.relationships.contacted_with = [];
       let number_of_text_box = $('.InputPeopleName').length;
-      for(i = 0; i < number_of_text_box; i++){
+      for(let i = 0; i < number_of_text_box; i++){
         let text_box_id = "#input_contact" + i;
         let text_box_content = $(text_box_id).val();
         if(text_box_content !== ""){
@@ -306,7 +332,7 @@ function showNext() {
   
       while(count > 1){
         let r = count;
-        console.log(r - 1);
+
         document.getElementById("relationship_table1").deleteRow(r-1);
         document.getElementById("relationship_table2").deleteRow(r-1);
         count = count - 1;
@@ -315,15 +341,15 @@ function showNext() {
       // Adding new rows corresponding to people names
       let name_array = [];
       let number_of_names = $("#addRelationships input").length;
-      //console.log(number_of_names);
-      for(i = 0; i < number_of_names; i++){
+
+      for(let i = 0; i < number_of_names; i++){
         let name_input_id = 'input_contact' + i.toString();
         name_array.push(document.getElementById(name_input_id).value);
       }
       document.getElementById("relationships").style.display = "none";
 
       
-      for(i = 0; i < name_array.length; i++){
+      for(let i = 0; i < name_array.length; i++){
         if(name_array[i] !== ""){
           let table = document.getElementById("relationship_table1");
           let row = table.insertRow();
@@ -344,7 +370,7 @@ function showNext() {
         }
       }
     
-      for(i = 0; i < name_array.length; i++){
+      for(let i = 0; i < name_array.length; i++){
         if(name_array[i] !== ""){
           let table1 = document.getElementById("relationship_table2");
           let row1 = table1.insertRow();
@@ -380,11 +406,15 @@ function showNext() {
       });
     }
   } 
+
+
+
   else if (currSlide === 7) {
-    // If user has not selected an option, alert with popups
+      // If user has not selected an option, alert with popup
+      
     let radio_button_object = $(".radio_relationship");
     let number_of_group_radio = 1;
-    for(i = 0; i < radio_button_object.length - 1; i++){
+    for(let i = 0; i < radio_button_object.length - 1; i++){
       if(radio_button_object[i].name != radio_button_object[i+1].name){
         number_of_group_radio = number_of_group_radio + 1;
       }
@@ -397,15 +427,16 @@ function showNext() {
     } else {
       checked = false;
       //Collect data before going on 
+
       collected_data.relationships.in_context = {};
       collected_data.relationships.often_talk_with = {};
       let talk_frequency_list = {};
       let table_1 = document.getElementById("relationship_table1");
       let number_of_rows = document.getElementById("relationship_table1").rows.length;
-      for(i = 1; i < number_of_rows; i++){
+      for(let i = 1; i < number_of_rows; i++){
         let key = table_1.rows[i].cells[0].innerHTML;
 
-        for(j = 1; j < 5; j++){
+        for(let j = 1; j < 5; j++){
           if(table_1.rows[i].cells[j].getElementsByTagName("input")[0].checked === true){
             if(j === 1){
               talk_frequency_list[key] = "Never";
@@ -431,12 +462,12 @@ function showNext() {
       let talk_context_list = {};
       let table_2 = document.getElementById("relationship_table2");
       number_of_rows = document.getElementById("relationship_table2").rows.length;
-      for(i = 1; i < number_of_rows; i++){
+      for(let i = 1; i < number_of_rows; i++){
         let key = table_2.rows[i].cells[0].innerHTML;
         if(!(key in talk_context_list)){
           talk_context_list[key] = [];
         }
-        for(j = 1; j < 5; j++){
+        for(let j = 1; j < 5; j++){
           if(table_2.rows[i].cells[j].getElementsByTagName("input")[0].checked === true){
             if(j === 1){
               talk_context_list[key].push("Work");
@@ -456,27 +487,77 @@ function showNext() {
         }
       }
       collected_data.relationships.in_context = talk_context_list;
-
-
-
       document.getElementById("relationships").style.display = "none";
       document.getElementById("relationships2").style.display = "none";
-      document.getElementById("network").style.display = "block";
-      let offset = $('#chart').offset();
-      let height = $('#chart').height();
-      let top = offset.top + height + 10 +  "px";
-      $('#Next').css({
-        'top': top
+ 
+ 
+
+
+      //Display the new slide
+      let ex7 = document.getElementById("UseOfSpace3");
+      //ex4.style.left = string_l + "px";
+      ex7.style.top = string_t;
+      ex7.style.display = "block";
+ 
+      $('.UOP3_map1').maphilight({
+        stroke: true,
+        strokeColor: 'ff0000',
+        strokeOpacity: 1,
+        strokeWidth: 1,
       });
-  
+ 
+      $('map').imageMapResize();
+ 
+      let top = FloorA1Offset.top + FloorA1height + 30 +  "px";
+      $('#Next').css({
+ 
+        'top': top 
+      });
+ 
       $('#Back').css({
         'top': top
       });
-      
       currSlide += 1;
     }
   }
+
   else if (currSlide === 8) {
+    document.getElementById("UseOfSpace3").style.display = "none";
+    
+    // This piece of code is used to intialize the network
+    if(is_first_time === true){
+      is_first_time = false;
+      entered_name_to_net = collected_data.relationships.contacted_with;
+      preprocess_name_list();
+      initial_network();
+    }
+    else{
+      if(is_name_list_changed()){
+        entered_name_to_net = collected_data.relationships.contacted_with;
+        d3.select("#network_layout").remove();
+        preprocess_name_list();
+        recreate_network();
+      }
+    }
+    //============================================================
+
+    document.getElementById("network").style.display = "block";
+    let offset = $('#chart').offset();
+    let height = $('#chart').height();
+    let top = offset.top + height + 10 +  "px";
+    $('#Next').css({
+      'top': top
+    });
+  
+    $('#Back').css({
+      'top': top
+    });
+    
+    currSlide += 1;
+  }
+
+
+  else if (currSlide === 9) {
 
     //Collected data before going on
     let connection_list = {};
@@ -486,24 +567,24 @@ function showNext() {
     let nodes_list = $('.nodelabel');
     let number_of_nodes = $('.nodelabel').length;
 
-    for(i = 0; i < number_of_nodes; i++){
+    for(let i = 0; i < number_of_nodes; i++){
       let x_node = Number(nodes_list[i].getAttribute('x'));
       let y_node = Number(nodes_list[i].getAttribute('y'));
       let node_name = nodes_list[i].textContent;
-      console.log(node_name)
+
       connection_list[node_name] = [];
       let x_upperbound = x_node + 0.1;
       let x_lowerbound = x_node - 0.1;
       let y_upperbound = y_node + 0.1;
       let y_lowerbound = y_node - 0.1;
 
-      for(j = 0; j < number_of_links; j++){
+      for(let j = 0; j < number_of_links; j++){
         let x1 = Number(links_list[j].getAttribute('x1'));
         let y1 = Number(links_list[j].getAttribute('y1'));
         let x2 = Number(links_list[j].getAttribute('x2'));
         let y2 = Number(links_list[j].getAttribute('y2'));
         if( (x_lowerbound <= x1) && (x1 <= x_upperbound ) && (y_lowerbound <= y1) && (y1 <= y_upperbound) ) {
-          for(k = 0; k < number_of_nodes; k ++){
+          for(let k = 0; k < number_of_nodes; k ++){
             let x2_node = Number(nodes_list[k].getAttribute('x'));
             let y2_node = Number(nodes_list[k].getAttribute('y'));
             let x2_upperbound = x2_node + 0.1;
@@ -520,7 +601,7 @@ function showNext() {
           }
         }
         else if((x_lowerbound <= x2) && (x2 <= x_upperbound ) && (y_lowerbound <= y2) && (y2 <= y_upperbound)){
-          for(k = 0; k < number_of_nodes; k ++){
+          for(let k = 0; k < number_of_nodes; k ++){
 
             let x1_node = Number(nodes_list[k].getAttribute('x'));
             let y1_node = Number(nodes_list[k].getAttribute('y'));
@@ -563,7 +644,7 @@ function showNext() {
       
       currSlide += 1;
   }
-  else if (currSlide === 9) {
+  else if (currSlide === 10) {
       // If user has not selected an option, alert with popup
 
     checked = false;
@@ -597,7 +678,6 @@ function goToFloorR1() {
   checked = false;
   document.getElementById("floorA1").style.display = "none";
   let ex4 = document.getElementById("floorR1");
-  ex4.style.top = string_t;
   ex4.style.display = "block";
 
   $('.map2').maphilight({
@@ -608,6 +688,31 @@ function goToFloorR1() {
   });
 
   $('map').imageMapResize();
+
+
+  if(clicked_area_id_R1 !== ""){
+    //This piece of code is used to display the colors of clicked areas
+    if(never_was_clicked_R1 === true){
+      let temp_data = {};
+      temp_data.strokeColor = "C1C240";
+      temp_data.strokeWidth = 5;
+      temp_data.fillColor = "FFE97F";
+      temp_data.fillOpacity = "0.4";
+      temp_data.alwaysOn = false;
+      $(clicked_area_id_R1).data('maphilight', temp_data).trigger('alwaysOn.maphilight'); 
+    }
+    else{
+      var data = {};
+      data.alwaysOn = true;
+      data.stroke = true;
+      data.strokeOpacity = 1;
+      data.strokeWidth = 1;
+      data.strokeColor = '00fdf0';
+      data.fillColor = chosenColorR1; 
+      data.fillOpacity = 0.65;
+      $(clicked_area_id_R1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+    }
+  }
 
 
   let offset = $('#R1Floor').offset();
@@ -626,11 +731,9 @@ function goToFloorR1() {
 
 function goToFloorR2() {
 
-
   checked = false;
   document.getElementById("floorR1").style.display = "none";
   let ex4 = document.getElementById("floorR2");
-  ex4.style.top = string_t;
   ex4.style.display = "block";
 
   $('.map3').maphilight({
@@ -641,6 +744,30 @@ function goToFloorR2() {
   });
 
   $('map').imageMapResize();
+
+  if(clicked_area_id_R2 !== ""){
+    //This piece of code is used to display the colors of clicked areas
+    if(never_was_clicked_R2 === true){
+      let temp_data = {};
+      temp_data.strokeColor = "C1C240";
+      temp_data.strokeWidth = 5;
+      temp_data.fillColor = "FFE97F";
+      temp_data.fillOpacity = "0.4";
+      temp_data.alwaysOn = false;
+      $(clicked_area_id_R2).data('maphilight', temp_data).trigger('alwaysOn.maphilight'); 
+    }
+    else{
+      var data = {};
+      data.alwaysOn = true;
+      data.stroke = true;
+      data.strokeOpacity = 1;
+      data.strokeWidth = 1;
+      data.strokeColor = '00fdf0';
+      data.fillColor = chosenColorR2; 
+      data.fillOpacity = 0.65;
+      $(clicked_area_id_R2).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+    }
+  }
 
   let offset = $('#R2Floor').offset();
   let height = $('#R2Floor').height();
@@ -659,35 +786,197 @@ function goToFloorR2() {
 
 function goToFloorA1() {
 
+  checked = false;
+  document.getElementById("floorR2").style.display = "none";
+  let ex4 = document.getElementById("floorA1");
+  ex4.style.display = "block";
 
-    checked = false;
-    document.getElementById("floorR2").style.display = "none";
-    let ex4 = document.getElementById("floorA1");
-    ex4.style.top = string_t;
-    ex4.style.display = "block";
+  $('.map1').maphilight({
+      stroke: true,
+      strokeColor: 'ff0000',
+      strokeOpacity: 1,
+      strokeWidth: 1,
+  });
 
-    $('.map1').maphilight({
-        stroke: true,
-        strokeColor: 'ff0000',
-        strokeOpacity: 1,
-        strokeWidth: 1,
-    });
+  $('map').imageMapResize();
 
-    $('map').imageMapResize();
+  if(clicked_area_id_A1 !== ""){
+    //This piece of code is used to display the colors of clicked areas
+    if(never_was_clicked_A1 === true){
+      let temp_data = {};
+      temp_data.strokeColor = "C1C240";
+      temp_data.strokeWidth = 5;
+      temp_data.fillColor = "FFE97F";
+      temp_data.fillOpacity = "0.4";
+      temp_data.alwaysOn = false;
+      $(clicked_area_id_A1).data('maphilight', temp_data).trigger('alwaysOn.maphilight'); 
+    }
+    else{
+      var data = {};
+      data.alwaysOn = true;
+      data.stroke = true;
+      data.strokeOpacity = 1;
+      data.strokeWidth = 1;
+      data.strokeColor = '00fdf0';
+      data.fillColor = chosenColorA1; 
+      data.fillOpacity = 0.65;
+      $(clicked_area_id_A1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+    }
+  }
 
-    let offset = $('#A1Floor').offset();
-    let height = $('#A1Floor').height();
-    let top = offset.top + height + 20 +  "px";
+  let offset = $('#A1Floor').offset();
+  let height = $('#A1Floor').height();
+  let top = offset.top + height + 20 +  "px";
 
-    $('#Next').css({
-        'top': top
-    });
+  $('#Next').css({
+      'top': top
+  });
 
-    $('#Back').css({
-        'top': top
-    });
+  $('#Back').css({
+      'top': top
+  });
+}
+
+
+
+function UOP3_goToFloorR1() {
+
+  checked = false;
+  document.getElementById("UOP3_floorA1").style.display = "none";
+  let ex4 = document.getElementById("UOP3_floorR1");
+  ex4.style.display = "block";
+
+  $('.UOP3_map2').maphilight({
+    stroke: true,
+    strokeColor: 'ff0000',
+    strokeOpacity: 1,
+    strokeWidth: 1,
+  });
+
+  $('map').imageMapResize();
+
+  if(Object.keys(collected_data.meet_places.floor_r1).length !== 0){
+    if(UOP3_clicked_area_id_R1 !== ""){
+
+      //This piece of code is used to display the colors of clicked areas
+      let data = {};
+      data.strokeColor = '00fdf0';
+      data.alwaysOn = true;
+      data.stroke = true;
+      data.strokeOpacity = 1;
+      data.strokeWidth = 1;
+      data.fillOpacity = 0.65;
+      data.fillColor = '56e5ff';  
+      $(UOP3_clicked_area_id_R1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+    }
+  }
+
+
+
+  let offset = $('#UOP3_R1Floor').offset();
+  let height = $('#UOP3_R1Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+    'top': top
+  });
+
+  $('#Back').css({
+    'top': top
+  });
 
 }
+
+function UOP3_goToFloorR2() {
+
+  checked = false;
+  document.getElementById("UOP3_floorR1").style.display = "none";
+  let ex4 = document.getElementById("UOP3_floorR2");
+  ex4.style.display = "block";
+
+  $('.UOP3_map3').maphilight({
+    stroke: true,
+    strokeColor: 'ff0000',
+    strokeOpacity: 1,
+    strokeWidth: 1,
+  });
+
+  $('map').imageMapResize();
+
+  if(Object.keys(collected_data.meet_places.floor_r2).length !== 0){
+    if(UOP3_clicked_area_id_R2 !== ""){
+      //This piece of code is used to display the colors of clicked areas
+      let data = {};
+      data.strokeColor = '00fdf0';
+      data.alwaysOn = true;
+      data.stroke = true;
+      data.strokeOpacity = 1;
+      data.strokeWidth = 1;
+      data.fillOpacity = 0.65;
+      data.fillColor = '56e5ff';  
+      $(UOP3_clicked_area_id_R2).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+    }
+  }
+
+  let offset = $('#UOP3_R2Floor').offset();
+  let height = $('#UOP3_R2Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+    'top': top
+  });
+
+  $('#Back').css({
+    'top': top
+  });
+
+}
+
+
+function UOP3_goToFloorA1() {
+  checked = false;
+  document.getElementById("UOP3_floorR2").style.display = "none";
+  let ex4 = document.getElementById("UOP3_floorA1");
+  ex4.style.display = "block";
+
+  $('.UOP3_map1').maphilight({
+      stroke: true,
+      strokeColor: 'ff0000',
+      strokeOpacity: 1,
+      strokeWidth: 1,
+  });
+
+  $('map').imageMapResize();
+
+  if(Object.keys(collected_data.meet_places.floor_rdc).length !== 0){
+    if(UOP3_clicked_area_id_A1 !== ""){
+      //This piece of code is used to display the colors of clicked areas
+      let data = {};
+      data.strokeColor = '00fdf0';
+      data.alwaysOn = true;
+      data.stroke = true;
+      data.strokeOpacity = 1;
+      data.strokeWidth = 1;
+      data.fillOpacity = 0.65;
+      data.fillColor = '56e5ff';  
+      $(UOP3_clicked_area_id_A1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+    }
+  }
+
+  let offset = $('#UOP3_A1Floor').offset();
+  let height = $('#UOP3_A1Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+      'top': top
+  });
+
+  $('#Back').css({
+      'top': top
+  });
+}
+
+
 
 function dataSubmission() {
   $.ajax({
@@ -704,5 +993,55 @@ function dataSubmission() {
 }
 
 
+function preprocess_name_list(){
+  contacts_list = collected_data.relationships.contacted_with;
+  initial_nodes = [];
+  let main_node = {id:"", label:"", initials:""};
+  main_node.id = 0;
+  let participant_name_array = collected_data.socio_question.name.split(' ');
+  main_node.label = collected_data.socio_question.name;
+  participant_name_array.forEach( function(element, index) {
+      // statements
+      main_node.initials += element.substring(0, 1).toUpperCase();
+  }); 
+  
+  initial_nodes.push(main_node);
+  
+  let i = 1;
+  collected_data.relationships.contacted_with.forEach( function(element, index) {
+    // statements
+    let people_name = element;
+    let name_as_array = people_name.split(' ');
+    let initials = "";
+    name_as_array.forEach( function(element, index) {
+      // statements
+      initials += element.substring(0, 1).toUpperCase();
+    }); 
+  
+    let node = {id:"", label:"", initials:""};
+    node.initials = initials;
+    node.label = people_name;
+    node.id = i;
+    i++;
+    
+    initial_nodes.push(node);
+  });
+}
 
+
+function is_name_list_changed(){
+  if(contacts_list.length !== collected_data.relationships.contacted_with.length){
+    return true;
+
+  }
+  else{
+    console.log("here");
+    for(let i = 0; i < contacts_list.length; i++){
+      if(contacts_list[i] !== collected_data.relationships.contacted_with[i]){
+        return true;
+      }
+    }
+    return false;
+  }
+}
 

@@ -71,6 +71,31 @@ function showPrevious() {
   else if (currSlide === 6) {
       // If user has not selected an option, alert with popup
     document.getElementById("UseOfSpace2").style.display = "block";
+
+    if(clicked_area_id !== ""){
+      //This piece of code is used to display the colors of clicked areas
+      if(never_was_clicked === true){
+        let temp_data = {};
+        temp_data.strokeColor = "C1C240";
+        temp_data.strokeWidth = 5;
+        temp_data.fillColor = "FFE97F";
+        temp_data.fillOpacity = "0.4";
+        temp_data.alwaysOn = false;
+        $(clicked_area_id).data('maphilight', temp_data).trigger('alwaysOn.maphilight'); 
+      }
+      else{
+        var data = {};
+        data.alwaysOn = true;
+        data.stroke = true;
+        data.strokeOpacity = 1;
+        data.strokeWidth = 1;
+        data.strokeColor = '00fdf0';
+        data.fillColor = chosen_color; 
+        data.fillOpacity = 0.65;
+        $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+      }
+    }
+
     let top = FloorA1Offset.top + FloorA1height + 10 +  "px";
     $('#Next').css({
       'top': top
@@ -116,11 +141,27 @@ function showPrevious() {
       'top': top
     });
 
-    var ex7 = document.getElementById("network");
+    var ex7 = document.getElementById("UseOfSpace3");
     ex7.style.display = "none";
     currSlide -= 1;
   }
   else if (currSlide === 9) {
+      // If user has not selected an option, alert with popup
+    document.getElementById("UseOfSpace3").style.display = "block";
+    let top = FloorA1Offset.top + FloorA1height + 30 +  "px";
+    $('#Next').css({
+      'top': top
+    });
+
+    $('#Back').css({
+      'top': top
+    });
+
+    var ex7 = document.getElementById("network");
+    ex7.style.display = "none";
+    currSlide -= 1;
+  }
+  else if (currSlide === 10) {
       // If user has not selected an option, alert with popup
     document.getElementById("network").style.display = "block";
     let offset = $('#chart').offset();
