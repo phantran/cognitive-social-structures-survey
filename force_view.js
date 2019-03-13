@@ -18,6 +18,7 @@ var outer = d3.select("#chart")
     .attr("height", height)
     .attr("pointer-events", "all");
 
+
 var vis = outer.append('svg:g')
                .on("mousemove", mousemove)
                .on("mousedown", mousedown)
@@ -39,7 +40,6 @@ var force = d3.layout.force()
 var nodelabels;
 var nodeInitials;
 var is_first_time = true;
-
 
 // get layout properties
 var nodes = force.nodes(),
@@ -439,15 +439,7 @@ function redraw() {
     // prevent browser's default behavior
     d3.event.preventDefault();
   }
-
-  //if(nodes.length === 0){
-  //  drag_line = vis.append("line")
-  //               .attr("class", "drag_line")
-  //               .attr("x1", 0)
-  //               .attr("y1", 0)
-  //               .attr("x2", 0)
-  //               .attr("y2", 0);
-  //}  
+ 
   force.start();
 
 }
@@ -474,43 +466,57 @@ function keydown() {
       else if(selected_node){
         //node_is_added_or_deleted = true;
         let index_tobe_removed = nodes.indexOf(selected_node);
-        nodes.splice(index_tobe_removed, 1);
-        let removed_label_id = "#" + nodelabels[0][index_tobe_removed].id;
-        let removed_initial_id = removed_label_id + "1";
-        nodelabels[0].splice(index_tobe_removed, 1);
-        nodeInitials[0].splice(index_tobe_removed, 1);
-        
-        $(removed_label_id).remove();
-        $(removed_initial_id).remove();
+        //Remove the name from entered_name_to_net 
 
-        //Remove links connected to the selected node 
-        if(links.length !== 0){
-          for(let i = 0; i < links.length; i++){
-            if(links[i].source.label === selected_node.label){
-              links.splice(i, 1);
-              i = i - 1;
+
+
+        let temp_label = nodes[index_tobe_removed].label;
+        if(initial_name_list.includes(temp_label) === false && temp_label !== collected_data.socio_question.name){
+          let temp_index = entered_name_to_net.indexOf(temp_label);
+          if(temp_index >= 0) {
+            entered_name_to_net.splice(temp_index, 1);
+          }
+          //=======================================
+          nodes.splice(index_tobe_removed, 1);
+          let removed_label_id = "#" + nodelabels[0][index_tobe_removed].id;
+          let removed_initial_id = removed_label_id + "1";
+          nodelabels[0].splice(index_tobe_removed, 1);
+          nodeInitials[0].splice(index_tobe_removed, 1);
+        
+  
+          $(removed_label_id).remove();
+          $(removed_initial_id).remove();
+  
+          //Remove links connected to the selected node 
+          if(links.length !== 0){
+            for(let i = 0; i < links.length; i++){
+              if(links[i].source.label === selected_node.label){
+                links.splice(i, 1);
+                i = i - 1;
+              }
+            }
+           
+            for(let i = 0; i < links.length; i++){
+              if(links[i].target.label === selected_node.label){
+                links.splice(i, 1);
+                i = i - 1;
+              }
             }
           }
-         
-          for(let i = 0; i < links.length; i++){
-            if(links[i].target.label === selected_node.label){
-              links.splice(i, 1);
-              i = i - 1;
-            }
-          }
+  
+  
+          
+
+          
+  
+          selected_node = null;
+          redraw();
         }
-
-        
-        
         drag_line.attr("class", "drag_line")
-                     .attr("x1", 0)
-                     .attr("y1", 0)
-                     .attr("x2", 0)
-                     .attr("y2", 0);
-        
-
-        selected_node = null;
-        redraw();
+             .attr("x1", 0)
+             .attr("y1", 0)
+             .attr("x2", 0)
+             .attr("y2", 0);
       }
       break;
     }

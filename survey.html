@@ -65,7 +65,7 @@
           boxbar_offset_x = 10,
           boxbar_offset_y = bodyHeight - bar_target_height - 100;
 
-      var slide6_is_reached = false;
+
       var clicked_back = false;
       var contact_order = 0;
       var relationship_name = 1;
@@ -89,7 +89,7 @@
           kinderhulpColor = '#c8b6db',
           kinderpraatColor = '#ef8f8f',
           answerColor = '#abff48';
-        
+
       var startTime;
       var answers = [];
 
@@ -160,11 +160,15 @@
                                     lab_2_5 :"",
                                     extra_space_3 :""}
                   },
-                  relationships:{contacted_with:[], often_talk_with:{}, in_context:{} },
+                  relationships:{contacted_with:[], often_talk_with:{}, in_context:{}},
                   meet_places:{floor_rdc:{}, floor_r1:{}, floor_r2:{}},
-                  network_data: {} };
+                  network_data: {},
+                  who_likes_whom:{who_you_like:[], tbd_question1:{}, tbd_question2:{}},
+                  meet_places_2:{floor_rdc:{}, floor_r1:{}, floor_r2:{}},
+                  network_data_2: {}};
 
       var contacts_list = [];
+      var initial_name_list = [];
       var clicked_area_id = "";
       var FloorA1Offset = 0;
       var FloorA1height = 0;
@@ -182,7 +186,8 @@
       var initial_nodes = [{id:0, initials:"You", label:"You"}];
       var availableTags = ["Lebron James","Tran Phan","Tony Parker"];
       var entered_name_to_net = [];
-
+      var is_first_time = true;
+      
       //Variable for image mapping 2
       var UOP3_clicked_area_id = "";
       var UOP3_clicked_area_id_A1 = "";
@@ -192,6 +197,23 @@
       var UOP3_clear_save_was_clicked_A1 = false;
       var UOP3_clear_save_was_clicked_R1 = false;
       var UOP3_clear_save_was_clicked_R2 = false;
+
+
+
+      var WLW_clicked_area_id = "";
+      var WLW_clicked_area_id_A1 = "";
+      var WLW_clicked_area_id_R1 = "";
+      var WLW_clicked_area_id_R2 = "";
+      var WLW_clear_save_was_clicked = false;
+      var WLW_clear_save_was_clicked_A1 = false;
+      var WLW_clear_save_was_clicked_R1 = false;
+      var WLW_clear_save_was_clicked_R2 = false;
+
+      //WLW network part$
+      var wlw_is_first_time = true;
+      var WLW_entered_name_to_net = [];
+      var WLW_contacts_list = [];
+      var WLW_initial_name_list = [];
 
     </script>
     <script src="ie.js"></script>
@@ -211,7 +233,9 @@
       <li id="menuFifthItem" data-action = "fifth">Never</li>
     </ul>
 
-
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+    </div>
 
     <div class="custom-menu1">
       <ul>
@@ -559,10 +583,10 @@
 
 
     <div class="input-group" id="relationships">
-      <form id="relShips">
+      <form>
         <h3>Relationships</h3> </br>
         <h5>Who do you have contacted with?</h5></br>
-        <div id=addRelationships class="form-group">
+        <div class="form-group" id="addRelationships">
           <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact0" placeholder="Enter a name"></span><br>
         </div>
       </form>
@@ -572,11 +596,25 @@
     </div>
     
 
+
+    <div class="input-group" id="relationships3">
+      <form>
+        <h3>Who likes whom</h3> </br>
+        <h5>Who do you like?</h5></br>
+        <div class="form-group" id="addRelationships3">
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact0" placeholder="Enter a name"></span><br>
+        </div>
+      </form>
+      <div>
+        <button id="addMore3" class="btn btn-secondary">Add more</button>
+      </div>
+    </div>
+
     <script> 
       $(function() {    
           $( function() {    } );
-          $( ".InputPeopleName" ).autocomplete({source: availableTags});
-          $( "#more_name" ).autocomplete({source: availableTags});
+          $(".InputPeopleName").autocomplete({source: availableTags});
+          $("#more_name").autocomplete({source: availableTags});
           $("#input_name").autocomplete({source: availableTags});
       });
     </script>
@@ -584,7 +622,7 @@
 
 
     <div class="input-group" id="relationships2">
-      <form id="relShips2">
+      <form>
         <h3>Relationships</h3></br>
         <h5>How often do you talk with?</h5>
           <table class="responsive-table-input-matrix" id="relationship_table1">
@@ -611,9 +649,36 @@
       </form>
     </div>
 
+    <div class="input-group" id="relationships4">
+      <form>
+        <h3>Who likes whom</h3></br>
+        <h5>How often? (will be replaced)</h5>
+          <table class="responsive-table-input-matrix" id="rl4_relationship_table1">
+            <tr>
+              <th></th>
+              <th>Never</th> 
+              <th>Rarely</th>
+              <th>Sometimes</th>
+              <th>Often</th>
+            </tr>
+          </table> </br> </br> 
 
-<div id="UseOfSpace3">
 
+        <h5>In what context? (will be replaced)</h5>
+          <table class="responsive-table-input-matrix" id="rl4_relationship_table2">
+            <tr>
+              <th></th>
+              <th>At Work</th> 
+              <th>Social Network</th>
+              <th>University</th>
+              <th>Neighborhood</th>
+            </tr>
+          </table>
+      </form>
+    </div>
+
+
+    <div id="UseOfSpace3">
       <h3>Use of space 2</h3>
       <h6> Where do you meet those people? Click on an area and choose the names of people who you usually meet in that area</h6>
 
@@ -709,24 +774,129 @@
 
 
 
+
+    <div id="WLW_Space">
+      <h3>Who like whom spaces</h3>
+      <h6> Where do you meet those people? Click on an area and choose the names of people who you usually meet in that area</h6>
+
+      <div id="WLW_floorA1">
+        <img src="/Assets/A1_RDC.png" class="WLW_map1" alt="A1 Floor" id="WLW_A1Floor"  usemap="#WLW_floorplanA1">
+        <map name="WLW_floorplanA1">
+          <area  id="WLW_meeting_room_castex" alt="meeting_room_castex" title="meeting_room_castex" href="" coords="273,77,623,208,623,412,581,391,532,369,483,353,423,342,360,342,315,346,275,361" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_meeting_room_gay_lussac" alt="meeting_room_gay_lussac" title="meeting_room_gay_lussac" href="" coords="275,597,275,359,317,346,358,340,423,340,424,595" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_meeting_room_tour_maubourg" alt="meeting_room_tour_maubourg" title="meeting_room_tour_maubourg" href="" coords="481,595,483,352,532,363,568,382,625,414,630,595" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_coffee_zone" alt="coffee_zone" title="coffee_zone" href="" coords="269,760,640,873" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_cafeteria" alt="cafeteria" title="cafeteria" href="" coords="1024,603,640,871" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_main_courtyard" alt="main_courtyard" title="main_courtyard" href="" coords="640,212,642,603,1024,603,1027,756,1196,754,1194,414" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_agoranov_open_office" alt="agoranov_open_office" title="agoranov_open_office" href="" coords="1217,423,1215,873,1487,873,1487,522" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_agoranov_office_1" alt="agoranov_office_1" title="agoranov_office_1" href="" coords="1657,582,1489,522,1489,669,1655,669" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_agoranov_office_2" alt="agoranov_office_2" title="agoranov_office_2" href="" coords="1657,803,1657,671,1489,669,1489,803" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_second_courtyard" alt="second_courtyard" title="second_courtyard" href="" coords="1846,652,2001,705,2041,775,2035,792,1959,807,1993,1092,2007,1094,2028,1155,1869,1210,1846,1045" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_agoranov_office_3" alt="agoranov_office_3" title="agoranov_office_3" href="" coords="1680,1272,1678,1007,1778,1007,1831,1038,1850,1212" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_playing_room" alt="playing_room" title="playing_room" href="" coords="1880,1370,2045,1593" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_lounge_toudic" alt="lounge_toudic" title="lounge_toudic" href="" coords="1332,1009,1472,1123" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_lounge_kennedy" alt="lounge_kennedy" title="lounge_kennedy" href="" coords="1330,1232,1472,1125" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_lounge_scott" alt="lounge_scott" title="lounge_scott" href="" coords="1330,1346,1330,1234,1474,1234,1470,1297,1491,1295,1493,1238,1659,1238,1659,1291,1489,1348" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_box_1" alt="box_1" title="box_1" href="" coords="1041,1024,1156,1111" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_box_2" alt="box_2" title="box_2" href="" coords="1041,1136,1156,1219" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_box_3" alt="box_3" title="box_3" href="" coords="1043,1244,1156,1331" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_talking_zone_1" alt="talking_zone_1" title="talking_zone_1" href="" coords="903,1026,1018,1111" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_box_4" alt="box_4" title="box_4" href="" coords="905,1134,1020,1223" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_box_5" alt="box_5" title="box_5" href="" coords="906,1242,1020,1329" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_box_6" alt="box_6" title="box_6" href="" coords="640,1026,755,1111" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_box_7" alt="box_7" title="box_7" href="" coords="640,1121,755,1206" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_box_8" alt="box_8" title="box_8" href="" coords="640,1230,755,1319" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_box_9" alt="box_9" title="box_9" href="" coords="508,1026,621,1109" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_talking_zone_2" alt="talking_zone_2" title="talking_zone_2" href="" coords="509,1123,623,1208" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_box_10" alt="box_10" title="box_10" href="" coords="511,1232,623,1317" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_extra_space"  alt="extra_space" title="extra_space" href="" coords="286,886,390,1342" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area  id="WLW_agoranov_office_4"    alt="agoranov_office_4" title="agoranov_office_4" href="" coords="54,1533,207,1675" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+        </map>
+        <div>
+          <input type="button" id="WLW_ChangeFloorR1"  class="btn btn-secondary"  value="Go to floor R1" onclick="WLW_goToFloorR1();"/> 
+        </div>
+      </div>
+
+
+      <div id="WLW_floorR1">
+        <img src="/Assets/R1_RDC.png" alt="R1 Floor" id="WLW_R1Floor" class="WLW_map2" usemap="#WLW_floorplanR1">
+        <map name="WLW_floorplanR1">
+          <area id='WLW_office_1_1' target="" alt="office_1_1" title="office_1_1" href="" coords="267,745,394,926" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_1_2' target="" alt="office_1_2" title="office_1_2" href="" coords="401,748,399,952,495,954,495,995,603,995,605,745" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_1_3' target="" alt="office_1_3" title="office_1_3" href="" coords="611,745,609,992,768,992,768,952,891,954,893,748" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_1_4' target="" alt="office_1_4" title="office_1_4" href="" coords="899,745,1069,992" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_1_5' target="" alt="office_1_5" title="office_1_5" href="" coords="1073,748,1228,992" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_lab1_1' target="" alt="lab1_1" title="lab1_1" href="" coords="1234,748,1692,990" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_library' target="" alt="library" title="library" href="" coords="1494,125,1494,700,1735,700,1739,627,2018,627,2018,715,2070,718,2070,335" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_agoranov_5' target="" alt="office_agoranov_5" title="office_agoranov_5" href="" coords="2096,735,2339,988" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_resting_room' target="" alt="resting_room" title="resting_room" href="" coords="1832,913,1900,913,1905,889,2072,892,2070,1087,1834,1087" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_lab1_2' target="" alt="lab1_2" title="lab1_2" href="" coords="1647,1164,1825,1343" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_1_6' target="" alt="office_1_6" title="office_1_6" href="" coords="1251,1100,1254,1209,1404,1207,1408,1341,1638,1343,1634,1102" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_1_7' target="" alt="office_1_7" title="office_1_7" href="" coords="1254,1216,1398,1341" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_1_8' target="" alt="office_1_8" title="office_1_8" href="" coords="1097,1214,1245,1343" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_1_9' target="" alt="office_1_9" title="office_1_9" href="" coords="736,1104,1245,1106,1243,1205,1084,1207,1090,1340,736,1340" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_1_10' target="" alt="office_1_10" title="office_1_10" href="" coords="426,1102,727,1341" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_1_11' target="" alt="office_1_11" title="office_1_11" href="" coords="270,1225,414,1345" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+        </map>
+
+        <div>
+          <input type="button" id="WLW_ChangeFloorR2"  class="btn btn-secondary"  value="Go to floor R2" onclick="WLW_goToFloorR2();"/> 
+        </div>
+      </div>
+
+
+      <div id="WLW_floorR2">
+        <img src="/Assets/R2_RDC.png" alt="R2 Floor" id="WLW_R2Floor" class="WLW_map3" usemap="#WLW_floorplanR2">
+        <map name="WLW_floorplanR2">
+          <area id='WLW_extra_space_2' target="" alt="extra_space_2" title="extra_space_2" href="" coords="263,739,402,928" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_2_1' target="" alt="office_2_1" title="office_2_1" href="" coords="410,741,551,993" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_2_2' target="" alt="office_2_2" title="office_2_2" href="" coords="560,741,730,995" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_2_3' target="" alt="office_2_3" title="office_2_3" href="" coords="738,741,908,993" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_2_4' target="" alt="office_2_4" title="office_2_4" href="" coords="917,741,1085,995" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_2_5' target="" alt="office_2_5" title="office_2_5" href="" coords="1091,743,1257,995" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_office_2_6' target="" alt="office_2_6" title="office_2_6" href="" coords="1269,745,1438,995" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_open_office_2' target="" alt="open_office_2" title="open_office_2" href="" coords="1508,716,1510,110,2092,322,2104,615,1851,615,1747,712" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_lab_2_1' target="" alt="lab_2_1" title="lab_2_1" href="" coords="1855,968,1926,964,1926,880,2092,881,2096,1088,1853,1084" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_lab_2_2' target="" alt="lab_2_2" title="lab_2_2" href="" coords="1448,1088,1654,1092,1652,1159,1849,1161,1851,1346,1448,1342" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_lab_2_3' target="" alt="lab_2_3" title="lab_2_3" href="" coords="1093,1088,1440,1090,1440,1348,1091,1348" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_lab_2_4' target="" alt="lab_2_4" title="lab_2_4" href="" coords="744,1086,1083,1090,1081,1344,744,1346" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_lab_2_5' target="" alt="lab_2_5" title="lab_2_5" href="" coords="393,1082,734,1088,734,1342,265,1342,263,1152,393,1150" shape="poly" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+          <area id='WLW_extra_space_3' target="" alt="extra_space_3" title="extra_space_3" href="" coords="57,1150,254,1341" shape="rect" data-maphilight='{"strokeColor":"C1C240","strokeWidth":5,"fillColor":"FFE97F","fillOpacity":0.4}'>
+        </map>
+        <div>
+          <input type="button" id="WLW_ChangeFloorA1"  class="btn btn-secondary"  value="Go to floor A1" onclick="WLW_goToFloorA1();"/>
+        </div>
+      </div>
+    </div>
+
+
     <div id="network">
-      <span class="slideText"> <font size="10px"><b><center>Other Relationships</center></b> </font></span>
-      <span class="slideText"><center>There are all the people who use the space, who do you think work together? Click on a node and drag the link to another node to create a connnection.<br> A link can be removed by clicking on it and press the backspace key or the delete key on your keyboard. Below is the initial network which is based on your input (who do you talk with?). Please note that if you go back and change your input in the "who do you talk with" slide, the network will be reset, etc... (more instructions) </center></span>
+      <div>
+      <h3>Other Relationships</h3>
+      <h6>There are all the people who use the space, who do you think work together? Click on a node and drag the link to another node to create a connnection.<br> A link can be removed by clicking on it and press the backspace key or the delete key on your keyboard. Below is the initial network which is based on your input (who do you talk with?). Please note that if you go back and change your input in the "who do you talk with" slide, the network will be reset, you cannot delete the nodes and links of the initial network, etc... (more instructions) </h6>
+      </div>
       <div id="chart">
-        <input type="text" id="more_name" placeholder="Enter a name">
-        <button id="add_node">Add Node</button>
+        <div class="input-group mb-3" id="add_node_to_net">
+          <input type="text" id="more_name" class="form-control col-sm-6" placeholder="Enter a name" aria-describedby="add_node">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" type="button" id="add_node">Add Node</button>
+          </div>
+        </div>
       </div>
       <script src="force_view.js"></script>
     </div>
 
 
+
+
+
     <div id="slide8">
-      <span class="slideText"><center>This is the end of the survey. Please click the submit button so that we can collect the data!</center></span>
+      <h5><center>This is the end of the survey. Please click the submit button so that we can collect the data!</center></h5>
     </div>
 
 
     <div id="slide9">
-      <span class="slideText"><center>Thank you very much for your participation!</center></span>
+      <h5><center>Thank you very much for your participation!</center></h5>
     </div>
 
     <div class="popop_box" id="nonresponse_box">
@@ -900,6 +1070,77 @@
               }  
             }
           }
+          else if(document.getElementById("WLW_Space").style.display === "block"){
+            WLW_clicked_area_id = "#" + this.id;
+            $(".custom-menu1").finish().toggle(100).
+            // In the right position (the mouse)
+            css({
+              top: clickEvent.pageY + "px",
+              left: clickEvent.pageX + "px"
+            });
+
+            let area_name = $(WLW_clicked_area_id).attr("title");
+            if($('#WLW_floorA1').css("display") === "block"){
+              if(collected_data.meet_places_2.floor_rdc[area_name] !== undefined){
+                //First clear all checkboxes
+                for(let j = 0; j < $(".check_box_people_name").length; j++){
+                  $(".check_box_people_name")[j].checked = false;
+                }
+                //next is to check all checkboxes that have been checked before
+                for(let j = 0; j < $(".check_box_people_name").length; j++){
+                  if(collected_data.meet_places_2.floor_rdc[area_name].includes($(".check_box_people_name")[j].value)){
+                    $(".check_box_people_name")[j].checked = true;
+                  }
+                }
+              }
+              else{
+                //clear all checkboxes if it was never clicked and saved before
+                for(let j = 0; j < $(".check_box_people_name").length; j++){
+                  $(".check_box_people_name")[j].checked = false;
+                }
+              }              
+            }
+            else if($('#WLW_floorR1').css("display") === "block"){
+              if(collected_data.meet_places_2.floor_r1[area_name] !== undefined){
+                //First clear all checkboxes
+                for(let j = 0; j < $(".check_box_people_name").length; j++){
+                  $(".check_box_people_name")[j].checked = false;
+                }
+                //next is to check all checkboxes that have been checked before
+                for(let j = 0; j < $(".check_box_people_name").length; j++){
+                  if(collected_data.meet_places_2.floor_r1[area_name].includes($(".check_box_people_name")[j].value)){
+                    $(".check_box_people_name")[j].checked = true;
+                  }
+                }
+              }
+              else{
+                //clear all checkboxes if it was never clicked and saved before
+                for(let j = 0; j < $(".check_box_people_name").length; j++){
+                  $(".check_box_people_name")[j].checked = false;
+                }
+              }              
+            }
+            else if($('#WLW_floorR2').css("display") === "block"){
+              if(collected_data.meet_places_2.floor_r2[area_name] !== undefined){
+                //First clear all checkboxes
+                for(let j = 0; j < $(".check_box_people_name").length; j++){
+                  $(".check_box_people_name")[j].checked = false;
+                }
+                //next is to check all checkboxes that have been checked before
+                for(let j = 0; j < $(".check_box_people_name").length; j++){
+                  if(collected_data.meet_places_2.floor_r2[area_name].includes($(".check_box_people_name")[j].value)){
+                    $(".check_box_people_name")[j].checked = true;
+                  }
+                }
+              }
+              else{
+                //clear all checkboxes if it was never clicked and saved before
+                for(let j = 0; j < $(".check_box_people_name").length; j++){
+                  $(".check_box_people_name")[j].checked = false;
+                }
+              }  
+            }
+          }
         });
 
 
@@ -934,10 +1175,41 @@
         });
 
 
+        $('#addMore3').click(function(event){
+          event.preventDefault();
+          //Check if the entered name is the same as participant's name
+          let previous_text_box_id = "#rl3_input_contact"+ contact_order;
+          let entered_name = $(previous_text_box_id).val();
+          if(entered_name === collected_data.socio_question.name){
+            return;
+          }
+
+          contact_order = contact_order + 1;
+          var objTo = document.getElementById('addRelationships3');
+          var divtest = document.createElement("div");
+          divtest.innerHTML = '<input class="InputPeopleName3 form-control" type="text" name="contact" id="rl3_input_contact'+ contact_order + '"'+ 'placeholder="Enter a name"> </span><br>';
+          objTo.appendChild(divtest);
+          $(function() {
+              $( function(){});
+              $( ".InputPeopleName3" ).autocomplete({source: availableTags});
+          });
+          let offset = $('#relationships3').offset();
+          let height = $('#relationships3').height();
+          let top = offset.top + height + 10 +  "px";
+          $('#Next').css({
+            'top': top
+          });
+
+          $('#Back').css({
+            'top': top
+          });
+        });
+
+
         $('#add_node').click(function(event){
             event.preventDefault();
             let input_name_to_net = $('#more_name').val();
-            if(input_name_to_net !== ""){
+            if(input_name_to_net !== "" && input_name_to_net !== collected_data.socio_question.name){
               if(availableTags.includes(input_name_to_net)){
                 if(!entered_name_to_net.includes(input_name_to_net)){
                   entered_name_to_net.push(input_name_to_net);
@@ -945,7 +1217,8 @@
                 }
               } 
             }
-        });
+        }); 
+
 
       });
     </script>

@@ -41,7 +41,7 @@ g#0 {
   display: none;
 }
 
-#relationships, #relationships2 {
+#relationships, #relationships2, #relationships3, #relationships4 {
   position: absolute;
   display: none;
 }
@@ -471,7 +471,7 @@ ul {
 
 
 /*Use of space 3 part*/
-.UOP3_map1, .UOP3_map2, .UOP3_map3{
+.UOP3_map1, .UOP3_map2, .UOP3_map3, .WLW_map1, .WLW_map2, .WLW_map3{
   position: absolute;
   margin:auto;
   display: block;
@@ -482,7 +482,7 @@ ul {
 
 }
 
-#UseOfSpace3{
+#UseOfSpace3, #WLW_Space{
   position:absolute;
   top: 0px;
   left:0px;
@@ -492,7 +492,7 @@ ul {
   display:none;
 }
 
-#UOP3_floorA1{
+#UOP3_floorA1, #WLW_floorA1{
   position: relative;
   margin: auto;
   max-width: 70%;
@@ -501,7 +501,7 @@ ul {
   bottom: 150px;
 }
 
-#UOP3_A1Floor{
+#UOP3_A1Floor, #WLW_A1Floor{
   position: absolute;
   margin:auto;
   display: block;
@@ -510,26 +510,7 @@ ul {
   max-width: 100%;
 }
 
-#UOP3_floorR1{
-  position: relative;
-  margin: auto;
-  max-width: 70%;
-  text-align: center;
-  top: 80px;
-  bottom: 150px;
-  display: none;
-}
-
-#UOP3_R1Floor{
-  position: absolute;
-  margin:auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-}
-
-#UOP3_floorR2{
+#UOP3_floorR1, #WLW_floorR1{
   position: relative;
   margin: auto;
   max-width: 70%;
@@ -539,7 +520,26 @@ ul {
   display: none;
 }
 
-#UOP3_R2Floor{
+#UOP3_R1Floor, #WLW_R1Floor{
+  position: absolute;
+  margin:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+#UOP3_floorR2, #WLW_floorR2{
+  position: relative;
+  margin: auto;
+  max-width: 70%;
+  text-align: center;
+  top: 80px;
+  bottom: 150px;
+  display: none;
+}
+
+#UOP3_R2Floor, #WLW_R2Floor{
   position: absolute;
   margin:auto;
   display: block;
@@ -549,19 +549,19 @@ ul {
 }
 
 
-#UOP3_ChangeFloorR1{
+#UOP3_ChangeFloorR1, #WLW_ChangeFloorR1{
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
-#UOP3_ChangeFloorR2{
+#UOP3_ChangeFloorR2, #WLW_ChangeFloorR2{
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
-#UOP3_ChangeFloorA1{
+#UOP3_ChangeFloorA1, #WLW_ChangeFloorA1{
   position: absolute;
   top: 10px;
   right: 10px;
@@ -570,23 +570,20 @@ ul {
 /*====================================*/
 
 
-
-
-
-
 /*Network part*/
 #network{
   position: absolute;
-  top:0;
+  top:40px;
   bottom: 80px;
   left:0;
   right:0;
+  text-align: center;
   display:none;
 }
 
 #chart{
   position: absolute;
-  top:20%;
+  top:17%;
   bottom: 0;
   margin: auto;
 }
@@ -642,22 +639,14 @@ ul {
 }
 
 
-#add_node{
+#add_node_to_net{
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 15px;
-  color: blue;
 }
-
-#more_name{
-  position: absolute;
-  top: 20px;
-  left: 125px;
-  font-size: 15px;
-}
-
 /*====================================*/
+
+
 
 
 
@@ -763,7 +752,13 @@ only screen and (max-width: 760px),
 
 /*==============================================*/
 
+.progress{
+  position:absolute;
+  left:20px;
+  right:20px;
+  top: 10px;
 
+}
 
 
 #finalSubmitButton{

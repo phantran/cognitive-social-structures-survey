@@ -65,8 +65,14 @@ function showNext() {
         collected_data.socio_question.research_field = document.getElementById("input_research_field").value;
         collected_data.socio_question.current_position = document.getElementById("input_position").value;
 
+
+
         //Display the new slide
         document.getElementById("personalInformation").style.display = "none";
+
+        $(".progress-bar")[0].setAttribute("aria-valuenow","9");
+        $(".progress-bar")[0].setAttribute('style',"width:9%");
+
         var ex3 = document.getElementById("UseOfSpace");
         ex3.style.left = string_l + "px";
         ex3.style.top = string_t;
@@ -156,6 +162,8 @@ function showNext() {
 
         //Display the new slide
         document.getElementById("UseOfSpace").style.display = "none";
+        $(".progress-bar")[0].setAttribute("aria-valuenow","18");
+        $(".progress-bar")[0].setAttribute('style',"width:18%");
         var ex4 = document.getElementById("UseOfSpace2");
         //ex4.style.left = string_l + "px";
         ex4.style.top = string_t;
@@ -285,12 +293,14 @@ function showNext() {
 
     //Displaying the new slide
     document.getElementById("UseOfSpace2").style.display = "none";
-    var ex5 = document.getElementById("relationships");
+    $(".progress-bar")[0].setAttribute("aria-valuenow","27");
+    $(".progress-bar")[0].setAttribute('style',"width:27%");
+    let ex5 = document.getElementById("relationships");
     ex5.style.left = string_l + "px";
     ex5.style.top = string_t;
     ex5.style.display = "block";
 
-
+    contact_order = 0;
     let offset = $('#relationships').offset();
     let height = $('#relationships').height();
     let top = offset.top + height + 10 +  "px";
@@ -308,7 +318,6 @@ function showNext() {
   }
   else if (currSlide === 6) {
       // If user has not selected an option, alert with popup
-    slide6_is_reached = true;
     if (($('#input_contact0').val() === "") && (checked === false) ) {
       promptNonresponse();
       checked = true;
@@ -388,6 +397,9 @@ function showNext() {
         }
       }
     
+
+      $(".progress-bar")[0].setAttribute("aria-valuenow","36");
+      $(".progress-bar")[0].setAttribute('style',"width:36%");
       let ex6 = document.getElementById("relationships2");
       ex6.style.left = string_l + "px";
       ex6.style.top = string_t;
@@ -491,7 +503,8 @@ function showNext() {
       document.getElementById("relationships2").style.display = "none";
  
  
-
+      $(".progress-bar")[0].setAttribute("aria-valuenow","45");
+      $(".progress-bar")[0].setAttribute('style',"width:45%");
 
       //Display the new slide
       let ex7 = document.getElementById("UseOfSpace3");
@@ -527,20 +540,31 @@ function showNext() {
     // This piece of code is used to intialize the network
     if(is_first_time === true){
       is_first_time = false;
-      entered_name_to_net = collected_data.relationships.contacted_with;
+      entered_name_to_net = [];
+      initial_name_list = [];
+      for(let i = 0; i < collected_data.relationships.contacted_with.length; i++){
+        entered_name_to_net.push(collected_data.relationships.contacted_with[i]);
+        initial_name_list.push(collected_data.relationships.contacted_with[i]);
+      }
       preprocess_name_list();
       initial_network();
     }
     else{
       if(is_name_list_changed()){
-        entered_name_to_net = collected_data.relationships.contacted_with;
+        entered_name_to_net = [];
+        initial_name_list = [];
+        for(let i = 0; i < collected_data.relationships.contacted_with.length; i++){
+          entered_name_to_net.push(collected_data.relationships.contacted_with[i]);
+          initial_name_list.push(collected_data.relationships.contacted_with[i]);
+        }
         d3.select("#network_layout").remove();
         preprocess_name_list();
         recreate_network();
       }
     }
     //============================================================
-
+    $(".progress-bar")[0].setAttribute("aria-valuenow","54");
+    $(".progress-bar")[0].setAttribute('style',"width:54%");
     document.getElementById("network").style.display = "block";
     let offset = $('#chart').offset();
     let height = $('#chart').height();
@@ -625,6 +649,302 @@ function showNext() {
 
 
     document.getElementById("network").style.display = "none";
+    $(".progress-bar")[0].setAttribute("aria-valuenow","63");
+    $(".progress-bar")[0].setAttribute('style',"width:63%");
+
+    let ex5 = document.getElementById("relationships3");
+    contact_order = 0;
+    ex5.style.left = string_l + "px";
+    ex5.style.top = string_t;
+    ex5.style.display = "block";
+
+
+    let offset = $('#relationships3').offset();
+    let height = $('#relationships3').height();
+    let top = offset.top + height + 10 +  "px";
+
+    $('#Next').css({
+      'top': top
+    });
+
+    $('#Back').css({
+      'top': top
+    });
+    currSlide += 1;
+
+
+  }
+  else if(currSlide === 10){
+
+    if (($('#rl3_input_contact0').val() === "") && (checked === false) ) {
+      promptNonresponse();
+      checked = true;
+    } else {
+      checked = false;
+
+      //Collect data before going on
+      //reset contact order variable
+      
+      collected_data.who_likes_whom.who_you_like = [];
+      let number_of_text_box = $('.InputPeopleName3').length;
+      for(let i = 0; i < number_of_text_box; i++){
+        let text_box_id = "#rl3_input_contact" + i;
+        let text_box_content = $(text_box_id).val();
+        if(text_box_content !== ""){
+          collected_data.who_likes_whom.who_you_like.push(text_box_content);
+        }
+      }
+
+      //Displaying the new slide 
+      // Clean the table before adding new rows
+      let count = document.getElementById("rl4_relationship_table1").rows.length;
+  
+      while(count > 1){
+        let r = count;
+
+        document.getElementById("rl4_relationship_table1").deleteRow(r-1);
+        document.getElementById("rl4_relationship_table2").deleteRow(r-1);
+        count = count - 1;
+      }
+
+      // Adding new rows corresponding to people names
+      let name_array = [];
+      let number_of_names = $("#addRelationships3 input").length;
+
+      for(let i = 0; i < number_of_names; i++){
+        let name_input_id = 'rl3_input_contact' + i.toString();
+        name_array.push(document.getElementById(name_input_id).value);
+      }
+      document.getElementById("relationships3").style.display = "none";
+
+      
+      for(let i = 0; i < name_array.length; i++){
+        if(name_array[i] !== ""){
+          let table = document.getElementById("rl4_relationship_table1");
+          let row = table.insertRow();
+          let cell0 = row.insertCell(0);
+          let cell1 = row.insertCell(1);
+          let cell2 = row.insertCell(2);
+          let cell3 = row.insertCell(3);
+          let cell4 = row.insertCell(4);
+          let temp = "howOften1" + i;
+          let name = "name=" + temp;
+ 
+        
+          cell0.innerHTML = name_array[i];
+          cell1.innerHTML = '<input class="rl4_radio_relationship" type="radio"'+ name + ' value="never">';
+          cell2.innerHTML = '<input class="rl4_radio_relationship" type="radio"' + name + ' value="rarely">';
+          cell3.innerHTML = '<input class="rl4_radio_relationship" type="radio"' + name + ' value="sometimes">';
+          cell4.innerHTML = '<input class="rl4_radio_relationship" type="radio"' + name + ' value="often">';
+        }
+      }
+    
+      for(let i = 0; i < name_array.length; i++){
+        if(name_array[i] !== ""){
+          let table1 = document.getElementById("rl4_relationship_table2");
+          let row1 = table1.insertRow();
+          let cell10 = row1.insertCell(0);
+          let cell11 = row1.insertCell(1);
+          let cell12 = row1.insertCell(2);
+          let cell13 = row1.insertCell(3);
+          let cell14 = row1.insertCell(4);
+          let name = "name=" + "howOften2" + i;
+          cell10.innerHTML = name_array[i];
+          cell11.innerHTML = '<input class="rl4_radio_relationship" type="checkbox"' + name + ' value="work">';
+          cell12.innerHTML = '<input class="rl4_radio_relationship" type="checkbox"' + name + ' value="social_network">';
+          cell13.innerHTML = '<input class="rl4_radio_relationship" type="checkbox"' + name + ' value="c">';
+          cell14.innerHTML = '<input class="rl4_radio_relationship" type="checkbox"' + name + ' value="d">';
+        }
+      }
+    
+
+      $(".progress-bar")[0].setAttribute("aria-valuenow","72");
+      $(".progress-bar")[0].setAttribute('style',"width:72%");
+      let ex6 = document.getElementById("relationships4");
+      ex6.style.left = string_l + "px";
+      ex6.style.top = string_t;
+      ex6.style.display = "block";
+      currSlide += 1;
+      
+      let offset = $('#relationships4').offset();
+      let height = $('#relationships4').height();
+      let top = offset.top + height + 10 +  "px";
+      $('#Next').css({
+        'top': top
+      });
+  
+      $('#Back').css({
+        'top': top
+      });
+    }
+  }
+else if (currSlide === 11) {
+      // If user has not selected an option, alert with popup
+
+    let radio_button_object = $(".rl4_radio_relationship");
+    let number_of_group_radio = 1;
+    for(let i = 0; i < radio_button_object.length - 1; i++){
+      if(radio_button_object[i].name != radio_button_object[i+1].name){
+        number_of_group_radio = number_of_group_radio + 1;
+      }
+    }
+    let number_of_checked_radio = $(".rl4_radio_relationship:checked").length;
+
+    if((number_of_checked_radio < number_of_group_radio) && (checked === false) ) {
+      promptNonresponse();
+      checked = true;
+    } else {
+      checked = false;
+      //Collect data before going on 
+
+      collected_data.who_likes_whom.tbd_question1 = {};
+      collected_data.who_likes_whom.tbd_question2 = {};
+      let talk_frequency_list = {};
+      let table_1 = document.getElementById("rl4_relationship_table1");
+      let number_of_rows = document.getElementById("rl4_relationship_table1").rows.length;
+      for(let i = 1; i < number_of_rows; i++){
+        let key = table_1.rows[i].cells[0].innerHTML;
+
+        for(let j = 1; j < 5; j++){
+          if(table_1.rows[i].cells[j].getElementsByTagName("input")[0].checked === true){
+            if(j === 1){
+              talk_frequency_list[key] = "Never";
+            }
+            else if(j === 2){
+              talk_frequency_list[key] = "Rarely";
+            }
+            else if(j === 3){
+              talk_frequency_list[key] = "Sometimes";
+            }
+            else if(j === 4){
+              talk_frequency_list[key] = "Often";
+            }else{
+
+            }
+          }
+        }
+      }
+
+
+      collected_data.who_likes_whom.tbd_question1 = talk_frequency_list;
+
+      let talk_context_list = {};
+      let table_2 = document.getElementById("rl4_relationship_table2");
+      number_of_rows = document.getElementById("rl4_relationship_table2").rows.length;
+      for(let i = 1; i < number_of_rows; i++){
+        let key = table_2.rows[i].cells[0].innerHTML;
+        if(!(key in talk_context_list)){
+          talk_context_list[key] = [];
+        }
+        for(let j = 1; j < 5; j++){
+          if(table_2.rows[i].cells[j].getElementsByTagName("input")[0].checked === true){
+            if(j === 1){
+              talk_context_list[key].push("Work");
+            }
+            else if(j === 2){
+              talk_context_list[key].push("Social Network");
+            }
+            else if(j === 3){
+              talk_context_list[key].push("C");
+            }
+            else if(j === 4){
+              talk_context_list[key].push("D");
+            }else{
+
+            }
+          }
+        }
+      }
+      collected_data.who_likes_whom.tbd_question2 = talk_context_list;
+      document.getElementById("relationships3").style.display = "none";
+      document.getElementById("relationships4").style.display = "none";
+ 
+ 
+      $(".progress-bar")[0].setAttribute("aria-valuenow","81");
+      $(".progress-bar")[0].setAttribute('style',"width:81%");
+
+      //Display the new slide
+      let ex7 = document.getElementById("WLW_Space");
+      //ex4.style.left = string_l + "px";
+      ex7.style.top = string_t;
+      ex7.style.display = "block";
+ 
+      $('.WLW_map1').maphilight({
+        stroke: true,
+        strokeColor: 'ff0000',
+        strokeOpacity: 1,
+        strokeWidth: 1,
+      });
+ 
+      $('map').imageMapResize();
+ 
+      let top = FloorA1Offset.top + FloorA1height + 30 +  "px";
+      $('#Next').css({
+ 
+        'top': top 
+      });
+ 
+      $('#Back').css({
+        'top': top
+      });
+      currSlide += 1;
+    }
+  }
+
+  else if (currSlide === 12) {
+    document.getElementById("WLW_Space").style.display = "none";
+    
+    // This piece of code is used to intialize the network
+    if(wlw_is_first_time === true){
+      d3.select("#network_layout").remove();
+      wlw_is_first_time = false;
+      entered_name_to_net = [];
+      initial_name_list = [];
+      for(let i = 0; i < collected_data.who_likes_whom.who_you_like.length; i++){
+        entered_name_to_net.push(collected_data.who_likes_whom.who_you_like[i]);
+        initial_name_list.push(collected_data.who_likes_whom.who_you_like[i]);
+      }
+      preprocess_name_list();
+      recreate_network();
+    }
+    else{
+      if(is_name_list_changed()){
+        entered_name_to_net = [];
+        initial_name_list = [];
+        for(let i = 0; i < collected_data.who_likes_whom.who_you_like.length; i++){
+          entered_name_to_net.push(collected_data.who_likes_whom.who_you_like[i]);
+          initial_name_list.push(collected_data.who_likes_whom.who_you_like[i]);
+        }
+        d3.select("#network_layout").remove();
+        preprocess_name_list();
+        recreate_network();
+      }
+    }
+    //============================================================
+    //Change header and the instruction 
+    document.getElementById("network").getElementsByTagName("h3")[0].innerHTML = "Who likes whom network"
+    document.getElementById("network").getElementsByTagName("h6")[0].innerHTML = "There are all the people who use the space, who do you think like each other? Click on a node and drag the link to another node to create a connnection"
+
+    $(".progress-bar")[0].setAttribute("aria-valuenow","90");
+    $(".progress-bar")[0].setAttribute('style',"width:90%");
+    document.getElementById("network").style.display = "block";
+    let offset = $('#chart').offset();
+    let height = $('#chart').height();
+    let top = offset.top + height + 10 +  "px";
+    $('#Next').css({
+      'top': top
+    });
+  
+    $('#Back').css({
+      'top': top
+    });
+    
+    currSlide += 1;
+  }
+
+
+  else if (currSlide === 13) {
+    document.getElementById("network").style.display = "none";
     document.getElementById("slide8").style.display = "block";
     let offset = $('#slide8').offset();
     let height = $('#slide8').height();
@@ -641,10 +961,11 @@ function showNext() {
       'top': top,
       'left': "80%"
     });
-      
-      currSlide += 1;
+    $(".progress-bar")[0].setAttribute("aria-valuenow","100");
+    $(".progress-bar")[0].setAttribute('style',"width:100%");
+    currSlide += 1;
   }
-  else if (currSlide === 10) {
+  else if (currSlide === 14) {
       // If user has not selected an option, alert with popup
 
     checked = false;
@@ -661,7 +982,7 @@ function showNext() {
     $('#finalSubmitButton').css({
       'display': "none"
     });
-      
+    $(".progress-bar").addClass("bg-success")
     currSlide += 1;
   }
   else{
@@ -978,6 +1299,146 @@ function UOP3_goToFloorA1() {
 
 
 
+
+function WLW_goToFloorR1() {
+
+  checked = false;
+  document.getElementById("WLW_floorA1").style.display = "none";
+  let ex4 = document.getElementById("WLW_floorR1");
+  ex4.style.display = "block";
+
+  $('.WLW_map2').maphilight({
+    stroke: true,
+    strokeColor: 'ff0000',
+    strokeOpacity: 1,
+    strokeWidth: 1,
+  });
+
+  $('map').imageMapResize();
+
+  if(Object.keys(collected_data.meet_places_2.floor_r1).length !== 0){
+    if(WLW_clicked_area_id_R1 !== ""){
+
+      //This piece of code is used to display the colors of clicked areas
+      let data = {};
+      data.strokeColor = '00fdf0';
+      data.alwaysOn = true;
+      data.stroke = true;
+      data.strokeOpacity = 1;
+      data.strokeWidth = 1;
+      data.fillOpacity = 0.65;
+      data.fillColor = '56e5ff';  
+      $(WLW_clicked_area_id_R1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+    }
+  }
+
+
+
+  let offset = $('#WLW_R1Floor').offset();
+  let height = $('#WLW_R1Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+    'top': top
+  });
+
+  $('#Back').css({
+    'top': top
+  });
+
+}
+
+function WLW_goToFloorR2() {
+
+  checked = false;
+  document.getElementById("WLW_floorR1").style.display = "none";
+  let ex4 = document.getElementById("WLW_floorR2");
+  ex4.style.display = "block";
+
+  $('.WLW_map3').maphilight({
+    stroke: true,
+    strokeColor: 'ff0000',
+    strokeOpacity: 1,
+    strokeWidth: 1,
+  });
+
+  $('map').imageMapResize();
+
+  if(Object.keys(collected_data.meet_places_2.floor_r2).length !== 0){
+    if(WLW_clicked_area_id_R2 !== ""){
+      //This piece of code is used to display the colors of clicked areas
+      let data = {};
+      data.strokeColor = '00fdf0';
+      data.alwaysOn = true;
+      data.stroke = true;
+      data.strokeOpacity = 1;
+      data.strokeWidth = 1;
+      data.fillOpacity = 0.65;
+      data.fillColor = '56e5ff';  
+      $(WLW_clicked_area_id_R2).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+    }
+  }
+
+  let offset = $('#WLW_R2Floor').offset();
+  let height = $('#WLW_R2Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+    'top': top
+  });
+
+  $('#Back').css({
+    'top': top
+  });
+
+}
+
+
+function WLW_goToFloorA1() {
+  checked = false;
+  document.getElementById("WLW_floorR2").style.display = "none";
+  let ex4 = document.getElementById("WLW_floorA1");
+  ex4.style.display = "block";
+
+  $('.WLW_map1').maphilight({
+      stroke: true,
+      strokeColor: 'ff0000',
+      strokeOpacity: 1,
+      strokeWidth: 1,
+  });
+
+  $('map').imageMapResize();
+
+  if(Object.keys(collected_data.meet_places_2.floor_rdc).length !== 0){
+    if(WLW_clicked_area_id_A1 !== ""){
+      //This piece of code is used to display the colors of clicked areas
+      let data = {};
+      data.strokeColor = '00fdf0';
+      data.alwaysOn = true;
+      data.stroke = true;
+      data.strokeOpacity = 1;
+      data.strokeWidth = 1;
+      data.fillOpacity = 0.65;
+      data.fillColor = '56e5ff';  
+      $(WLW_clicked_area_id_A1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
+    }
+  }
+
+  let offset = $('#WLW_A1Floor').offset();
+  let height = $('#WLW_A1Floor').height();
+  let top = offset.top + height + 20 +  "px";
+
+  $('#Next').css({
+      'top': top
+  });
+
+  $('#Back').css({
+      'top': top
+  });
+}
+
+
+
 function dataSubmission() {
   $.ajax({
     type: 'POST',
@@ -994,7 +1455,13 @@ function dataSubmission() {
 
 
 function preprocess_name_list(){
-  contacts_list = collected_data.relationships.contacted_with;
+  if(currSlide === 12){
+    contacts_list = collected_data.who_likes_whom.who_you_like
+  }
+  else{
+    contacts_list = collected_data.relationships.contacted_with;
+  }
+  
   initial_nodes = [];
   let main_node = {id:"", label:"", initials:""};
   main_node.id = 0;
@@ -1008,40 +1475,76 @@ function preprocess_name_list(){
   initial_nodes.push(main_node);
   
   let i = 1;
-  collected_data.relationships.contacted_with.forEach( function(element, index) {
-    // statements
-    let people_name = element;
-    let name_as_array = people_name.split(' ');
-    let initials = "";
-    name_as_array.forEach( function(element, index) {
+  if(currSlide === 12){
+    collected_data.who_likes_whom.who_you_like.forEach( function(element, index) {
       // statements
-      initials += element.substring(0, 1).toUpperCase();
-    }); 
-  
-    let node = {id:"", label:"", initials:""};
-    node.initials = initials;
-    node.label = people_name;
-    node.id = i;
-    i++;
+      let people_name = element;
+      let name_as_array = people_name.split(' ');
+      let initials = "";
+      name_as_array.forEach( function(element, index) {
+        // statements
+        initials += element.substring(0, 1).toUpperCase();
+      }); 
     
-    initial_nodes.push(node);
-  });
+      let node = {id:"", label:"", initials:""};
+      node.initials = initials;
+      node.label = people_name;
+      node.id = i;
+      i++;
+      
+      initial_nodes.push(node);
+    });
+  }
+  else{
+    collected_data.relationships.contacted_with.forEach( function(element, index) {
+      // statements
+      let people_name = element;
+      let name_as_array = people_name.split(' ');
+      let initials = "";
+      name_as_array.forEach( function(element, index) {
+        // statements
+        initials += element.substring(0, 1).toUpperCase();
+      }); 
+    
+      let node = {id:"", label:"", initials:""};
+      node.initials = initials;
+      node.label = people_name;
+      node.id = i;
+      i++;
+      
+      initial_nodes.push(node);
+    });
+  }
 }
 
 
 function is_name_list_changed(){
-  if(contacts_list.length !== collected_data.relationships.contacted_with.length){
-    return true;
-
+  if(currSlide !== 12){
+    if(contacts_list.length !== collected_data.relationships.contacted_with.length){
+      return true;
+    }
+    else{
+      for(let i = 0; i < contacts_list.length; i++){
+        if(contacts_list[i] !== collected_data.relationships.contacted_with[i]){
+          return true;
+        }
+      }
+      return false;
+    }
   }
   else{
-    console.log("here");
-    for(let i = 0; i < contacts_list.length; i++){
-      if(contacts_list[i] !== collected_data.relationships.contacted_with[i]){
-        return true;
-      }
+    if(contacts_list.length !== collected_data.who_likes_whom.who_you_like.length){
+      return true;
     }
-    return false;
+    else{
+      for(let i = 0; i < contacts_list.length; i++){
+        if(contacts_list[i] !== collected_data.who_likes_whom.who_you_like[i]){
+          return true;
+        }
+      }
+      return false;
+    }
   }
+
 }
 
