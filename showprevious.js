@@ -193,6 +193,35 @@ function showPrevious() {
     currSlide -= 1;
     $(".progress-bar")[0].setAttribute("aria-valuenow","45");
     $(".progress-bar")[0].setAttribute('style',"width:45%");
+
+
+
+    //Clean the pop-up list before updating
+    while ($("#people_name_list")[0].childNodes.length > 3){
+      $("#people_name_list")[0].removeChild($("#people_name_list")[0].childNodes[0]);
+    }
+
+    //Update the pop-up list when clicking on an area
+    for(let i = 0; i < collected_data.relationships.contacted_with.length; i++){
+      
+      let new_li = document.createElement("li");
+      let new_label = document.createElement("label");
+      new_label.setAttribute("class", "radio-btn");
+
+      let appended_input = document.createElement("input");
+      appended_input.setAttribute("type", "checkbox");
+      appended_input.setAttribute("class", "check_box_people_name");
+      appended_input.setAttribute("value", collected_data.relationships.contacted_with[i]);
+
+      let appended_text = document.createTextNode(" " + collected_data.relationships.contacted_with[i]);
+
+      new_label.appendChild(appended_input);
+      new_label.appendChild(appended_text);
+
+      new_li.appendChild(new_label);
+
+      $("#people_name_list")[0].insertBefore(new_li, $("#people_name_list")[0].childNodes[0]);
+    }
   }
   else if (currSlide === 10) {
       // If user has not selected an option, alert with popup
@@ -259,6 +288,34 @@ function showPrevious() {
 
     $(".progress-bar")[0].setAttribute("aria-valuenow","72");
     $(".progress-bar")[0].setAttribute('style',"width:72%");
+
+
+    //Clean the previous pop-up list, length > 3 because the default ul element has 3 children
+    while ($("#people_name_list")[0].childNodes.length > 3){
+      $("#people_name_list")[0].removeChild($("#people_name_list")[0].childNodes[0]);
+    }
+
+          //Update the pop-up list when clicking on an area
+    for(let i = 0; i < collected_data.who_likes_whom.who_you_like.length; i++){
+      
+      let new_li = document.createElement("li");
+      let new_label = document.createElement("label");
+      new_label.setAttribute("class", "radio-btn");
+
+      let appended_input = document.createElement("input");
+      appended_input.setAttribute("type", "checkbox");
+      appended_input.setAttribute("class", "check_box_people_name");
+      appended_input.setAttribute("value", collected_data.who_likes_whom.who_you_like[i]);
+
+      let appended_text = document.createTextNode(" " + collected_data.who_likes_whom.who_you_like[i]);
+
+      new_label.appendChild(appended_input);
+      new_label.appendChild(appended_text);
+
+      new_li.appendChild(new_label);
+
+      $("#people_name_list")[0].insertBefore(new_li, $("#people_name_list")[0].childNodes[0]);
+    }
   }
   else if (currSlide === 13) {
       // If user has not selected an option, alert with popup

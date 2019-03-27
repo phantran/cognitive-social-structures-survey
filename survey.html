@@ -14,6 +14,11 @@
     <script type="text/javascript" src="jquery.maphilight.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.7/js/imageMapResizer.min.js"></script>
 
+
+    <!-- ClockPicker Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="clockpicker-gh-pages/dist/bootstrap-clockpicker.min.css">
+    <script type="text/javascript" src="clockpicker-gh-pages/dist/bootstrap-clockpicker.min.js"></script>
+
   </head>
   <body>
     <script type="text/javascript">
@@ -238,40 +243,10 @@
     </div>
 
     <div class="custom-menu1">
-      <ul>
-        <li>
-            <label class="radio-btn">
-                <input type="checkbox" class="check_box_people_name" value='jQuery'>
-                Jquery
-            </label>
-        </li>
-        <li>
-            <label class="radio-btn">
-                <input type="checkbox" class="check_box_people_name"  value='Bootstrap'>
-                Bootstrap
-            </label>
-        </li>
-        <li>
-            <label class="radio-btn">
-                <input type="checkbox" class="check_box_people_name"  value='HTML'>
-                HTML
-            </label>
-        </li>
-        <li>
-            <label class="radio-btn">
-                <input type="checkbox" class="check_box_people_name"  value='JavaScript'>
-                JavaScript
-            </label>
-        </li>
-        <li>
-            <label class="radio-btn">
-                <input type="checkbox" class="check_box_people_name"  value='CSS'>
-                CSS
-            </label>
-        </li>
+      <ul id="people_name_list">
         <li class='text-center'>
-            <button type='button' class='btn btn-xs btn-danger' id="clear_button">Clear</button>
-            <button type='button' class='btn btn-xs btn-success' id="save_button">Save</button>
+          <button type='button' class='btn btn-xs btn-danger' id="clear_button">Clear</button>
+          <button type='button' class='btn btn-xs btn-success' id="save_button">Save</button>
         </li>
       </ul>
     </div>
@@ -433,20 +408,28 @@
         <div class="input-group" id="input_time_slot">
           <label class="control-label" for="appendedInput">In which time slot are you usually in?</label><br>
 
-          <div class="input-group mb-3">
+
+          <div class="input-group clockpicker mb-3" data-autoclose="true">
             <div class="input-group-prepend">
               <span class="input-group-text">From</span>
             </div>
-             <input type="time" class="form-control" placeholder="Time you enter" aria-label="from" id="input_time_slot_from">
+            <input type="text" class="form-control" value="00:00" id="input_time_slot_from">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+            </span>
           </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">To</span>
-            </div>
-             <input type="time" class="form-control" placeholder="Time you leave" aria-label="to" id="input_time_slot_to">
+
+
+          <div class="input-group clockpicker mb-3" data-autoclose="true">
+              <div class="input-group-prepend">
+                <span class="input-group-text">To</span>
+              </div>
+              <input type="text" class="form-control" value="00:00" id="input_time_slot_to">
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+              </span>
           </div>
         </div><br>
-
 
         <div class="form-group">
             <label class="control-label" for="appendedInput">Do you have lunch there?</label><br>
@@ -484,7 +467,7 @@
 
     <div id="UseOfSpace2">
       <h3>Use of space</h3></br>
-      <h6> Please click on the areas in the image below to choose how often you use them. If an area is unfilled or it is chosen as "Never" then it indicates that you never use that area.</h6>
+      <h6> Please click on the areas in the image below to choose how often you use them. If an area is unfilled or it is chosen as "Never" then it indicates that you never use that area. Please note that there are three floors, and you can change to the next floor by clicking on the "Go to floor" button</h6>
 
       <div id="floorA1">
         <img src="/Assets/A1_RDC.png" class="map1" alt="A1 Floor" id="A1Floor"  usemap="#floorplanA1">
@@ -579,15 +562,12 @@
     </div>
 
 
-
-
-
     <div class="input-group" id="relationships">
       <form>
-        <h3>Relationships</h3> </br>
-        <h5>Who do you have contacted with?</h5></br>
+        <h3>Relationships</h3> <br>
+        <h5>Who do you have contacted with?</h5><br>
         <div class="form-group" id="addRelationships">
-          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact0" placeholder="Enter a name"></span><br>
+          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact0" placeholder="Enter a name"><br>
         </div>
       </form>
       <div>
@@ -599,10 +579,10 @@
 
     <div class="input-group" id="relationships3">
       <form>
-        <h3>Who likes whom</h3> </br>
-        <h5>Who do you like?</h5></br>
+        <h3>Who likes whom</h3> <br>
+        <h5>Who do you like?</h5><br>
         <div class="form-group" id="addRelationships3">
-          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact0" placeholder="Enter a name"></span><br>
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact0" placeholder="Enter a name"><br>
         </div>
       </form>
       <div>
@@ -612,7 +592,7 @@
 
     <script> 
       $(function() {    
-          $( function() {    } );
+          $( function(){});
           $(".InputPeopleName").autocomplete({source: availableTags});
           $("#more_name").autocomplete({source: availableTags});
           $("#input_name").autocomplete({source: availableTags});
@@ -623,7 +603,7 @@
 
     <div class="input-group" id="relationships2">
       <form>
-        <h3>Relationships</h3></br>
+        <h3>Relationships</h3><br>
         <h5>How often do you talk with?</h5>
           <table class="responsive-table-input-matrix" id="relationship_table1">
             <tr>
@@ -633,7 +613,7 @@
               <th>Sometimes</th>
               <th>Often</th>
             </tr>
-          </table> </br> </br> 
+          </table><br><br>
 
 
         <h5>In what context?</h5>
@@ -651,7 +631,7 @@
 
     <div class="input-group" id="relationships4">
       <form>
-        <h3>Who likes whom</h3></br>
+        <h3>Who likes whom</h3><br>
         <h5>How often? (will be replaced)</h5>
           <table class="responsive-table-input-matrix" id="rl4_relationship_table1">
             <tr>
@@ -661,7 +641,7 @@
               <th>Sometimes</th>
               <th>Often</th>
             </tr>
-          </table> </br> </br> 
+          </table> <br> <br>
 
 
         <h5>In what context? (will be replaced)</h5>
@@ -887,9 +867,6 @@
     </div>
 
 
-
-
-
     <div id="slide8">
       <h5><center>This is the end of the survey. Please click the submit button so that we can collect the data!</center></h5>
     </div>
@@ -903,34 +880,6 @@
       <div class="popup_box" id="popup">
             <p class="popup_text">You have not fully answered the question! It would be nice for the research if you answered the question completely. If you want to go to the next question, you can click on "Continue".</p>
             <button class="btn btn-default" onclick="closePopup()">Close</button>
-      </div>
-    </div>
-
-    <div class="popop_box" id="onlyone_box">
-      <div class="popup_box" id="onlyOnePopup">
-            <p class="popup_text">Geef een naam op.</p>
-            <button class="btn btn-default" onclick="closeOnlyOnePopup()">Close</button>
-      </div>
-    </div>
-
-    <div class="popop_box" id="fewAlters_box">
-      <div class="popup_box" id="alterPopup">
-            <p class="popup_text">U heeft nog geen 25 namen genoemd. Wij zouden het erg waarderen wanneer u precies 25 namen noemt. Als u moeite heeft om namen te noemen, dan kunt u misschien uw contactenboek raadplegen van uw telefoon, of uw email, of via Facebook of een soortgelijke website. Als u echt geen namen meer kan verzinnen, dan kunt u verder gaan met de vragenlijst.</p>
-            <button class="btn btn-default" onclick="closeAlterPopup()">Close</button>
-      </div>
-    </div>
-    
-    <div class="popop_box" id="reminderAlters_box">
-      <div class="popup_box" id="reminderPopup">
-            <p class="popup_text">Als u moeite heeft om namen te noemen, dan kunt u misschien uw contactenboek raadplegen van uw telefoon, of uw email, of via Facebook of een soortgelijke website.</p>
-            <button class="btn btn-default" onclick="closeReminderPopup()">Close</button>
-      </div>
-    </div>
-
-    <div class="popop_box" id="fewDragged_box">
-      <div class="popup_box" id="dragPopup">
-            <p class="popup_text">You have not answered this question for every person in your network. It would very helpful for our research if you did. Please feel free to either give an answer or to go to the next question by clicking ‘Next’ again.”.</p>
-            <button class="btn btn-default" onclick="closeDragPopup()">Close</button>
       </div>
     </div>
 
@@ -960,23 +909,6 @@
        onclick="showPrevious();pauseShowBack();" />
    </div>
 
-
-    <div id="submitForm">
-      <form method="POST" action="<?php echo $_POST['returnpage']; ?>">
-        <input type="hidden" name="nomem" value="<?php echo $_POST['nomem']; ?>">
-        <input type="hidden" name="sh" value="<?php echo $_POST['sh']; ?>">
-        <input type="hidden" name="lsi" value="<?php echo $_POST['lsi']; ?>">
-        <input type="hidden" name="pli" value="<?php echo $_POST['pli']; ?>">
-        <input type="hidden" name="spi" value="<?php echo $_POST['spi']; ?>">
-        <input type="hidden" name="aqi" value="<?php echo $_POST['aqi']; ?>">
-        <input type="hidden" name="cqi" value="<?php echo $_POST['cqi']; ?>">
-        <input type="hidden" name="<?php echo $_POST['varname1']; ?>" value=""> <!-- Value leeg laten. --> 
-        <input type="hidden" name="<?php echo $_POST['statusvarname1']; ?>" value="<?php echo $_POST['statusvarvalue1']; ?>">
-
-        <input type="submit" name="<?php echo $_POST['nextvarname']; ?>" value="LISS" class="btn btn-default" /><!-- Value kan ook Volgende zijn, net wat past in jouw vragenlijst. -->
-      </form>
-    </div>
-    
     <script type="text/javascript">
         $("#Next").css("left",window.innerWidth * .8);
         $("#submitButton").css("left",window.innerWidth * .8);
@@ -984,11 +916,11 @@
 
 
     <script>
-      $(document).ready(function(e) {
+      $(document).ready(function() {
         $('area').on('click', function(clickEvent) {
           // Avoid the real one
           clickEvent.preventDefault();
-          
+          let check_box_list = $(".check_box_people_name");
           // Show contextmenu
           if(document.getElementById("UseOfSpace2").style.display === "block"){
             clicked_area_id = "#" + this.id;
@@ -1009,63 +941,64 @@
             });
 
             let area_name = $(UOP3_clicked_area_id).attr("title");
+
             if($('#UOP3_floorA1').css("display") === "block"){
               if(collected_data.meet_places.floor_rdc[area_name] !== undefined){
                 //First clear all checkboxes
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
                 //next is to check all checkboxes that have been checked before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  if(collected_data.meet_places.floor_rdc[area_name].includes($(".check_box_people_name")[j].value)){
-                    $(".check_box_people_name")[j].checked = true;
+                for(let j = 0; j < check_box_list.length; j++){
+                  if(collected_data.meet_places.floor_rdc[area_name].includes(check_box_list[j].value)){
+                      check_box_list[j].checked = true;
                   }
                 }
               }
               else{
                 //clear all checkboxes if it was never clicked and saved before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
               }              
             }
             else if($('#UOP3_floorR1').css("display") === "block"){
               if(collected_data.meet_places.floor_r1[area_name] !== undefined){
                 //First clear all checkboxes
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
                 //next is to check all checkboxes that have been checked before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  if(collected_data.meet_places.floor_r1[area_name].includes($(".check_box_people_name")[j].value)){
-                    $(".check_box_people_name")[j].checked = true;
+                for(let j = 0; j < check_box_list.length; j++){
+                  if(collected_data.meet_places.floor_r1[area_name].includes(check_box_list[j].value)){
+                      check_box_list[j].checked = true;
                   }
                 }
               }
               else{
                 //clear all checkboxes if it was never clicked and saved before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
               }              
             }
             else if($('#UOP3_floorR2').css("display") === "block"){
               if(collected_data.meet_places.floor_r2[area_name] !== undefined){
                 //First clear all checkboxes
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
                 //next is to check all checkboxes that have been checked before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  if(collected_data.meet_places.floor_r2[area_name].includes($(".check_box_people_name")[j].value)){
-                    $(".check_box_people_name")[j].checked = true;
+                for(let j = 0; j < check_box_list.length; j++){
+                  if(collected_data.meet_places.floor_r2[area_name].includes(check_box_list[j].value)){
+                      check_box_list[j].checked = true;
                   }
                 }
               }
               else{
                 //clear all checkboxes if it was never clicked and saved before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
               }  
             }
@@ -1083,60 +1016,60 @@
             if($('#WLW_floorA1').css("display") === "block"){
               if(collected_data.meet_places_2.floor_rdc[area_name] !== undefined){
                 //First clear all checkboxes
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
                 //next is to check all checkboxes that have been checked before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  if(collected_data.meet_places_2.floor_rdc[area_name].includes($(".check_box_people_name")[j].value)){
-                    $(".check_box_people_name")[j].checked = true;
+                for(let j = 0; j < check_box_list.length; j++){
+                  if(collected_data.meet_places_2.floor_rdc[area_name].includes(check_box_list[j].value)){
+                      check_box_list[j].checked = true;
                   }
                 }
               }
               else{
                 //clear all checkboxes if it was never clicked and saved before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
               }              
             }
             else if($('#WLW_floorR1').css("display") === "block"){
               if(collected_data.meet_places_2.floor_r1[area_name] !== undefined){
                 //First clear all checkboxes
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
                 //next is to check all checkboxes that have been checked before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  if(collected_data.meet_places_2.floor_r1[area_name].includes($(".check_box_people_name")[j].value)){
-                    $(".check_box_people_name")[j].checked = true;
+                for(let j = 0; j < check_box_list.length; j++){
+                  if(collected_data.meet_places_2.floor_r1[area_name].includes(check_box_list[j].value)){
+                      check_box_list[j].checked = true;
                   }
                 }
               }
               else{
                 //clear all checkboxes if it was never clicked and saved before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
               }              
             }
             else if($('#WLW_floorR2').css("display") === "block"){
               if(collected_data.meet_places_2.floor_r2[area_name] !== undefined){
                 //First clear all checkboxes
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
                 //next is to check all checkboxes that have been checked before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  if(collected_data.meet_places_2.floor_r2[area_name].includes($(".check_box_people_name")[j].value)){
-                    $(".check_box_people_name")[j].checked = true;
+                for(let j = 0; j < check_box_list.length; j++){
+                  if(collected_data.meet_places_2.floor_r2[area_name].includes(check_box_list[j].value)){
+                      check_box_list[j].checked = true;
                   }
                 }
               }
               else{
                 //clear all checkboxes if it was never clicked and saved before
-                for(let j = 0; j < $(".check_box_people_name").length; j++){
-                  $(".check_box_people_name")[j].checked = false;
+                for(let j = 0; j < check_box_list.length; j++){
+                    check_box_list[j].checked = false;
                 }
               }  
             }
@@ -1224,6 +1157,8 @@
     </script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <script type="text/javascript">
+      $('.clockpicker').clockpicker();
+    </script>
   </body>
 </html>

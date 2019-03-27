@@ -39,7 +39,7 @@ var force = d3.layout.force()
 
 var nodelabels;
 var nodeInitials;
-var is_first_time = true;
+
 
 // get layout properties
 var nodes = force.nodes(),

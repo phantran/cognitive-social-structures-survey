@@ -15,7 +15,7 @@ function showNext() {
     currSlide += 1;
   }else if (currSlide === 2){
     document.getElementById("slide1").style.display = "none";
-    var ex2 = document.getElementById("personalInformation");
+    let ex2 = document.getElementById("personalInformation");
     ex2.style.left = string_l + "px";
     ex2.style.top = string_t;
     ex2.style.display = "block";
@@ -73,7 +73,7 @@ function showNext() {
         $(".progress-bar")[0].setAttribute("aria-valuenow","9");
         $(".progress-bar")[0].setAttribute('style',"width:9%");
 
-        var ex3 = document.getElementById("UseOfSpace");
+        let ex3 = document.getElementById("UseOfSpace");
         ex3.style.left = string_l + "px";
         ex3.style.top = string_t;
         ex3.style.display = "block";
@@ -164,7 +164,7 @@ function showNext() {
         document.getElementById("UseOfSpace").style.display = "none";
         $(".progress-bar")[0].setAttribute("aria-valuenow","18");
         $(".progress-bar")[0].setAttribute('style',"width:18%");
-        var ex4 = document.getElementById("UseOfSpace2");
+        let ex4 = document.getElementById("UseOfSpace2");
         //ex4.style.left = string_l + "px";
         ex4.style.top = string_t;
         ex4.style.display = "block";
@@ -190,7 +190,7 @@ function showNext() {
             $(clicked_area_id).data('maphilight', temp_data).trigger('alwaysOn.maphilight'); 
           }
           else{
-            var data = {};
+            let data = {};
             data.alwaysOn = true;
             data.stroke = true;
             data.strokeOpacity = 1;
@@ -488,10 +488,10 @@ function showNext() {
               talk_context_list[key].push("Social Network");
             }
             else if(j === 3){
-              talk_context_list[key].push("C");
+              talk_context_list[key].push("University");
             }
             else if(j === 4){
-              talk_context_list[key].push("D");
+              talk_context_list[key].push("Neighborhood");
             }else{
 
             }
@@ -530,6 +530,34 @@ function showNext() {
       $('#Back').css({
         'top': top
       });
+
+
+      //Clean the pop-up list before updating
+      while ($("#people_name_list")[0].childNodes.length > 3){
+        $("#people_name_list")[0].removeChild($("#people_name_list")[0].childNodes[0]);
+      }
+
+      //Update the pop-up list when clicking on an area
+      for(let i = 0; i < collected_data.relationships.contacted_with.length; i++){
+        
+        let new_li = document.createElement("li");
+        let new_label = document.createElement("label");
+        new_label.setAttribute("class", "radio-btn");
+
+        let appended_input = document.createElement("input");
+        appended_input.setAttribute("type", "checkbox");
+        appended_input.setAttribute("class", "check_box_people_name");
+        appended_input.setAttribute("value", collected_data.relationships.contacted_with[i]);
+
+        let appended_text = document.createTextNode(" " + collected_data.relationships.contacted_with[i]);
+
+        new_label.appendChild(appended_input);
+        new_label.appendChild(appended_text);
+
+        new_li.appendChild(new_label);
+
+        $("#people_name_list")[0].insertBefore(new_li, $("#people_name_list")[0].childNodes[0]);
+      }
       currSlide += 1;
     }
   }
@@ -845,10 +873,10 @@ else if (currSlide === 11) {
               talk_context_list[key].push("Social Network");
             }
             else if(j === 3){
-              talk_context_list[key].push("C");
+              talk_context_list[key].push("University");
             }
             else if(j === 4){
-              talk_context_list[key].push("D");
+              talk_context_list[key].push("Neighborhood");
             }else{
 
             }
@@ -887,6 +915,33 @@ else if (currSlide === 11) {
       $('#Back').css({
         'top': top
       });
+
+      //Clean the previous pop-up list, length > 3 because the default ul element has 3 children
+      while ($("#people_name_list")[0].childNodes.length > 3){
+        $("#people_name_list")[0].removeChild($("#people_name_list")[0].childNodes[0]);
+      }
+
+            //Update the pop-up list when clicking on an area
+      for(let i = 0; i < collected_data.who_likes_whom.who_you_like.length; i++){
+        
+        let new_li = document.createElement("li");
+        let new_label = document.createElement("label");
+        new_label.setAttribute("class", "radio-btn");
+
+        let appended_input = document.createElement("input");
+        appended_input.setAttribute("type", "checkbox");
+        appended_input.setAttribute("class", "check_box_people_name");
+        appended_input.setAttribute("value", collected_data.who_likes_whom.who_you_like[i]);
+
+        let appended_text = document.createTextNode(" " + collected_data.who_likes_whom.who_you_like[i]);
+
+        new_label.appendChild(appended_input);
+        new_label.appendChild(appended_text);
+
+        new_li.appendChild(new_label);
+
+        $("#people_name_list")[0].insertBefore(new_li, $("#people_name_list")[0].childNodes[0]);
+      }
       currSlide += 1;
     }
   }
@@ -944,6 +999,73 @@ else if (currSlide === 11) {
 
 
   else if (currSlide === 13) {
+
+
+    //Collected data before going on
+    let connection_list = {};
+    collected_data.network_data_2 = connection_list
+    let links_list = $('.link');
+    let number_of_links = $('.link').length;
+    let nodes_list = $('.nodelabel');
+    let number_of_nodes = $('.nodelabel').length;
+
+    for(let i = 0; i < number_of_nodes; i++){
+      let x_node = Number(nodes_list[i].getAttribute('x'));
+      let y_node = Number(nodes_list[i].getAttribute('y'));
+      let node_name = nodes_list[i].textContent;
+
+      connection_list[node_name] = [];
+      let x_upperbound = x_node + 0.1;
+      let x_lowerbound = x_node - 0.1;
+      let y_upperbound = y_node + 0.1;
+      let y_lowerbound = y_node - 0.1;
+
+      for(let j = 0; j < number_of_links; j++){
+        let x1 = Number(links_list[j].getAttribute('x1'));
+        let y1 = Number(links_list[j].getAttribute('y1'));
+        let x2 = Number(links_list[j].getAttribute('x2'));
+        let y2 = Number(links_list[j].getAttribute('y2'));
+        if( (x_lowerbound <= x1) && (x1 <= x_upperbound ) && (y_lowerbound <= y1) && (y1 <= y_upperbound) ) {
+          for(let k = 0; k < number_of_nodes; k ++){
+            let x2_node = Number(nodes_list[k].getAttribute('x'));
+            let y2_node = Number(nodes_list[k].getAttribute('y'));
+            let x2_upperbound = x2_node + 0.1;
+            let x2_lowerbound = x2_node - 0.1;
+            let y2_upperbound = y2_node + 0.1;
+            let y2_lowerbound = y2_node - 0.1;
+            if( (x2_lowerbound <= x2) && (x2  <= x2_upperbound ) && (y2_lowerbound <= y2) && (y2 <= y2_upperbound) ) {
+              let connected_node_name = nodes_list[k].textContent;
+              if(!connection_list[node_name].includes(connected_node_name) && (node_name != connected_node_name)){
+
+                connection_list[node_name].push(connected_node_name);
+              }
+            }
+          }
+        }
+        else if((x_lowerbound <= x2) && (x2 <= x_upperbound ) && (y_lowerbound <= y2) && (y2 <= y_upperbound)){
+          for(let k = 0; k < number_of_nodes; k ++){
+
+            let x1_node = Number(nodes_list[k].getAttribute('x'));
+            let y1_node = Number(nodes_list[k].getAttribute('y'));
+            let x1_upperbound = x1_node + 0.1;
+            let x1_lowerbound = x1_node - 0.1;
+            let y1_upperbound = y1_node + 0.1;
+            let y1_lowerbound = y1_node - 0.1;
+            if( (x1_lowerbound <= x1) && (x1 <= x1_upperbound ) && (y1_lowerbound <= y1) && (y1 <= y1_upperbound) ){
+              let connected_node_name = nodes_list[k].textContent;
+              if(!connection_list[node_name].includes(connected_node_name) && node_name != connected_node_name){
+
+                connection_list[node_name].push(connected_node_name);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    collected_data.network_data_2 = connection_list;
+
+
     document.getElementById("network").style.display = "none";
     document.getElementById("slide8").style.display = "block";
     let offset = $('#slide8').offset();
