@@ -112,7 +112,7 @@ g#0 {
 
 }
 
-#nonresponse_box {
+#nonresponse_box, #warning_box_link_not_allowed, #warning_box_link_not_allowed_1 {
   display: none;
     position: fixed;
     top: 0;
@@ -125,7 +125,7 @@ g#0 {
     background: rgba(0,0,0,0.25);
 }
 
-#popup {
+#popup, #popup_linking_not_allowed , #popup_linking_not_allowed_1 {
   display: none;
   background: #fff;
   padding: 1%;

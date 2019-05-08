@@ -403,14 +403,29 @@ function redraw() {
         })
       .on("mouseup", 
         function(d) { 
-          if (mousedown_node) {
+          if(mousedown_node){
             mouseup_node = d; 
-            if (mouseup_node == mousedown_node) { resetMouseVars(); return; }
-
+            if (mouseup_node === mousedown_node){ 
+              resetMouseVars(); return; 
+            }
+            //Creating connection to the participant node is not allowed
+            else if((mouseup_node.label === collected_data.socio_question.name) || (mousedown_node.label === collected_data.socio_question.name)){
+              if(currSlide === 9){
+                promptWarning();
+              }
+              else if(currSlide === 13){
+                promptWarning_1();
+              }
+              else{
+              }
+              return;
+            }
+            else{}
+  
             // add link
             var link = {source: mousedown_node, target: mouseup_node};
             links.push(link);
-
+  
             // select new link
             selected_link = link;
             selected_node = null;
@@ -458,20 +473,22 @@ function keydown() {
   switch (d3.event.keyCode) {
     case 8: // backspace
     case 46: { // delete
+      participant_name = collected_data.socio_question.name;
       if(selected_link){
-        links.splice(links.indexOf(selected_link), 1);
-        selected_link = null;                
-        redraw();
+        if(!((selected_link.source.label === participant_name) || (selected_link.target.label === participant_name))){
+          links.splice(links.indexOf(selected_link), 1);
+          selected_link = null;                
+          redraw();
+        }
       }
       else if(selected_node){
         //node_is_added_or_deleted = true;
         let index_tobe_removed = nodes.indexOf(selected_node);
+
         //Remove the name from entered_name_to_net 
-
-
-
         let temp_label = nodes[index_tobe_removed].label;
-        if(initial_name_list.includes(temp_label) === false && temp_label !== collected_data.socio_question.name){
+        //Delete a node when it is not in the intial name list and when it is not the name of the participant
+        if(initial_name_list.includes(temp_label) === false && temp_label !== participant_name){
           let temp_index = entered_name_to_net.indexOf(temp_label);
           if(temp_index >= 0) {
             entered_name_to_net.splice(temp_index, 1);
@@ -502,13 +519,7 @@ function keydown() {
                 i = i - 1;
               }
             }
-          }
-  
-  
-          
-
-          
-  
+          }  
           selected_node = null;
           redraw();
         }
@@ -521,5 +532,24 @@ function keydown() {
       break;
     }
   }
+}
+
+//Two functions below are used to go back to "Who do you contacted with?" and "Who do you like?" slides.
+function BackToContactWho(){
+  closePopupLinkingWarning();
+  skip_collecting_data = true;
+  currSlide = 5; 
+  document.getElementById("network").style.display = "none";
+  showNext();
+  skip_collecting_data = false;
+}
+
+function BackToLikeWhom(){
+  closePopupLinkingWarning_1();
+  skip_collecting_data = true;
+  currSlide = 9; 
+  document.getElementById("network").style.display = "none";
+  showNext();
+  skip_collecting_data = false;
 }
 

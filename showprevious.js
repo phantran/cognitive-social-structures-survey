@@ -145,6 +145,40 @@ function showPrevious() {
 
     $(".progress-bar")[0].setAttribute("aria-valuenow","27");
     $(".progress-bar")[0].setAttribute('style',"width:27%");
+
+    ////store the input data on the current slide (slide 6)
+    let tables_len = $('#relationship_table1 tbody tr').length;
+    for(let rIndex = 0; rIndex < tables_len - 1; rIndex++){
+      let key = $("#relationship_table1")[0].rows[rIndex+1].cells[0].innerText;
+      for(let cIndex = 1; cIndex < s6_table1_columns; cIndex++){
+        let corresponding_column = $("#relationship_table1")[0].rows[0].cells[cIndex].innerText;
+        let cell_id = "#howOften1" +  rIndex + cIndex;
+        if($(cell_id).length === 1){
+          let checked =  $(cell_id)[0].checked;
+          if(checked === true){
+            stored_table_1_data[key] = corresponding_column;
+            break;
+          }
+        }
+      }
+    }
+
+    for(let rIndex = 0; rIndex < tables_len - 1; rIndex++){
+      let key = $("#relationship_table2")[0].rows[rIndex+1].cells[0].innerText;
+      stored_table_2_data[key] = [];
+      for(let cIndex = 1; cIndex < s6_table1_columns; cIndex++){
+        let corresponding_column = $("#relationship_table2")[0].rows[0].cells[cIndex].innerText;
+        let cell_id = "#howOften2" +  rIndex + cIndex;
+        if($(cell_id).length === 1){
+          let checked =  $(cell_id)[0].checked;
+          if(checked === true){
+            stored_table_2_data[key].push(corresponding_column);
+          }
+        }
+      }
+    }
+    //Finish storing data
+
   }
   else if (currSlide === 8) {
       // If user has not selected an option, alert with popup

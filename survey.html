@@ -72,7 +72,8 @@
 
 
       var clicked_back = false;
-      var contact_order = 0;
+      var contact_order_1 = 0;
+      var contact_order_2 = 0;
       var relationship_name = 1;
       var currSlide = 1;
       var numAlters = 0;
@@ -97,6 +98,14 @@
 
       var startTime;
       var answers = [];
+      var skip_collecting_data = false;
+
+
+      //2 variables to store the input data when going back and forth between slide 6 and 7    
+      let stored_table_1_data = {};
+      let stored_table_2_data = {};
+      let s6_table1_columns = 5;
+      let s6_table2_columns = 5;
 
       // Result object
       var collected_data = {
@@ -596,6 +605,7 @@
           $(".InputPeopleName").autocomplete({source: availableTags});
           $("#more_name").autocomplete({source: availableTags});
           $("#input_name").autocomplete({source: availableTags});
+          $(".InputPeopleName3").autocomplete({source: availableTags});
       });
     </script>
 
@@ -883,6 +893,23 @@
       </div>
     </div>
 
+    <div class="popop_box" id="warning_box_link_not_allowed">
+      <div class="popup_box" id="popup_linking_not_allowed">
+            <p class="popup_text">Creating a link between you and another person is not allowed here. If you want to do so, please click on the "Go Back" button below to go back to the "Who do you have contacted with?" slide and add a new entry. Please click "Cancel" if it was a mistake.</p>
+            <button class="btn btn-default" onclick="closePopupLinkingWarning()">Cancel</button>
+            <button class="btn btn-default" onclick="BackToContactWho()">Go Back</button>
+      </div>
+    </div>
+
+
+    <div class="popop_box" id="warning_box_link_not_allowed_1">
+      <div class="popup_box" id="popup_linking_not_allowed_1">
+            <p class="popup_text">Creating a link between you and another person is not allowed here. If you want to do so, please click on the "Go Back" button below to go back to the "Who do you like?" slide to add a new entry. Please click "Cancel" if it was a mistake.</p>
+            <button class="btn btn-default" onclick="closePopupLinkingWarning_1()">Cancel</button>
+            <button class="btn btn-default" onclick="BackToLikeWhom()">Go Back</button>
+      </div>
+    </div>
+
    <div id="NextDiv">
      <input type="button" 
        class="btn btn-primary" 
@@ -1080,16 +1107,16 @@
         $('#addMore').click(function(event){
           event.preventDefault();
           //Check if the entered name is the same as participant's name
-          let previous_text_box_id = "#input_contact"+ contact_order;
+          let previous_text_box_id = "#input_contact"+ contact_order_1;
           let entered_name = $(previous_text_box_id).val();
           if(entered_name === collected_data.socio_question.name){
             return;
           }
 
-          contact_order = contact_order + 1;
+          contact_order_1 = contact_order_1 + 1;
           var objTo = document.getElementById('addRelationships');
           var divtest = document.createElement("div");
-          divtest.innerHTML = '<input class="InputPeopleName form-control" type="text" name="contact" id="input_contact'+ contact_order + '"'+ 'placeholder="Enter a name"> </span><br>';
+          divtest.innerHTML = '<input class="InputPeopleName form-control" type="text" name="contact" id="input_contact'+ contact_order_1 + '"'+ 'placeholder="Enter a name"> </span><br>';
           objTo.appendChild(divtest);
           $(function() {
               $( function(){});
@@ -1111,16 +1138,16 @@
         $('#addMore3').click(function(event){
           event.preventDefault();
           //Check if the entered name is the same as participant's name
-          let previous_text_box_id = "#rl3_input_contact"+ contact_order;
+          let previous_text_box_id = "#rl3_input_contact"+ contact_order_2;
           let entered_name = $(previous_text_box_id).val();
           if(entered_name === collected_data.socio_question.name){
             return;
           }
 
-          contact_order = contact_order + 1;
+          contact_order_2 = contact_order_2 + 1;
           var objTo = document.getElementById('addRelationships3');
           var divtest = document.createElement("div");
-          divtest.innerHTML = '<input class="InputPeopleName3 form-control" type="text" name="contact" id="rl3_input_contact'+ contact_order + '"'+ 'placeholder="Enter a name"> </span><br>';
+          divtest.innerHTML = '<input class="InputPeopleName3 form-control" type="text" name="contact" id="rl3_input_contact'+ contact_order_2 + '"'+ 'placeholder="Enter a name"> </span><br>';
           objTo.appendChild(divtest);
           $(function() {
               $( function(){});
@@ -1151,8 +1178,6 @@
               } 
             }
         }); 
-
-
       });
     </script>
 

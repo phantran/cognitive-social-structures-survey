@@ -65,8 +65,6 @@ function showNext() {
         collected_data.socio_question.research_field = document.getElementById("input_research_field").value;
         collected_data.socio_question.current_position = document.getElementById("input_position").value;
 
-
-
         //Display the new slide
         document.getElementById("personalInformation").style.display = "none";
 
@@ -225,71 +223,72 @@ function showNext() {
     checked = false;
     //Collect data before going on
     //Floor rdc
-    collected_data.area_usage.floor_rdc.meeting_room_castex      =     $('#meeting_room_castex').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.meeting_room_gay_lussac =      $('#meeting_room_gay_lussac').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.meeting_room_tour_maubourg =   $('#meeting_room_tour_maubourg').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.coffee_zone =      $('#coffee_zone').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.cafeteria =  $('#cafeteria').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.main_courtyard =   $('#main_courtyard').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.agoranov_open_office =   $('#agoranov_open_office').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.agoranov_office_1 =      $('#agoranov_office_1').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.agoranov_office_2 =      $('#agoranov_office_2').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.second_courtyard =       $('#second_courtyard').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.agoranov_office_3 =      $('#agoranov_office_3').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.playing_room =     $('#playing_room').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.lounge_toudic =    $('#lounge_toudic').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.lounge_kennedy =   $('#lounge_kennedy').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.lounge_scott =     $('#lounge_scott').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.box_1 =      $('#box_1').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.box_2 =      $('#box_2').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.box_3 =      $('#box_3').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.talking_zone_1 =   $('#talking_zone_1').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.box_4 =      $('#box_4').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.box_5 =      $('#box_5').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.box_6 =      $('#box_6').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.box_7 =      $('#box_7').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.box_8 =      $('#box_8').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.box_9 =      $('#box_9').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.talking_zone_2 =   $('#talking_zone_2').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.box_10 =     $('#box_10').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.extra_space  =     $('#extra_space').attr('data-frequency');
-    collected_data.area_usage.floor_rdc.agoranov_office_4    = $('#agoranov_office_4').attr('data-frequency');
-
-    //Floor r1
-    collected_data.area_usage.floor_r1.office_1_1  = $("#office_1_1").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_1_2   = $("#office_1_2").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_1_3   = $("#office_1_3").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_1_4   = $("#office_1_4").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_1_5   = $("#office_1_5").attr('data-frequency');
-    collected_data.area_usage.floor_r1.lab1_1   = $("#lab1_1").attr('data-frequency');
-    collected_data.area_usage.floor_r1.library   = $("#library").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_agoranov_5  = $("#office_agoranov_5").attr('data-frequency');
-    collected_data.area_usage.floor_r1.resting_room  =   $("#resting_room").attr('data-frequency');
-    collected_data.area_usage.floor_r1.lab1_2  =  $("#lab1_2").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_1_6  =  $("#office_1_6").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_1_7  =  $("#office_1_7").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_1_8  =  $("#office_1_8").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_1_9  =  $("#office_1_9").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_1_10  =  $("#office_1_10").attr('data-frequency');
-    collected_data.area_usage.floor_r1.office_1_11 =   $("#office_1_11").attr('data-frequency');
-
-
-    //Floor r2
-    collected_data.area_usage.floor_r2.extra_space_2  =  $('#extra_space_2').attr('data-frequency');
-    collected_data.area_usage.floor_r2.office_2_1  = $('#office_2_1').attr('data-frequency');
-    collected_data.area_usage.floor_r2.office_2_2  = $('#office_2_2').attr('data-frequency');
-    collected_data.area_usage.floor_r2.office_2_3  = $('#office_2_3').attr('data-frequency');
-    collected_data.area_usage.floor_r2.office_2_4  = $('#office_2_4').attr('data-frequency');
-    collected_data.area_usage.floor_r2.office_2_5  = $('#office_2_5').attr('data-frequency');
-    collected_data.area_usage.floor_r2.office_2_6  = $('#office_2_6').attr('data-frequency');
-    collected_data.area_usage.floor_r2.open_office_2  = $('#open_office_2').attr('data-frequency');
-    collected_data.area_usage.floor_r2.lab_2_1  = $('#lab_2_1').attr('data-frequency');
-    collected_data.area_usage.floor_r2.lab_2_2  = $('#lab_2_2').attr('data-frequency');
-    collected_data.area_usage.floor_r2.lab_2_3  = $('#lab_2_3').attr('data-frequency');
-    collected_data.area_usage.floor_r2.lab_2_4  = $('#lab_2_4').attr('data-frequency');
-    collected_data.area_usage.floor_r2.lab_2_5  = $('#lab_2_5').attr('data-frequency');
-    collected_data.area_usage.floor_r2.extra_space_3 = $('#extra_space_3').attr('data-frequency');
-
+    if(skip_collecting_data === false){
+      collected_data.area_usage.floor_rdc.meeting_room_castex      =     $('#meeting_room_castex').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.meeting_room_gay_lussac =      $('#meeting_room_gay_lussac').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.meeting_room_tour_maubourg =   $('#meeting_room_tour_maubourg').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.coffee_zone =      $('#coffee_zone').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.cafeteria =  $('#cafeteria').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.main_courtyard =   $('#main_courtyard').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.agoranov_open_office =   $('#agoranov_open_office').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.agoranov_office_1 =      $('#agoranov_office_1').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.agoranov_office_2 =      $('#agoranov_office_2').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.second_courtyard =       $('#second_courtyard').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.agoranov_office_3 =      $('#agoranov_office_3').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.playing_room =     $('#playing_room').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.lounge_toudic =    $('#lounge_toudic').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.lounge_kennedy =   $('#lounge_kennedy').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.lounge_scott =     $('#lounge_scott').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.box_1 =      $('#box_1').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.box_2 =      $('#box_2').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.box_3 =      $('#box_3').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.talking_zone_1 =   $('#talking_zone_1').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.box_4 =      $('#box_4').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.box_5 =      $('#box_5').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.box_6 =      $('#box_6').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.box_7 =      $('#box_7').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.box_8 =      $('#box_8').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.box_9 =      $('#box_9').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.talking_zone_2 =   $('#talking_zone_2').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.box_10 =     $('#box_10').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.extra_space  =     $('#extra_space').attr('data-frequency');
+      collected_data.area_usage.floor_rdc.agoranov_office_4    = $('#agoranov_office_4').attr('data-frequency');
+  
+      //Floor r1
+      collected_data.area_usage.floor_r1.office_1_1  = $("#office_1_1").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_1_2   = $("#office_1_2").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_1_3   = $("#office_1_3").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_1_4   = $("#office_1_4").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_1_5   = $("#office_1_5").attr('data-frequency');
+      collected_data.area_usage.floor_r1.lab1_1   = $("#lab1_1").attr('data-frequency');
+      collected_data.area_usage.floor_r1.library   = $("#library").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_agoranov_5  = $("#office_agoranov_5").attr('data-frequency');
+      collected_data.area_usage.floor_r1.resting_room  =   $("#resting_room").attr('data-frequency');
+      collected_data.area_usage.floor_r1.lab1_2  =  $("#lab1_2").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_1_6  =  $("#office_1_6").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_1_7  =  $("#office_1_7").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_1_8  =  $("#office_1_8").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_1_9  =  $("#office_1_9").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_1_10  =  $("#office_1_10").attr('data-frequency');
+      collected_data.area_usage.floor_r1.office_1_11 =   $("#office_1_11").attr('data-frequency');
+  
+  
+      //Floor r2
+      collected_data.area_usage.floor_r2.extra_space_2  =  $('#extra_space_2').attr('data-frequency');
+      collected_data.area_usage.floor_r2.office_2_1  = $('#office_2_1').attr('data-frequency');
+      collected_data.area_usage.floor_r2.office_2_2  = $('#office_2_2').attr('data-frequency');
+      collected_data.area_usage.floor_r2.office_2_3  = $('#office_2_3').attr('data-frequency');
+      collected_data.area_usage.floor_r2.office_2_4  = $('#office_2_4').attr('data-frequency');
+      collected_data.area_usage.floor_r2.office_2_5  = $('#office_2_5').attr('data-frequency');
+      collected_data.area_usage.floor_r2.office_2_6  = $('#office_2_6').attr('data-frequency');
+      collected_data.area_usage.floor_r2.open_office_2  = $('#open_office_2').attr('data-frequency');
+      collected_data.area_usage.floor_r2.lab_2_1  = $('#lab_2_1').attr('data-frequency');
+      collected_data.area_usage.floor_r2.lab_2_2  = $('#lab_2_2').attr('data-frequency');
+      collected_data.area_usage.floor_r2.lab_2_3  = $('#lab_2_3').attr('data-frequency');
+      collected_data.area_usage.floor_r2.lab_2_4  = $('#lab_2_4').attr('data-frequency');
+      collected_data.area_usage.floor_r2.lab_2_5  = $('#lab_2_5').attr('data-frequency');
+      collected_data.area_usage.floor_r2.extra_space_3 = $('#extra_space_3').attr('data-frequency');
+    }
 
     //Displaying the new slide
     document.getElementById("UseOfSpace2").style.display = "none";
@@ -300,7 +299,7 @@ function showNext() {
     ex5.style.top = string_t;
     ex5.style.display = "block";
 
-    contact_order = 0;
+    //contact_order_2 = 0;
     let offset = $('#relationships').offset();
     let height = $('#relationships').height();
     let top = offset.top + height + 10 +  "px";
@@ -325,6 +324,7 @@ function showNext() {
       checked = false;
 
       //Collect data before going on
+
       collected_data.relationships.contacted_with = [];
       let number_of_text_box = $('.InputPeopleName').length;
       for(let i = 0; i < number_of_text_box; i++){
@@ -336,6 +336,8 @@ function showNext() {
       }
 
       //Displaying the new slide 
+      old_names_t1 = Object.keys(stored_table_1_data);
+      old_names_t2 = Object.keys(stored_table_2_data);
       // Clean the table before adding new rows
       let count = document.getElementById("relationship_table1").rows.length;
   
@@ -369,13 +371,14 @@ function showNext() {
           let cell4 = row.insertCell(4);
           let temp = "howOften1" + i;
           let name = "name=" + temp;
+          let id = "id=" + temp;
  
         
           cell0.innerHTML = name_array[i];
-          cell1.innerHTML = '<input class="radio_relationship" type="radio"'+ name + ' value="never">';
-          cell2.innerHTML = '<input class="radio_relationship" type="radio"' + name + ' value="rarely">';
-          cell3.innerHTML = '<input class="radio_relationship" type="radio"' + name + ' value="sometimes">';
-          cell4.innerHTML = '<input class="radio_relationship" type="radio"' + name + ' value="often">';
+          cell1.innerHTML = '<input class="radio_relationship" type="radio"'+ name + " " + id + "1" + ' value="never">';
+          cell2.innerHTML = '<input class="radio_relationship" type="radio"' + name + " " + id + "2" +' value="rarely">';
+          cell3.innerHTML = '<input class="radio_relationship" type="radio"' + name + " " + id + "3" +' value="sometimes">';
+          cell4.innerHTML = '<input class="radio_relationship" type="radio"' + name + " " + id + "4" +' value="often">';
         }
       }
     
@@ -388,16 +391,80 @@ function showNext() {
           let cell12 = row1.insertCell(2);
           let cell13 = row1.insertCell(3);
           let cell14 = row1.insertCell(4);
-          let name = "name=" + "howOften2" + i;
+          let temp = "howOften2" + i;
+          let name = "name=" + temp;
+          let id = "id=" + temp;
+
+
           cell10.innerHTML = name_array[i];
-          cell11.innerHTML = '<input class="radio_relationship" type="checkbox"' + name + ' value="work">';
-          cell12.innerHTML = '<input class="radio_relationship" type="checkbox"' + name + ' value="social_network">';
-          cell13.innerHTML = '<input class="radio_relationship" type="checkbox"' + name + ' value="c">';
-          cell14.innerHTML = '<input class="radio_relationship" type="checkbox"' + name + ' value="d">';
+          cell11.innerHTML = '<input class="radio_relationship" type="checkbox"' + name +  " " + id + "1" + ' value="work">';
+          cell12.innerHTML = '<input class="radio_relationship" type="checkbox"' + name +  " " + id + "2" + ' value="social_network">';
+          cell13.innerHTML = '<input class="radio_relationship" type="checkbox"' + name +  " " + id + "3" + ' value="university">';
+          cell14.innerHTML = '<input class="radio_relationship" type="checkbox"' + name +  " " + id + "4" + ' value="neighborhood">';
         }
       }
     
 
+      //Keep the tables as before by checking checkboxes and check the ones were checked before.
+      //Retrieving the input data from stored_table_1_data and stored_table_2_data
+      if(old_names_t1.length != 0){
+        for(let i = 0; i < name_array.length; i++){
+          if(old_names_t1.includes(name_array[i])){
+
+            let corresponding_column = stored_table_1_data[name_array[i]];
+            console.log(corresponding_column);
+            if(corresponding_column == "Never"){
+              let cell_id = "#howOften1" +  i + "1";
+              $(cell_id)[0].setAttribute("checked", "true");
+            }
+            else if(corresponding_column == "Rarely"){
+              let cell_id = "#howOften1" +  i + "2";
+              $(cell_id)[0].setAttribute("checked", "true");
+            }
+            else if(corresponding_column == "Sometimes"){
+              let cell_id = "#howOften1" +  i + "3";
+              $(cell_id)[0].setAttribute("checked", "true");
+            }
+            else if(corresponding_column == "Often"){
+              let cell_id = "#howOften1" +  i + "4";
+              $(cell_id)[0].setAttribute("checked", "true");
+            }
+            else{}
+          }
+        }
+      }
+
+
+      if(old_names_t2.length != 0){
+        for(let i = 0; i < name_array.length; i++){
+          if(old_names_t2.includes(name_array[i])){
+            let corresponding_column = stored_table_2_data[name_array[i]];
+            for(let j = 0; j < corresponding_column.length; j++){
+              if(corresponding_column[j] == "At Work"){
+                let cell_id = "#howOften2" +  i + "1";
+                $(cell_id)[0].setAttribute("checked", "true");
+              }
+              else if(corresponding_column[j] == "Social Network"){
+                let cell_id = "#howOften2" +  i + "2";
+                $(cell_id)[0].setAttribute("checked", "true");
+              }
+              else if(corresponding_column[j] == "University"){
+                let cell_id = "#howOften2" +  i + "3";
+                $(cell_id)[0].setAttribute("checked", "true");
+              }
+              else if(corresponding_column[j] == "Neighborhood"){
+                let cell_id = "#howOften2" +  i + "4";
+                $(cell_id)[0].setAttribute("checked", "true");
+              }
+              else{}
+            }
+          }
+        }
+      }
+      //Finish putting checks back.
+
+
+      //Progress bar and slide appearance 
       $(".progress-bar")[0].setAttribute("aria-valuenow","36");
       $(".progress-bar")[0].setAttribute('style',"width:36%");
       let ex6 = document.getElementById("relationships2");
@@ -612,81 +679,80 @@ function showNext() {
   else if (currSlide === 9) {
 
     //Collected data before going on
-    let connection_list = {};
-    collected_data.network_data = connection_list
-    let links_list = $('.link');
-    let number_of_links = $('.link').length;
-    let nodes_list = $('.nodelabel');
-    let number_of_nodes = $('.nodelabel').length;
-
-    for(let i = 0; i < number_of_nodes; i++){
-      let x_node = Number(nodes_list[i].getAttribute('x'));
-      let y_node = Number(nodes_list[i].getAttribute('y'));
-      let node_name = nodes_list[i].textContent;
-
-      connection_list[node_name] = [];
-      let x_upperbound = x_node + 0.1;
-      let x_lowerbound = x_node - 0.1;
-      let y_upperbound = y_node + 0.1;
-      let y_lowerbound = y_node - 0.1;
-
-      for(let j = 0; j < number_of_links; j++){
-        let x1 = Number(links_list[j].getAttribute('x1'));
-        let y1 = Number(links_list[j].getAttribute('y1'));
-        let x2 = Number(links_list[j].getAttribute('x2'));
-        let y2 = Number(links_list[j].getAttribute('y2'));
-        if( (x_lowerbound <= x1) && (x1 <= x_upperbound ) && (y_lowerbound <= y1) && (y1 <= y_upperbound) ) {
-          for(let k = 0; k < number_of_nodes; k ++){
-            let x2_node = Number(nodes_list[k].getAttribute('x'));
-            let y2_node = Number(nodes_list[k].getAttribute('y'));
-            let x2_upperbound = x2_node + 0.1;
-            let x2_lowerbound = x2_node - 0.1;
-            let y2_upperbound = y2_node + 0.1;
-            let y2_lowerbound = y2_node - 0.1;
-            if( (x2_lowerbound <= x2) && (x2  <= x2_upperbound ) && (y2_lowerbound <= y2) && (y2 <= y2_upperbound) ) {
-              let connected_node_name = nodes_list[k].textContent;
-              if(!connection_list[node_name].includes(connected_node_name) && (node_name != connected_node_name)){
-
-                connection_list[node_name].push(connected_node_name);
+    if(skip_collecting_data === false){
+      let connection_list = {};
+      collected_data.network_data = connection_list
+      let links_list = $('.link');
+      let number_of_links = $('.link').length;
+      let nodes_list = $('.nodelabel');
+      let number_of_nodes = $('.nodelabel').length;
+  
+      for(let i = 0; i < number_of_nodes; i++){
+        let x_node = Number(nodes_list[i].getAttribute('x'));
+        let y_node = Number(nodes_list[i].getAttribute('y'));
+        let node_name = nodes_list[i].textContent;
+  
+        connection_list[node_name] = [];
+        let x_upperbound = x_node + 0.1;
+        let x_lowerbound = x_node - 0.1;
+        let y_upperbound = y_node + 0.1;
+        let y_lowerbound = y_node - 0.1;
+  
+        for(let j = 0; j < number_of_links; j++){
+          let x1 = Number(links_list[j].getAttribute('x1'));
+          let y1 = Number(links_list[j].getAttribute('y1'));
+          let x2 = Number(links_list[j].getAttribute('x2'));
+          let y2 = Number(links_list[j].getAttribute('y2'));
+          if( (x_lowerbound <= x1) && (x1 <= x_upperbound ) && (y_lowerbound <= y1) && (y1 <= y_upperbound) ) {
+            for(let k = 0; k < number_of_nodes; k ++){
+              let x2_node = Number(nodes_list[k].getAttribute('x'));
+              let y2_node = Number(nodes_list[k].getAttribute('y'));
+              let x2_upperbound = x2_node + 0.1;
+              let x2_lowerbound = x2_node - 0.1;
+              let y2_upperbound = y2_node + 0.1;
+              let y2_lowerbound = y2_node - 0.1;
+              if( (x2_lowerbound <= x2) && (x2  <= x2_upperbound ) && (y2_lowerbound <= y2) && (y2 <= y2_upperbound) ) {
+                let connected_node_name = nodes_list[k].textContent;
+                if(!connection_list[node_name].includes(connected_node_name) && (node_name != connected_node_name)){
+  
+                  connection_list[node_name].push(connected_node_name);
+                }
               }
             }
           }
-        }
-        else if((x_lowerbound <= x2) && (x2 <= x_upperbound ) && (y_lowerbound <= y2) && (y2 <= y_upperbound)){
-          for(let k = 0; k < number_of_nodes; k ++){
-
-            let x1_node = Number(nodes_list[k].getAttribute('x'));
-            let y1_node = Number(nodes_list[k].getAttribute('y'));
-            let x1_upperbound = x1_node + 0.1;
-            let x1_lowerbound = x1_node - 0.1;
-            let y1_upperbound = y1_node + 0.1;
-            let y1_lowerbound = y1_node - 0.1;
-            if( (x1_lowerbound <= x1) && (x1 <= x1_upperbound ) && (y1_lowerbound <= y1) && (y1 <= y1_upperbound) ){
-              let connected_node_name = nodes_list[k].textContent;
-              if(!connection_list[node_name].includes(connected_node_name) && node_name != connected_node_name){
-
-                connection_list[node_name].push(connected_node_name);
+          else if((x_lowerbound <= x2) && (x2 <= x_upperbound ) && (y_lowerbound <= y2) && (y2 <= y_upperbound)){
+            for(let k = 0; k < number_of_nodes; k ++){
+  
+              let x1_node = Number(nodes_list[k].getAttribute('x'));
+              let y1_node = Number(nodes_list[k].getAttribute('y'));
+              let x1_upperbound = x1_node + 0.1;
+              let x1_lowerbound = x1_node - 0.1;
+              let y1_upperbound = y1_node + 0.1;
+              let y1_lowerbound = y1_node - 0.1;
+              if( (x1_lowerbound <= x1) && (x1 <= x1_upperbound ) && (y1_lowerbound <= y1) && (y1 <= y1_upperbound) ){
+                let connected_node_name = nodes_list[k].textContent;
+                if(!connection_list[node_name].includes(connected_node_name) && node_name != connected_node_name){
+  
+                  connection_list[node_name].push(connected_node_name);
+                }
               }
             }
           }
         }
       }
+
+      collected_data.network_data = connection_list;
     }
-
-    collected_data.network_data = connection_list;
-
 
     document.getElementById("network").style.display = "none";
     $(".progress-bar")[0].setAttribute("aria-valuenow","63");
     $(".progress-bar")[0].setAttribute('style',"width:63%");
 
     let ex5 = document.getElementById("relationships3");
-    contact_order = 0;
+    //contact_order_1 = 0;
     ex5.style.left = string_l + "px";
     ex5.style.top = string_t;
     ex5.style.display = "block";
-
-
     let offset = $('#relationships3').offset();
     let height = $('#relationships3').height();
     let top = offset.top + height + 10 +  "px";
@@ -699,8 +765,6 @@ function showNext() {
       'top': top
     });
     currSlide += 1;
-
-
   }
   else if(currSlide === 10){
 
