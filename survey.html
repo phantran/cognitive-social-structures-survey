@@ -42,7 +42,7 @@
       
       var textWidth = 800;
       var text_offset_top = 60;
-      var title_offset_top = 70;
+      var title_offset_top = 200;
       var lineHeight = 18;
       var nodeLine = 360;
       
@@ -72,8 +72,8 @@
 
 
       var clicked_back = false;
-      var contact_order_1 = 0;
-      var contact_order_2 = 0;
+      var contact_order_1 = 9;
+      var contact_order_2 = 9;
       var relationship_name = 1;
       var currSlide = 1;
       var numAlters = 0;
@@ -237,7 +237,42 @@
     <script src="shownext.js"></script>
     <script src="showprevious.js"></script>
     <script src="keypress.js"></script>
+    <script src="floormaphandling.js"></script>
     
+
+    <div id="topBar">
+      <div class="insideTopBar">
+        <div id="PreviousDiv">
+          <input type="button" 
+            class="btn btn-primary" 
+            value="Back"
+            id="Back"
+            onclick="showPrevious();pauseShowBack();"/>
+        </div>
+        <div id="progressBar">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0"  aria-valuemax="100" style="width: 0%">
+            </div>
+          </div>
+        </div>
+        <div id="NextDiv">
+          <input type="button" 
+          class="btn btn-primary" 
+          value="Continue"
+          id="Next"
+          onclick="showNext();pauseShowNext();"
+          />
+        </div>
+        <div id="finalSubmitButton">
+          <input type="button" 
+            class="btn btn-success" 
+            value="Submit"
+            id="Submit"
+            onclick="dataSubmission();" />
+          </div>
+      </div>
+    </div>
+
 
     <ul class='custom-menu'>
       <li id="menuFirstItem" data-action = "first">Always</li> 
@@ -247,9 +282,8 @@
       <li id="menuFifthItem" data-action = "fifth">Never</li>
     </ul>
 
-    <div class="progress">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
-    </div>
+
+
 
     <div class="custom-menu1">
       <ul id="people_name_list">
@@ -259,9 +293,6 @@
         </li>
       </ul>
     </div>
-
-
-
 
     <div class="input-group" id="personalInformation">
       <form id="personalInfo">
@@ -476,7 +507,7 @@
 
     <div id="UseOfSpace2">
       <h3>Use of space</h3></br>
-      <h6> Please click on the areas in the image below to choose how often you use them. If an area is unfilled or it is chosen as "Never" then it indicates that you never use that area. Please note that there are three floors, and you can change to the next floor by clicking on the "Go to floor" button</h6>
+      <h6> Please click on the areas in the image below to choose how often you use them. If an area is unfilled or it is chosen as "Never" then it indicates that you never use that area. <br> Please note that there are three floors, and you can change to the next floor by clicking on the "Go to floor" button</h6>
 
       <div id="floorA1">
         <img src="/Assets/A1_RDC.png" class="map1" alt="A1 Floor" id="A1Floor"  usemap="#floorplanA1">
@@ -577,6 +608,15 @@
         <h5>Who do you have contacted with?</h5><br>
         <div class="form-group" id="addRelationships">
           <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact0" placeholder="Enter a name"><br>
+          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact1" placeholder="Enter a name"><br>
+          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact2" placeholder="Enter a name"><br>
+          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact3" placeholder="Enter a name"><br>
+          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact4" placeholder="Enter a name"><br>
+          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact5" placeholder="Enter a name"><br>
+          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact6" placeholder="Enter a name"><br>
+          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact7" placeholder="Enter a name"><br>
+          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact8" placeholder="Enter a name"><br>
+          <input class='InputPeopleName form-control' type="text" name="contact" id="input_contact9" placeholder="Enter a name"><br>
         </div>
       </form>
       <div>
@@ -592,6 +632,15 @@
         <h5>Who do you like?</h5><br>
         <div class="form-group" id="addRelationships3">
           <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact0" placeholder="Enter a name"><br>
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact1" placeholder="Enter a name"><br>
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact2" placeholder="Enter a name"><br>
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact3" placeholder="Enter a name"><br>
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact4" placeholder="Enter a name"><br>
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact5" placeholder="Enter a name"><br>
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact6" placeholder="Enter a name"><br>
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact7" placeholder="Enter a name"><br>
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact8" placeholder="Enter a name"><br>
+          <input class='InputPeopleName3 form-control' type="text" name="contact" id="rl3_input_contact9" placeholder="Enter a name"><br>
         </div>
       </form>
       <div>
@@ -638,6 +687,9 @@
           </table>
       </form>
     </div>
+
+
+
 
     <div class="input-group" id="relationships4">
       <form>
@@ -863,7 +915,7 @@
     <div id="network">
       <div>
       <h3>Other Relationships</h3>
-      <h6>There are all the people who use the space, who do you think work together? Click on a node and drag the link to another node to create a connnection.<br> A link can be removed by clicking on it and press the backspace key or the delete key on your keyboard. Below is the initial network which is based on your input (who do you talk with?). Please note that if you go back and change your input in the "who do you talk with" slide, the network will be reset, you cannot delete the nodes and links of the initial network, etc... (more instructions) </h6>
+      <h6>There are all the people who use the space, who do you think work together? Click on a node and drag the link to another node to create a connnection.<br> A link can be removed by clicking on it and press the backspace key or the delete key on your keyboard. <br> Below is the initial network which is based on your input (who do you talk with?). Please note that if you go back and change your input in the "who do you talk with" slide,<br> the network will be reset, you cannot delete the nodes and links of the initial network, etc... (more instructions) </h6>
       </div>
       <div id="chart">
         <div class="input-group mb-3" id="add_node_to_net">
@@ -873,7 +925,7 @@
           </div>
         </div>
       </div>
-      <script src="force_view.js"></script>
+      <script src="network.js"></script>
     </div>
 
 
@@ -910,31 +962,9 @@
       </div>
     </div>
 
-   <div id="NextDiv">
-     <input type="button" 
-       class="btn btn-primary" 
-       value="Continue"
-       id="Next"
-       onclick="showNext();pauseShowNext();" />
-   </div>
 
 
-  <div id="finalSubmitButton">
-     <input type="button" 
-       class="btn btn-success" 
-       value="Submit"
-       id="Submit"
-       onclick="dataSubmission();" />
-   </div>
 
-
-   <div id="PreviousDiv">
-     <input type="button" 
-       class="btn btn-primary" 
-       value="Back"
-       id="Back"
-       onclick="showPrevious();pauseShowBack();" />
-   </div>
 
     <script type="text/javascript">
         $("#Next").css("left",window.innerWidth * .8);
@@ -1104,8 +1134,9 @@
         });
 
 
-        $('#addMore').click(function(event){
-          event.preventDefault();
+
+        
+        function duplicate_name_check(){
           //Check if the entered name is the same as participant's name
           let previous_text_box_id = "#input_contact"+ contact_order_1;
           let entered_name = $(previous_text_box_id).val();
@@ -1113,55 +1144,36 @@
             return;
           }
 
+        }     
+
+
+        $('#addMore').click(function(event){
+          event.preventDefault();
           contact_order_1 = contact_order_1 + 1;
           var objTo = document.getElementById('addRelationships');
           var divtest = document.createElement("div");
           divtest.innerHTML = '<input class="InputPeopleName form-control" type="text" name="contact" id="input_contact'+ contact_order_1 + '"'+ 'placeholder="Enter a name"> </span><br>';
           objTo.appendChild(divtest);
+
           $(function() {
               $( function(){});
               $( ".InputPeopleName" ).autocomplete({source: availableTags});
           });
-          let offset = $('#relationships').offset();
-          let height = $('#relationships').height();
-          let top = offset.top + height + 10 +  "px";
-          $('#Next').css({
-            'top': top
-          });
 
-          $('#Back').css({
-            'top': top
-          });
         });
 
 
         $('#addMore3').click(function(event){
           event.preventDefault();
-          //Check if the entered name is the same as participant's name
-          let previous_text_box_id = "#rl3_input_contact"+ contact_order_2;
-          let entered_name = $(previous_text_box_id).val();
-          if(entered_name === collected_data.socio_question.name){
-            return;
-          }
-
           contact_order_2 = contact_order_2 + 1;
           var objTo = document.getElementById('addRelationships3');
           var divtest = document.createElement("div");
           divtest.innerHTML = '<input class="InputPeopleName3 form-control" type="text" name="contact" id="rl3_input_contact'+ contact_order_2 + '"'+ 'placeholder="Enter a name"> </span><br>';
           objTo.appendChild(divtest);
+
           $(function() {
               $( function(){});
               $( ".InputPeopleName3" ).autocomplete({source: availableTags});
-          });
-          let offset = $('#relationships3').offset();
-          let height = $('#relationships3').height();
-          let top = offset.top + height + 10 +  "px";
-          $('#Next').css({
-            'top': top
-          });
-
-          $('#Back').css({
-            'top': top
           });
         });
 

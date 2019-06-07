@@ -7,10 +7,10 @@
 //                  use_of_space:{day_in:"", time_slot:"", have_lunch:"", switch_desk:""}, area_usage:{zone1:"", zone2:"", zone3:"", zone4:""},
 //                  relationships:{contacted_with:[]}};
 function showNext() {
+  $("body").scrollTop(0);
   if (currSlide === 1) {
     document.getElementById("slide0").style.display = "none";
     document.getElementById("slide1").style.display = "block";
-
 
     currSlide += 1;
   }else if (currSlide === 2){
@@ -19,20 +19,8 @@ function showNext() {
     ex2.style.left = string_l + "px";
     ex2.style.top = string_t;
     ex2.style.display = "block";
-
-    let offset = $('#personalInformation').offset();
-    let height = $('#personalInformation').height();
-    let top = offset.top + height + 10 +  "px";
-    $('#Next').css({
-      'top': top
-    });
-
-    $('#Back').css({
-      'top': top
-    });
-
-
     currSlide += 1;
+
   }else if (currSlide === 3) {
       // If user has not selected an option, alert with popup
       if ((($('#input_name')[0].value === '') || ($('#input_age')[0].value === '') || 
@@ -75,17 +63,6 @@ function showNext() {
         ex3.style.left = string_l + "px";
         ex3.style.top = string_t;
         ex3.style.display = "block";
-
-        let offset = $('#UseOfSpace').offset();
-        let height = $('#UseOfSpace').height();
-        let top = offset.top + height + 10 +  "px";
-        $('#Next').css({
-          'top': top
-        });
-
-        $('#Back').css({
-          'top': top
-        });
         currSlide += 1;
       }
   }
@@ -199,22 +176,6 @@ function showNext() {
             $(clicked_area_id).data('maphilight', data).trigger('alwaysOn.maphilight'); 
           }
         }
-
-        if(FloorA1Offset == 0 && FloorA1height == 0){
-          FloorA1Offset = $('#A1Floor').offset();
-          FloorA1height = $('#A1Floor').height();
-        }
-        let top = FloorA1Offset.top + FloorA1height + 20 +  "px";
-        $('#Next').css({
-
-          'top': top 
-        });
-
-        $('#Back').css({
-          'top': top
-        });
-
-
         currSlide += 1;
       }
   }
@@ -298,19 +259,6 @@ function showNext() {
     ex5.style.left = string_l + "px";
     ex5.style.top = string_t;
     ex5.style.display = "block";
-
-    //contact_order_2 = 0;
-    let offset = $('#relationships').offset();
-    let height = $('#relationships').height();
-    let top = offset.top + height + 10 +  "px";
-
-    $('#Next').css({
-      'top': top
-    });
-
-    $('#Back').css({
-      'top': top
-    });
     currSlide += 1;
 
 
@@ -472,17 +420,6 @@ function showNext() {
       ex6.style.top = string_t;
       ex6.style.display = "block";
       currSlide += 1;
-      
-      let offset = $('#relationships2').offset();
-      let height = $('#relationships2').height();
-      let top = offset.top + height + 10 +  "px";
-      $('#Next').css({
-        'top': top
-      });
-  
-      $('#Back').css({
-        'top': top
-      });
     }
   } 
 
@@ -587,17 +524,6 @@ function showNext() {
       });
  
       $('map').imageMapResize();
- 
-      let top = FloorA1Offset.top + FloorA1height + 30 +  "px";
-      $('#Next').css({
- 
-        'top': top 
-      });
- 
-      $('#Back').css({
-        'top': top
-      });
-
 
       //Clean the pop-up list before updating
       while ($("#people_name_list")[0].childNodes.length > 3){
@@ -661,17 +587,6 @@ function showNext() {
     $(".progress-bar")[0].setAttribute("aria-valuenow","54");
     $(".progress-bar")[0].setAttribute('style',"width:54%");
     document.getElementById("network").style.display = "block";
-    let offset = $('#chart').offset();
-    let height = $('#chart').height();
-    let top = offset.top + height + 10 +  "px";
-    $('#Next').css({
-      'top': top
-    });
-  
-    $('#Back').css({
-      'top': top
-    });
-    
     currSlide += 1;
   }
 
@@ -753,17 +668,6 @@ function showNext() {
     ex5.style.left = string_l + "px";
     ex5.style.top = string_t;
     ex5.style.display = "block";
-    let offset = $('#relationships3').offset();
-    let height = $('#relationships3').height();
-    let top = offset.top + height + 10 +  "px";
-
-    $('#Next').css({
-      'top': top
-    });
-
-    $('#Back').css({
-      'top': top
-    });
     currSlide += 1;
   }
   else if(currSlide === 10){
@@ -857,17 +761,6 @@ function showNext() {
       ex6.style.top = string_t;
       ex6.style.display = "block";
       currSlide += 1;
-      
-      let offset = $('#relationships4').offset();
-      let height = $('#relationships4').height();
-      let top = offset.top + height + 10 +  "px";
-      $('#Next').css({
-        'top': top
-      });
-  
-      $('#Back').css({
-        'top': top
-      });
     }
   }
 else if (currSlide === 11) {
@@ -969,16 +862,6 @@ else if (currSlide === 11) {
       });
  
       $('map').imageMapResize();
- 
-      let top = FloorA1Offset.top + FloorA1height + 30 +  "px";
-      $('#Next').css({
- 
-        'top': top 
-      });
- 
-      $('#Back').css({
-        'top': top
-      });
 
       //Clean the previous pop-up list, length > 3 because the default ul element has 3 children
       while ($("#people_name_list")[0].childNodes.length > 3){
@@ -1047,16 +930,6 @@ else if (currSlide === 11) {
     $(".progress-bar")[0].setAttribute("aria-valuenow","90");
     $(".progress-bar")[0].setAttribute('style',"width:90%");
     document.getElementById("network").style.display = "block";
-    let offset = $('#chart').offset();
-    let height = $('#chart').height();
-    let top = offset.top + height + 10 +  "px";
-    $('#Next').css({
-      'top': top
-    });
-  
-    $('#Back').css({
-      'top': top
-    });
     
     currSlide += 1;
   }
@@ -1129,7 +1002,6 @@ else if (currSlide === 11) {
 
     collected_data.network_data_2 = connection_list;
 
-
     document.getElementById("network").style.display = "none";
     document.getElementById("slide8").style.display = "block";
     let offset = $('#slide8').offset();
@@ -1139,14 +1011,7 @@ else if (currSlide === 11) {
       'display': "none" 
     });
     
-    $('#Back').css({
-      'top': top
-    });
     document.getElementById("finalSubmitButton").style.display = "block";
-    $('#finalSubmitButton').css({
-      'top': top,
-      'left': "80%"
-    });
     $(".progress-bar")[0].setAttribute("aria-valuenow","100");
     $(".progress-bar")[0].setAttribute('style',"width:100%");
     currSlide += 1;
@@ -1157,9 +1022,6 @@ else if (currSlide === 11) {
     checked = false;
     document.getElementById("slide8").style.display = "none";
     document.getElementById("slide9").style.display = "block";
-    $('#Next').css({
-      'display': "none"
-    });
     
     $('#Back').css({
       'display': "none"
@@ -1179,452 +1041,6 @@ else if (currSlide === 11) {
 }
 
 
-
-function goToFloorR1() {
-
-  checked = false;
-  document.getElementById("floorA1").style.display = "none";
-  let ex4 = document.getElementById("floorR1");
-  ex4.style.display = "block";
-
-  $('.map2').maphilight({
-    stroke: true,
-    strokeColor: 'ff0000',
-    strokeOpacity: 1,
-    strokeWidth: 1,
-  });
-
-  $('map').imageMapResize();
-
-
-  if(clicked_area_id_R1 !== ""){
-    //This piece of code is used to display the colors of clicked areas
-    if(never_was_clicked_R1 === true){
-      let temp_data = {};
-      temp_data.strokeColor = "C1C240";
-      temp_data.strokeWidth = 5;
-      temp_data.fillColor = "FFE97F";
-      temp_data.fillOpacity = "0.4";
-      temp_data.alwaysOn = false;
-      $(clicked_area_id_R1).data('maphilight', temp_data).trigger('alwaysOn.maphilight'); 
-    }
-    else{
-      var data = {};
-      data.alwaysOn = true;
-      data.stroke = true;
-      data.strokeOpacity = 1;
-      data.strokeWidth = 1;
-      data.strokeColor = '00fdf0';
-      data.fillColor = chosenColorR1; 
-      data.fillOpacity = 0.65;
-      $(clicked_area_id_R1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-    }
-  }
-
-
-  let offset = $('#R1Floor').offset();
-  let height = $('#R1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
-
-}
-
-function goToFloorR2() {
-
-  checked = false;
-  document.getElementById("floorR1").style.display = "none";
-  let ex4 = document.getElementById("floorR2");
-  ex4.style.display = "block";
-
-  $('.map3').maphilight({
-    stroke: true,
-    strokeColor: 'ff0000',
-    strokeOpacity: 1,
-    strokeWidth: 1,
-  });
-
-  $('map').imageMapResize();
-
-  if(clicked_area_id_R2 !== ""){
-    //This piece of code is used to display the colors of clicked areas
-    if(never_was_clicked_R2 === true){
-      let temp_data = {};
-      temp_data.strokeColor = "C1C240";
-      temp_data.strokeWidth = 5;
-      temp_data.fillColor = "FFE97F";
-      temp_data.fillOpacity = "0.4";
-      temp_data.alwaysOn = false;
-      $(clicked_area_id_R2).data('maphilight', temp_data).trigger('alwaysOn.maphilight'); 
-    }
-    else{
-      var data = {};
-      data.alwaysOn = true;
-      data.stroke = true;
-      data.strokeOpacity = 1;
-      data.strokeWidth = 1;
-      data.strokeColor = '00fdf0';
-      data.fillColor = chosenColorR2; 
-      data.fillOpacity = 0.65;
-      $(clicked_area_id_R2).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-    }
-  }
-
-  let offset = $('#R2Floor').offset();
-  let height = $('#R2Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
-
-}
-
-
-function goToFloorA1() {
-
-  checked = false;
-  document.getElementById("floorR2").style.display = "none";
-  let ex4 = document.getElementById("floorA1");
-  ex4.style.display = "block";
-
-  $('.map1').maphilight({
-      stroke: true,
-      strokeColor: 'ff0000',
-      strokeOpacity: 1,
-      strokeWidth: 1,
-  });
-
-  $('map').imageMapResize();
-
-  if(clicked_area_id_A1 !== ""){
-    //This piece of code is used to display the colors of clicked areas
-    if(never_was_clicked_A1 === true){
-      let temp_data = {};
-      temp_data.strokeColor = "C1C240";
-      temp_data.strokeWidth = 5;
-      temp_data.fillColor = "FFE97F";
-      temp_data.fillOpacity = "0.4";
-      temp_data.alwaysOn = false;
-      $(clicked_area_id_A1).data('maphilight', temp_data).trigger('alwaysOn.maphilight'); 
-    }
-    else{
-      var data = {};
-      data.alwaysOn = true;
-      data.stroke = true;
-      data.strokeOpacity = 1;
-      data.strokeWidth = 1;
-      data.strokeColor = '00fdf0';
-      data.fillColor = chosenColorA1; 
-      data.fillOpacity = 0.65;
-      $(clicked_area_id_A1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-    }
-  }
-
-  let offset = $('#A1Floor').offset();
-  let height = $('#A1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-      'top': top
-  });
-
-  $('#Back').css({
-      'top': top
-  });
-}
-
-
-
-function UOP3_goToFloorR1() {
-
-  checked = false;
-  document.getElementById("UOP3_floorA1").style.display = "none";
-  let ex4 = document.getElementById("UOP3_floorR1");
-  ex4.style.display = "block";
-
-  $('.UOP3_map2').maphilight({
-    stroke: true,
-    strokeColor: 'ff0000',
-    strokeOpacity: 1,
-    strokeWidth: 1,
-  });
-
-  $('map').imageMapResize();
-
-  if(Object.keys(collected_data.meet_places.floor_r1).length !== 0){
-    if(UOP3_clicked_area_id_R1 !== ""){
-
-      //This piece of code is used to display the colors of clicked areas
-      let data = {};
-      data.strokeColor = '00fdf0';
-      data.alwaysOn = true;
-      data.stroke = true;
-      data.strokeOpacity = 1;
-      data.strokeWidth = 1;
-      data.fillOpacity = 0.65;
-      data.fillColor = '56e5ff';  
-      $(UOP3_clicked_area_id_R1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-    }
-  }
-
-
-
-  let offset = $('#UOP3_R1Floor').offset();
-  let height = $('#UOP3_R1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
-
-}
-
-function UOP3_goToFloorR2() {
-
-  checked = false;
-  document.getElementById("UOP3_floorR1").style.display = "none";
-  let ex4 = document.getElementById("UOP3_floorR2");
-  ex4.style.display = "block";
-
-  $('.UOP3_map3').maphilight({
-    stroke: true,
-    strokeColor: 'ff0000',
-    strokeOpacity: 1,
-    strokeWidth: 1,
-  });
-
-  $('map').imageMapResize();
-
-  if(Object.keys(collected_data.meet_places.floor_r2).length !== 0){
-    if(UOP3_clicked_area_id_R2 !== ""){
-      //This piece of code is used to display the colors of clicked areas
-      let data = {};
-      data.strokeColor = '00fdf0';
-      data.alwaysOn = true;
-      data.stroke = true;
-      data.strokeOpacity = 1;
-      data.strokeWidth = 1;
-      data.fillOpacity = 0.65;
-      data.fillColor = '56e5ff';  
-      $(UOP3_clicked_area_id_R2).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-    }
-  }
-
-  let offset = $('#UOP3_R2Floor').offset();
-  let height = $('#UOP3_R2Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
-
-}
-
-
-function UOP3_goToFloorA1() {
-  checked = false;
-  document.getElementById("UOP3_floorR2").style.display = "none";
-  let ex4 = document.getElementById("UOP3_floorA1");
-  ex4.style.display = "block";
-
-  $('.UOP3_map1').maphilight({
-      stroke: true,
-      strokeColor: 'ff0000',
-      strokeOpacity: 1,
-      strokeWidth: 1,
-  });
-
-  $('map').imageMapResize();
-
-  if(Object.keys(collected_data.meet_places.floor_rdc).length !== 0){
-    if(UOP3_clicked_area_id_A1 !== ""){
-      //This piece of code is used to display the colors of clicked areas
-      let data = {};
-      data.strokeColor = '00fdf0';
-      data.alwaysOn = true;
-      data.stroke = true;
-      data.strokeOpacity = 1;
-      data.strokeWidth = 1;
-      data.fillOpacity = 0.65;
-      data.fillColor = '56e5ff';  
-      $(UOP3_clicked_area_id_A1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-    }
-  }
-
-  let offset = $('#UOP3_A1Floor').offset();
-  let height = $('#UOP3_A1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-      'top': top
-  });
-
-  $('#Back').css({
-      'top': top
-  });
-}
-
-
-
-
-function WLW_goToFloorR1() {
-
-  checked = false;
-  document.getElementById("WLW_floorA1").style.display = "none";
-  let ex4 = document.getElementById("WLW_floorR1");
-  ex4.style.display = "block";
-
-  $('.WLW_map2').maphilight({
-    stroke: true,
-    strokeColor: 'ff0000',
-    strokeOpacity: 1,
-    strokeWidth: 1,
-  });
-
-  $('map').imageMapResize();
-
-  if(Object.keys(collected_data.meet_places_2.floor_r1).length !== 0){
-    if(WLW_clicked_area_id_R1 !== ""){
-
-      //This piece of code is used to display the colors of clicked areas
-      let data = {};
-      data.strokeColor = '00fdf0';
-      data.alwaysOn = true;
-      data.stroke = true;
-      data.strokeOpacity = 1;
-      data.strokeWidth = 1;
-      data.fillOpacity = 0.65;
-      data.fillColor = '56e5ff';  
-      $(WLW_clicked_area_id_R1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-    }
-  }
-
-
-
-  let offset = $('#WLW_R1Floor').offset();
-  let height = $('#WLW_R1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
-
-}
-
-function WLW_goToFloorR2() {
-
-  checked = false;
-  document.getElementById("WLW_floorR1").style.display = "none";
-  let ex4 = document.getElementById("WLW_floorR2");
-  ex4.style.display = "block";
-
-  $('.WLW_map3').maphilight({
-    stroke: true,
-    strokeColor: 'ff0000',
-    strokeOpacity: 1,
-    strokeWidth: 1,
-  });
-
-  $('map').imageMapResize();
-
-  if(Object.keys(collected_data.meet_places_2.floor_r2).length !== 0){
-    if(WLW_clicked_area_id_R2 !== ""){
-      //This piece of code is used to display the colors of clicked areas
-      let data = {};
-      data.strokeColor = '00fdf0';
-      data.alwaysOn = true;
-      data.stroke = true;
-      data.strokeOpacity = 1;
-      data.strokeWidth = 1;
-      data.fillOpacity = 0.65;
-      data.fillColor = '56e5ff';  
-      $(WLW_clicked_area_id_R2).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-    }
-  }
-
-  let offset = $('#WLW_R2Floor').offset();
-  let height = $('#WLW_R2Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
-
-}
-
-
-function WLW_goToFloorA1() {
-  checked = false;
-  document.getElementById("WLW_floorR2").style.display = "none";
-  let ex4 = document.getElementById("WLW_floorA1");
-  ex4.style.display = "block";
-
-  $('.WLW_map1').maphilight({
-      stroke: true,
-      strokeColor: 'ff0000',
-      strokeOpacity: 1,
-      strokeWidth: 1,
-  });
-
-  $('map').imageMapResize();
-
-  if(Object.keys(collected_data.meet_places_2.floor_rdc).length !== 0){
-    if(WLW_clicked_area_id_A1 !== ""){
-      //This piece of code is used to display the colors of clicked areas
-      let data = {};
-      data.strokeColor = '00fdf0';
-      data.alwaysOn = true;
-      data.stroke = true;
-      data.strokeOpacity = 1;
-      data.strokeWidth = 1;
-      data.fillOpacity = 0.65;
-      data.fillColor = '56e5ff';  
-      $(WLW_clicked_area_id_A1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
-    }
-  }
-
-  let offset = $('#WLW_A1Floor').offset();
-  let height = $('#WLW_A1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-      'top': top
-  });
-
-  $('#Back').css({
-      'top': top
-  });
-}
-
-
-
 function dataSubmission() {
   $.ajax({
     type: 'POST',
@@ -1637,100 +1053,5 @@ function dataSubmission() {
     }
   });
   showNext();
-}
-
-
-function preprocess_name_list(){
-  if(currSlide === 12){
-    contacts_list = collected_data.who_likes_whom.who_you_like
-  }
-  else{
-    contacts_list = collected_data.relationships.contacted_with;
-  }
-  
-  initial_nodes = [];
-  let main_node = {id:"", label:"", initials:""};
-  main_node.id = 0;
-  let participant_name_array = collected_data.socio_question.name.split(' ');
-  main_node.label = collected_data.socio_question.name;
-  participant_name_array.forEach( function(element, index) {
-      // statements
-      main_node.initials += element.substring(0, 1).toUpperCase();
-  }); 
-  
-  initial_nodes.push(main_node);
-  
-  let i = 1;
-  if(currSlide === 12){
-    collected_data.who_likes_whom.who_you_like.forEach( function(element, index) {
-      // statements
-      let people_name = element;
-      let name_as_array = people_name.split(' ');
-      let initials = "";
-      name_as_array.forEach( function(element, index) {
-        // statements
-        initials += element.substring(0, 1).toUpperCase();
-      }); 
-    
-      let node = {id:"", label:"", initials:""};
-      node.initials = initials;
-      node.label = people_name;
-      node.id = i;
-      i++;
-      
-      initial_nodes.push(node);
-    });
-  }
-  else{
-    collected_data.relationships.contacted_with.forEach( function(element, index) {
-      // statements
-      let people_name = element;
-      let name_as_array = people_name.split(' ');
-      let initials = "";
-      name_as_array.forEach( function(element, index) {
-        // statements
-        initials += element.substring(0, 1).toUpperCase();
-      }); 
-    
-      let node = {id:"", label:"", initials:""};
-      node.initials = initials;
-      node.label = people_name;
-      node.id = i;
-      i++;
-      
-      initial_nodes.push(node);
-    });
-  }
-}
-
-
-function is_name_list_changed(){
-  if(currSlide !== 12){
-    if(contacts_list.length !== collected_data.relationships.contacted_with.length){
-      return true;
-    }
-    else{
-      for(let i = 0; i < contacts_list.length; i++){
-        if(contacts_list[i] !== collected_data.relationships.contacted_with[i]){
-          return true;
-        }
-      }
-      return false;
-    }
-  }
-  else{
-    if(contacts_list.length !== collected_data.who_likes_whom.who_you_like.length){
-      return true;
-    }
-    else{
-      for(let i = 0; i < contacts_list.length; i++){
-        if(contacts_list[i] !== collected_data.who_likes_whom.who_you_like[i]){
-          return true;
-        }
-      }
-      return false;
-    }
-  }
-
 }
 

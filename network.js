@@ -109,6 +109,8 @@ function initial_network(){
     link = vis.selectAll(".link");
     
     redraw();
+    let main_node = "[label=" + '"' + collected_data.socio_question.name + '"'  + "]";
+    $(main_node).css("fill", "darkblue");
 }
 
 
@@ -553,3 +555,97 @@ function BackToLikeWhom(){
   skip_collecting_data = false;
 }
 
+
+function preprocess_name_list(){
+  if(currSlide === 12){
+    contacts_list = collected_data.who_likes_whom.who_you_like
+  }
+  else{
+    contacts_list = collected_data.relationships.contacted_with;
+  }
+  
+  initial_nodes = [];
+  let main_node = {id:"", label:"", initials:""};
+  main_node.id = 0;
+  let participant_name_array = collected_data.socio_question.name.split(' ');
+  main_node.label = collected_data.socio_question.name;
+  participant_name_array.forEach( function(element, index) {
+      // statements
+      main_node.initials += element.substring(0, 1).toUpperCase();
+  }); 
+  
+  initial_nodes.push(main_node);
+  
+  let i = 1;
+  if(currSlide === 12){
+    collected_data.who_likes_whom.who_you_like.forEach( function(element, index) {
+      // statements
+      let people_name = element;
+      let name_as_array = people_name.split(' ');
+      let initials = "";
+      name_as_array.forEach( function(element, index) {
+        // statements
+        initials += element.substring(0, 1).toUpperCase();
+      }); 
+    
+      let node = {id:"", label:"", initials:""};
+      node.initials = initials;
+      node.label = people_name;
+      node.id = i;
+      i++;
+      
+      initial_nodes.push(node);
+    });
+  }
+  else{
+    collected_data.relationships.contacted_with.forEach( function(element, index) {
+      // statements
+      let people_name = element;
+      let name_as_array = people_name.split(' ');
+      let initials = "";
+      name_as_array.forEach( function(element, index) {
+        // statements
+        initials += element.substring(0, 1).toUpperCase();
+      }); 
+    
+      let node = {id:"", label:"", initials:""};
+      node.initials = initials;
+      node.label = people_name;
+      node.id = i;
+      i++;
+      
+      initial_nodes.push(node);
+    });
+  }
+}
+
+
+function is_name_list_changed(){
+  if(currSlide !== 12){
+    if(contacts_list.length !== collected_data.relationships.contacted_with.length){
+      return true;
+    }
+    else{
+      for(let i = 0; i < contacts_list.length; i++){
+        if(contacts_list[i] !== collected_data.relationships.contacted_with[i]){
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+  else{
+    if(contacts_list.length !== collected_data.who_likes_whom.who_you_like.length){
+      return true;
+    }
+    else{
+      for(let i = 0; i < contacts_list.length; i++){
+        if(contacts_list[i] !== collected_data.who_likes_whom.who_you_like[i]){
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+
+}

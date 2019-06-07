@@ -12,7 +12,7 @@ var svg = d3.select("body").append("svg")
 // Catch Internet Explorer users; incompatible browser
 if (isIE()) {
   var slide0 = d3.select("svg").append("g")
-    .attr("id", "slide0");
+    .attr("id", "slide0")
   slide0.append("rect")
     .style("fill", "white")
     .attr("x", 0)

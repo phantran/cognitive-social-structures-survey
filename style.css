@@ -44,6 +44,8 @@ g#0 {
 #relationships, #relationships2, #relationships3, #relationships4 {
   position: absolute;
   display: none;
+  margin: 50px;
+  padding: 50px;
 }
 
 
@@ -103,14 +105,7 @@ g#0 {
   z-index: 100;
 }
 
-#nextDiv {
-  position: absolute;
-}
 
-#previousDiv {
-  position: absolute;
-
-}
 
 #nonresponse_box, #warning_box_link_not_allowed, #warning_box_link_not_allowed_1 {
   display: none;
@@ -213,20 +208,7 @@ g#0 {
   font-weight: bold;
 }
 
-#Next {
-  display: box;
-  position: absolute;
-  top: 60%;
-  left: 80%;
-}
 
-
-#Back {
-  display: box;
-  position: absolute;
-  top: 60%;
-  right: 80%;
-}
 
 #Next:disabled {
   opacity:.33;
@@ -752,26 +734,39 @@ only screen and (max-width: 760px),
 
 /*==============================================*/
 
-.progress{
-  position:absolute;
-  left:20px;
-  right:20px;
-  top: 10px;
-
+/*=============Top Bar style========================*/
+#topBar{
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 9999;
 }
 
+.insideTopBar {
+  display: flex;
+  width: 100%;
+  margin: 0px 0;
+  background-color: #D6E9FE;
+} 
+#progressBar{
+  display: block;
+  width: 100%;
+}
+#nextDiv{
+  display: block;
+}
+
+#previousDiv {
+  display: block;
+}
 
 #finalSubmitButton{
-  position: absolute;
   display: none;
 }
+/*==============================================*/
 
-#Submit{
-  display: box;
-  position: absolute;
-  top: 60%;
-  left: 80%;
-}
 
 
 #slide8{
