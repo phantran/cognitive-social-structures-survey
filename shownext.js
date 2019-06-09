@@ -7,7 +7,7 @@
 //                  use_of_space:{day_in:"", time_slot:"", have_lunch:"", switch_desk:""}, area_usage:{zone1:"", zone2:"", zone3:"", zone4:""},
 //                  relationships:{contacted_with:[]}};
 function showNext() {
-  $("body").scrollTop(0);
+  $(window).scrollTop(0);
   if (currSlide === 1) {
     document.getElementById("slide0").style.display = "none";
     document.getElementById("slide1").style.display = "block";

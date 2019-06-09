@@ -985,7 +985,7 @@
       "resolved": "https://registry.npmjs.org/expand-brackets/-/expand-brackets-2.1.4.tgz",
       "version": "2.1.4"
     },
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "extend": {
       "integrity": "sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==",
       "resolved": "https://registry.npmjs.org/extend/-/extend-3.0.2.tgz",
@@ -2188,7 +2188,7 @@
       "resolved": "https://registry.npmjs.org/mongodb-core/-/mongodb-core-3.1.7.tgz",
       "version": "3.1.7"
     },
-    "mongoose": "^5.3.10",
+    "mongoose": "^5.5.14",
     "mongoose-legacy-pluralize": {
       "integrity": "sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==",
       "resolved": "https://registry.npmjs.org/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz",
