@@ -5,5 +5,6 @@ Make sure you have Nodejs and NPM installed on your machine.Then follow the step
 2. Clone the project by using `git clone https://github.com/phantran/CognitiveSocialStructuresSurvey.git`
 3. Install the dependencies by using the command `npm install`
 4. Open another terminal and execute `mongod` to have the Mongo database running.
-5. Run the server on your local host with this command `node app.js`
-6. Open a browser and access the index of the website with the address of localhost: `http://localhost:3000`
+5. Create a folder and name it `Collected_Data`
+6. Run the server on your local host with this command `node app.js`
+7. Open a browser and access the index of the website with the address of localhost: `http://localhost:3000`
