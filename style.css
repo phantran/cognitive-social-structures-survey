@@ -735,35 +735,32 @@ only screen and (max-width: 760px),
 /*==============================================*/
 
 /*=============Top Bar style========================*/
-#topBar{
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  width: 100%;
-  top: 0px;
+
+.progress{
+  position:fixed;
+  left:20px;
+  right:20px;
+  top: 10px;
   z-index: 9999;
+
 }
 
-.insideTopBar {
-  display: flex;
-  width: 100%;
-  margin: 0px 0;
-  background-color: #D6E9FE;
-} 
-#progressBar{
-  display: block;
-  width: 100%;
-}
 #nextDiv{
+  position: absolute;
   display: block;
+  margin: 30px;
 }
 
 #previousDiv {
+  position: absolute;
   display: block;
+  margin: 30px;
 }
 
 #finalSubmitButton{
+  position: absolute;
   display: none;
+  margin: 30px;
 }
 /*==============================================*/
 

@@ -42,20 +42,7 @@ function goToFloorR1() {
       $(clicked_area_id_R1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
     }
   }
-
-
-  let offset = $('#R1Floor').offset();
-  let height = $('#R1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
-
+  setPositionOfNextBackButton();
 }
 
 function goToFloorR2() {
@@ -98,17 +85,7 @@ function goToFloorR2() {
     }
   }
 
-  let offset = $('#R2Floor').offset();
-  let height = $('#R2Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
+  setPositionOfNextBackButton();
 
 }
 
@@ -152,18 +129,7 @@ function goToFloorA1() {
       $(clicked_area_id_A1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
     }
   }
-
-  let offset = $('#A1Floor').offset();
-  let height = $('#A1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-      'top': top
-  });
-
-  $('#Back').css({
-      'top': top
-  });
+  setPositionOfNextBackButton();
 }
 
 
@@ -199,21 +165,7 @@ function UOP3_goToFloorR1() {
       $(UOP3_clicked_area_id_R1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
     }
   }
-
-
-
-  let offset = $('#UOP3_R1Floor').offset();
-  let height = $('#UOP3_R1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
-
+  setPositionOfNextBackButton();
 }
 
 function UOP3_goToFloorR2() {
@@ -247,17 +199,7 @@ function UOP3_goToFloorR2() {
     }
   }
 
-  let offset = $('#UOP3_R2Floor').offset();
-  let height = $('#UOP3_R2Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
+  setPositionOfNextBackButton();
 
 }
 
@@ -292,17 +234,7 @@ function UOP3_goToFloorA1() {
     }
   }
 
-  let offset = $('#UOP3_A1Floor').offset();
-  let height = $('#UOP3_A1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-      'top': top
-  });
-
-  $('#Back').css({
-      'top': top
-  });
+  setPositionOfNextBackButton();
 }
 
 
@@ -340,19 +272,7 @@ function WLW_goToFloorR1() {
     }
   }
 
-
-
-  let offset = $('#WLW_R1Floor').offset();
-  let height = $('#WLW_R1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
+  setPositionOfNextBackButton();
 
 }
 
@@ -387,18 +307,7 @@ function WLW_goToFloorR2() {
     }
   }
 
-  let offset = $('#WLW_R2Floor').offset();
-  let height = $('#WLW_R2Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-    'top': top
-  });
-
-  $('#Back').css({
-    'top': top
-  });
-
+  setPositionOfNextBackButton();
 }
 
 
@@ -431,16 +340,5 @@ function WLW_goToFloorA1() {
       $(WLW_clicked_area_id_A1).data('maphilight', data).trigger('alwaysOn.maphilight'); 
     }
   }
-
-  let offset = $('#WLW_A1Floor').offset();
-  let height = $('#WLW_A1Floor').height();
-  let top = offset.top + height + 20 +  "px";
-
-  $('#Next').css({
-      'top': top
-  });
-
-  $('#Back').css({
-      'top': top
-  });
+  setPositionOfNextBackButton();
 }
