@@ -11,8 +11,9 @@ function showNext() {
   if (currSlide === 1) {
     document.getElementById("slide0").style.display = "none";
     document.getElementById("slide1").style.display = "block";
-
     currSlide += 1;
+   
+
   }else if (currSlide === 2){
     document.getElementById("slide1").style.display = "none";
     let ex2 = document.getElementById("personalInformation");
@@ -20,6 +21,7 @@ function showNext() {
     ex2.style.top = string_t;
     ex2.style.display = "block";
     currSlide += 1;
+
 
   }else if (currSlide === 3) {
       // If user has not selected an option, alert with popup
@@ -63,8 +65,9 @@ function showNext() {
         ex3.style.left = string_l + "px";
         ex3.style.top = string_t;
         ex3.style.display = "block";
-        currSlide += 1;
+        currSlide += 1; 
       }
+
   }
   else if (currSlide === 4) {
       // If user has not selected an option, alert with popup
@@ -178,6 +181,7 @@ function showNext() {
         }
         currSlide += 1;
       }
+
   }
   else if (currSlide === 5) {
 
@@ -420,10 +424,8 @@ function showNext() {
       ex6.style.top = string_t;
       ex6.style.display = "block";
       currSlide += 1;
-    }
+    } 
   } 
-
-
 
   else if (currSlide === 7) {
       // If user has not selected an option, alert with popup
@@ -553,6 +555,7 @@ function showNext() {
       }
       currSlide += 1;
     }
+   
   }
 
   else if (currSlide === 8) {
@@ -588,6 +591,7 @@ function showNext() {
     $(".progress-bar")[0].setAttribute('style',"width:54%");
     document.getElementById("network").style.display = "block";
     currSlide += 1;
+   
   }
 
 
@@ -669,6 +673,7 @@ function showNext() {
     ex5.style.top = string_t;
     ex5.style.display = "block";
     currSlide += 1;
+
   }
   else if(currSlide === 10){
 
@@ -762,8 +767,9 @@ function showNext() {
       ex6.style.display = "block";
       currSlide += 1;
     }
+
   }
-else if (currSlide === 11) {
+  else if (currSlide === 11) {
       // If user has not selected an option, alert with popup
 
     let radio_button_object = $(".rl4_radio_relationship");
@@ -891,6 +897,7 @@ else if (currSlide === 11) {
       }
       currSlide += 1;
     }
+
   }
 
   else if (currSlide === 12) {
@@ -932,6 +939,7 @@ else if (currSlide === 11) {
     document.getElementById("network").style.display = "block";
     
     currSlide += 1;
+
   }
 
 
@@ -1015,6 +1023,7 @@ else if (currSlide === 11) {
     $(".progress-bar")[0].setAttribute("aria-valuenow","100");
     $(".progress-bar")[0].setAttribute('style',"width:100%");
     currSlide += 1;
+
   }
   else if (currSlide === 14) {
       // If user has not selected an option, alert with popup
@@ -1038,6 +1047,7 @@ else if (currSlide === 11) {
   }
   $('#Next').blur();
   clicked_back = false;
+  setPositionOfNextBackButton();
 }
 
 

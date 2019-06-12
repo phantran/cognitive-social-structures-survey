@@ -238,41 +238,13 @@
     <script src="showprevious.js"></script>
     <script src="keypress.js"></script>
     <script src="floormaphandling.js"></script>
+    <script src="back_next_button_position.js"></script>
     
 
-    <div id="topBar">
-      <div class="insideTopBar">
-        <div id="PreviousDiv">
-          <input type="button" 
-            class="btn btn-primary" 
-            value="Back"
-            id="Back"
-            onclick="showPrevious();pauseShowBack();"/>
-        </div>
-        <div id="progressBar">
-          <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0"  aria-valuemax="100" style="width: 0%">
-            </div>
-          </div>
-        </div>
-        <div id="NextDiv">
-          <input type="button" 
-          class="btn btn-primary" 
-          value="Continue"
-          id="Next"
-          onclick="showNext();pauseShowNext();"
-          />
-        </div>
-        <div id="finalSubmitButton">
-          <input type="button" 
-            class="btn btn-success" 
-            value="Submit"
-            id="Submit"
-            onclick="dataSubmission();" />
-          </div>
-      </div>
-    </div>
 
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+    </div>
 
     <ul class='custom-menu'>
       <li id="menuFirstItem" data-action = "first">Always</li> 
@@ -964,6 +936,32 @@
 
 
 
+    <div id="previousDiv">
+      <input type="button" 
+        class="btn btn-primary" 
+        value="Back"
+        id="Back"
+        onclick="showPrevious();pauseShowBack();"/>
+    </div>
+
+    <div id="nextDiv">
+      <input type="button" 
+      class="btn btn-primary"  
+      value="Continue"
+      id="Next"
+      onclick="showNext();pauseShowNext();"
+      />
+    </div>
+
+    <div id="finalSubmitButton">
+      <input type="button" 
+        class="btn btn-success" 
+        value="Submit"
+        id="Submit"
+        onclick="dataSubmission();" />
+    </div>
+
+
 
 
     <script type="text/javascript">
@@ -1159,7 +1157,7 @@
               $( function(){});
               $( ".InputPeopleName" ).autocomplete({source: availableTags});
           });
-
+          setPositionOfNextBackButton();
         });
 
 
@@ -1175,6 +1173,7 @@
               $( function(){});
               $( ".InputPeopleName3" ).autocomplete({source: availableTags});
           });
+          setPositionOfNextBackButton();
         });
 
 
@@ -1191,6 +1190,14 @@
             }
         }); 
       });
+
+      if((currSlide === 1) || (currSlide === 2)){
+        $("#nextDiv").css("top", bodyHeight - 200);
+        $("#nextDiv").css("right", 400);
+        $("#previousDiv").css("top", bodyHeight - 200);
+        $("#previousDiv").css("left", 400);
+      }
+
     </script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

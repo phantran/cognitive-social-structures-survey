@@ -398,6 +398,7 @@ function showPrevious() {
   }
   $('#Previous').blur();
   clicked_back = true;
+  setPositionOfNextBackButton();
 }
 
 
