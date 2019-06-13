@@ -1,5 +1,5 @@
 width = window.innerWidth;
-height = window.innerHeight * 0.75;
+height = window.innerHeight * 1.5;
 fill = d3.scale.category20();
 
 // mouse event vars
