@@ -314,6 +314,8 @@ ul {
   padding-left: 15px;
 }
 
+.custom-menu1 ul{height:300px;}
+.custom-menu1 ul{overflow:hidden; overflow-y:scroll;}
 
 #menuFirstItem {
   color: white;
@@ -379,7 +381,7 @@ ul {
   margin: auto;
   max-width: 70%;
   text-align: center;
-  top: 80px;
+  top: 150px;
   bottom: 150px;
 }
 
@@ -397,7 +399,7 @@ ul {
   margin: auto;
   max-width: 70%;
   text-align: center;
-  top: 80px;
+  top: 150px;
   bottom: 150px;
   display: none;
 }
@@ -416,7 +418,7 @@ ul {
   margin: auto;
   max-width: 70%;
   text-align: center;
-  top: 80px;
+  top: 150px;
   bottom: 150px;
   display: none;
 }
@@ -479,7 +481,7 @@ ul {
   margin: auto;
   max-width: 70%;
   text-align: center;
-  top: 80px;
+  top: 150px;
   bottom: 150px;
 }
 
@@ -497,7 +499,7 @@ ul {
   margin: auto;
   max-width: 70%;
   text-align: center;
-  top: 80px;
+  top: 150px;
   bottom: 150px;
   display: none;
 }
@@ -516,7 +518,7 @@ ul {
   margin: auto;
   max-width: 70%;
   text-align: center;
-  top: 80px;
+  top: 150px;
   bottom: 150px;
   display: none;
 }
@@ -552,6 +554,9 @@ ul {
 /*====================================*/
 
 
+
+
+
 /*Network part*/
 #network{
   position: absolute;
@@ -565,7 +570,7 @@ ul {
 
 #chart{
   position: absolute;
-  top:17%;
+  top:180px;
   bottom: 0;
   margin: auto;
 }
@@ -744,6 +749,10 @@ only screen and (max-width: 760px),
   z-index: 9999;
 
 }
+/*==============================================*/
+
+/*==================Next-Back-Submit-Button============================*/
+
 
 #nextDiv{
   position: absolute;
@@ -762,8 +771,8 @@ only screen and (max-width: 760px),
   display: none;
   margin: 30px;
 }
-/*==============================================*/
 
+/*==============================================*/
 
 
 #slide8{

@@ -478,8 +478,8 @@
    
 
     <div id="UseOfSpace2">
-      <h3>Use of space</h3></br>
-      <h6> Please click on the areas in the image below to choose how often you use them. If an area is unfilled or it is chosen as "Never" then it indicates that you never use that area. <br> Please note that there are three floors, and you can change to the next floor by clicking on the "Go to floor" button</h6>
+	   <h3>Use of space</h3></br>
+	   <h6> Please click on the areas in the image below to choose how often you use them. If an area is unfilled or it is chosen as "Never" then it indicates that you never use that area. <br> Please note that there are three floors, and you can change to the next floor by clicking on the "Go to floor" button</h6>
 
       <div id="floorA1">
         <img src="/Assets/A1_RDC.png" class="map1" alt="A1 Floor" id="A1Floor"  usemap="#floorplanA1">
@@ -935,30 +935,31 @@
     </div>
 
 
+	<div id="previousDiv">
+		<input type="button" 
+			class="btn btn-primary" 
+			value="Back"
+			id="Back"
+			onclick="showPrevious();pauseShowBack();"
+		/>
+	</div>
+	<div id="nextDiv">
+		<input type="button" 
+			class="btn btn-primary"  
+			value="Continue"
+			id="Next"
+			onclick="showNext();pauseShowNext();"
+		/>
+	</div>
 
-    <div id="previousDiv">
-      <input type="button" 
-        class="btn btn-primary" 
-        value="Back"
-        id="Back"
-        onclick="showPrevious();pauseShowBack();"/>
-    </div>
-
-    <div id="nextDiv">
-      <input type="button" 
-      class="btn btn-primary"  
-      value="Continue"
-      id="Next"
-      onclick="showNext();pauseShowNext();"
-      />
-    </div>
-
+	
     <div id="finalSubmitButton">
-      <input type="button" 
-        class="btn btn-success" 
-        value="Submit"
-        id="Submit"
-        onclick="dataSubmission();" />
+		<input type="button" 
+			class="btn btn-success" 
+			value="Submit"
+			id="Submit"
+			onclick="dataSubmission();" 
+		/>
     </div>
 
 
@@ -1132,19 +1133,6 @@
         });
 
 
-
-        
-        function duplicate_name_check(){
-          //Check if the entered name is the same as participant's name
-          let previous_text_box_id = "#input_contact"+ contact_order_1;
-          let entered_name = $(previous_text_box_id).val();
-          if(entered_name === collected_data.socio_question.name){
-            return;
-          }
-
-        }     
-
-
         $('#addMore').click(function(event){
           event.preventDefault();
           contact_order_1 = contact_order_1 + 1;
@@ -1193,9 +1181,9 @@
 
       if((currSlide === 1) || (currSlide === 2)){
         $("#nextDiv").css("top", bodyHeight - 200);
-        $("#nextDiv").css("right", 400);
+        $("#nextDiv").css("right", 100);
         $("#previousDiv").css("top", bodyHeight - 200);
-        $("#previousDiv").css("left", 400);
+        $("#previousDiv").css("left", 100);
       }
 
     </script>
